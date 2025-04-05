@@ -18,9 +18,10 @@ public class PlayerMovement : MonoBehaviour
         Transform camTransform = PlayerCamera.Instance.CinemachineCam.transform;
 
         Vector2 input = InputManager.MoveInput;
-        Vector3 moveDir = ((camTransform.forward * input.y) + (camTransform.right * input.x)).normalized;
-
-        return moveDir;
+        Vector3 moveVector = ((camTransform.forward * input.y) + (camTransform.right * input.x));
+        //if(InputManager.Controls.Actions.Ascend.IsPressed()) moveVector.y = 1f;
+        
+        return moveVector.normalized;
     }
 
     void FixedUpdate()

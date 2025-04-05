@@ -6,7 +6,7 @@ public class PlayerStateCondition_Flag : Condition<Player>
 {
     public enum FlagType
     {
-        
+        HasSpear,
     }
 
     [SerializeField] FlagType flag;
@@ -15,6 +15,7 @@ public class PlayerStateCondition_Flag : Condition<Player>
     {
         return flag switch
         {
+            FlagType.HasSpear => context.SpearThrowing.HasSpear,
             _ => false
         };
     }

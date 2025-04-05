@@ -9,7 +9,7 @@ public class SpearThrowing : MonoBehaviour
 
     void Start()
     {
-        RetrieveSpear();
+        Retrieve();
     }
 
     public void Throw(Vector3 force, int damage)
@@ -22,10 +22,11 @@ public class SpearThrowing : MonoBehaviour
         HasSpear = false;
     }
 
-    public void RetrieveSpear()
+    public void Retrieve()
     {
         spear.transform.SetParent(spearParent);
         spear.transform.localPosition = Vector3.zero;
+        spear.transform.localRotation = Quaternion.identity;
         spear.TogglePhysics(false);
         spear.ToggleRotation(false);
         
@@ -35,6 +36,7 @@ public class SpearThrowing : MonoBehaviour
     void OnHit_Callback(Collision collision, int damage)
     {
         spear.ToggleRotation(false);
+        spear.TogglePhysics(false);
         
         if (collision.collider.TryGetComponent(out IDamageable damageable))
         {
