@@ -20,9 +20,13 @@ public class Projectile : MonoBehaviour
 
     public void TogglePhysics(bool enabled)
     {
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
         rb.isKinematic = !enabled;
+        
+        if (!rb.isKinematic)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
     }
 
     public void ToggleRotation(bool rotate)
