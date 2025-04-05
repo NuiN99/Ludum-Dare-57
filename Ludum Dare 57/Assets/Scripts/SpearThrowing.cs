@@ -36,7 +36,7 @@ public class SpearThrowing : MonoBehaviour
     void OnHit_Callback(Collision collision, int damage)
     {
         spear.ToggleRotation(false);
-        spear.TogglePhysics(false);
+        spear.RB.linearVelocity *= 0.25f;
         
         if (collision.collider.TryGetComponent(out IDamageable damageable))
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour, IInteractable
 {
-    [SerializeField, InjectComponent] Rigidbody rb;
+    [field: SerializeField, InjectComponent] public Rigidbody RB { get; private set; }
     [SerializeField, InjectComponent] Collider col;
     [SerializeField] float rotationSpeed;
     
@@ -17,15 +17,15 @@ public class Projectile : MonoBehaviour, IInteractable
         transform.rotation = Quaternion.LookRotation(force.normalized);
         _onHit = onHit;
         _damage = damage;
-        rb.linearVelocity = force;
+        RB.linearVelocity = force;
         col.enabled = true;
     }
 
     public void TogglePhysics(bool enabled)
     {
-        rb.isKinematic = !enabled;
+        RB.isKinematic = !enabled;
         
-        if (!rb.isKinematic)
+        if (!RB.isKinematic)
         {
             ResetVelocity();
         }
@@ -33,8 +33,8 @@ public class Projectile : MonoBehaviour, IInteractable
 
     public void ResetVelocity()
     {
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        RB.linearVelocity = Vector3.zero;
+        RB.angularVelocity = Vector3.zero;
     }
 
     public void ToggleRotation(bool rotate)
@@ -58,7 +58,7 @@ public class Projectile : MonoBehaviour, IInteractable
 
     void RotateToVelocity()
     {
-        Quaternion targetRotation = Quaternion.LookRotation(rb.linearVelocity.normalized);
+        Quaternion targetRotation = Quaternion.LookRotation(RB.linearVelocity.normalized);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 

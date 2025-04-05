@@ -46,6 +46,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""d5dfbcd7-1232-4e7b-99f1-adc40f76184f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Ascend"",
                     ""type"": ""Button"",
                     ""id"": ""94c5da86-35e5-450c-aba2-da861c6b5aa5"",
@@ -192,6 +201,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab974bc1-69c0-4947-a9ad-05b95da68aeb"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -202,6 +222,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Actions = asset.FindActionMap("Actions", throwIfNotFound: true);
         m_Actions_Move = m_Actions.FindAction("Move", throwIfNotFound: true);
         m_Actions_Rotate = m_Actions.FindAction("Rotate", throwIfNotFound: true);
+        m_Actions_Dash = m_Actions.FindAction("Dash", throwIfNotFound: true);
         m_Actions_Ascend = m_Actions.FindAction("Ascend", throwIfNotFound: true);
         m_Actions_Aim = m_Actions.FindAction("Aim", throwIfNotFound: true);
         m_Actions_Attack = m_Actions.FindAction("Attack", throwIfNotFound: true);
@@ -274,6 +295,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private List<IActionsActions> m_ActionsActionsCallbackInterfaces = new List<IActionsActions>();
     private readonly InputAction m_Actions_Move;
     private readonly InputAction m_Actions_Rotate;
+    private readonly InputAction m_Actions_Dash;
     private readonly InputAction m_Actions_Ascend;
     private readonly InputAction m_Actions_Aim;
     private readonly InputAction m_Actions_Attack;
@@ -284,6 +306,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public ActionsActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Actions_Move;
         public InputAction @Rotate => m_Wrapper.m_Actions_Rotate;
+        public InputAction @Dash => m_Wrapper.m_Actions_Dash;
         public InputAction @Ascend => m_Wrapper.m_Actions_Ascend;
         public InputAction @Aim => m_Wrapper.m_Actions_Aim;
         public InputAction @Attack => m_Wrapper.m_Actions_Attack;
@@ -303,6 +326,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Rotate.started += instance.OnRotate;
             @Rotate.performed += instance.OnRotate;
             @Rotate.canceled += instance.OnRotate;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
             @Ascend.started += instance.OnAscend;
             @Ascend.performed += instance.OnAscend;
             @Ascend.canceled += instance.OnAscend;
@@ -325,6 +351,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Rotate.started -= instance.OnRotate;
             @Rotate.performed -= instance.OnRotate;
             @Rotate.canceled -= instance.OnRotate;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
             @Ascend.started -= instance.OnAscend;
             @Ascend.performed -= instance.OnAscend;
             @Ascend.canceled -= instance.OnAscend;
@@ -358,6 +387,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
         void OnAscend(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
