@@ -33,6 +33,7 @@ public class Projectile : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         _onHit?.Invoke(other, _damage);
+        _onHit = null;
     }
 
     void LateUpdate()

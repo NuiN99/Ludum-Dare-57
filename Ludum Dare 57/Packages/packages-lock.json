@@ -10,6 +10,16 @@
       },
       "hash": "c5aadc88f305f60e35f369b8a8e4736be9103ed0"
     },
+    "com.singularitygroup.hotreload": {
+      "version": "git+https://gitlab.hotreload.net/root/hot-reload-releases.git#1.13.1",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0"
+      },
+      "hash": "e66be7dca5e174bdb97203ba36d6c4dd23cc3256"
+    },
     "com.unity.burst": {
       "version": "1.8.18",
       "depth": 2,

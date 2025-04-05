@@ -78,6 +78,8 @@ namespace NuiN.NExtensions
 
         public void FixedUpdate() => CurrentState?.PhysicsUpdate(Context);
 
+        public void LateUpdate() => CurrentState?.LateUpdate(Context);
+
         void OnCollisionEnter(Collision other) => CurrentState?.CollisionEnter(Context, other);
         void OnCollisionStay(Collision other) => CurrentState?.CollisionStay(Context, other);
         void OnCollisionExit(Collision other) => CurrentState?.CollisionExit(Context, other);

@@ -22,19 +22,11 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField] CinemachineBasicMultiChannelPerlin cameraNoise;
 
     [Header("Options")] 
-    [SerializeField] float cameraDistance = 10f;
-    [SerializeField] float cameraFollowDelay = 0.05f;
     [SerializeField, Min(0)] float cameraSpeedX = 0.25f;
     [SerializeField, Min(0)] float cameraSpeedY = 0.25f;
     [SerializeField, Range(-90, 90)] float minLookAngle = -75;
     [SerializeField, Range(-90, 90)] float maxLookAngle = 75;
     
-    [Header("Collision")]
-    [field: SerializeField] public LayerMask CollisionLayers { get; private set; }
-    [SerializeField] float cameraCollisionOffset = 0.2f;
-    [SerializeField, Min(0)] float cameraCollisionRadius = 0.1f;
-    [SerializeField, Range(0, 1)] float cameraCollisionRecoverySpeed;
-
     [Header("Camera Shake")] 
     [SerializeField] float shakeDistanceMax;
     [SerializeField] Ease shakeDistanceEase = Ease.OutQuad;
@@ -46,7 +38,6 @@ public class PlayerCamera : MonoBehaviour
     float _angleX; // vertical
     
     Vector3 _cameraPosition;
-    Vector3 _cameraFollowVelocity = Vector3.zero;
     
     Coroutine _shakeRoutine;
     
@@ -78,26 +69,21 @@ public class PlayerCamera : MonoBehaviour
         OnPlayerCameraStart.Invoke();
     }
 
-    void FixedUpdate()
-    {
-        if (followTarget == null) return;
-        
-        HandleCameraCollisions();
-        FollowTarget();
-    }
-
-    void Update()
+    void LateUpdate()
     {
         RotateCamera();
 
         listenerTransform.position = CinemachineCam.transform.position;
         listenerTransform.rotation = Quaternion.LookRotation(CinemachineCam.transform.forward.With(y: 0).normalized);
+        
+        if (followTarget == null) return;
+        
+        FollowTarget();
     }
 
     void FollowTarget()
     {
-        Vector3 targetPosition = Vector3.SmoothDamp(transform.position, followTarget.position, ref _cameraFollowVelocity, cameraFollowDelay);
-        transform.position = targetPosition;
+        transform.position = followTarget.position;
     }
 
     void RotateCamera()
@@ -115,23 +101,6 @@ public class PlayerCamera : MonoBehaviour
         rotation = new Vector3(0, _angleY, 0);
         targetRotation = Quaternion.Euler(rotation);
         transform.rotation = targetRotation;
-    }
-
-    void HandleCameraCollisions()
-    {
-        float targetPosition = -Mathf.Abs(cameraDistance);
-        Vector3 direction = (cameraTransform.position - cameraPivot.position).normalized;
-
-        //detect collision
-        if (Physics.SphereCast
-                (cameraPivot.position, cameraCollisionRadius, direction, out RaycastHit hit, Mathf.Abs(targetPosition), CollisionLayers))
-        {
-            float distance = Vector3.Distance(cameraPivot.position, hit.point);
-            targetPosition = -(distance - cameraCollisionOffset);
-        }
-        
-        _cameraPosition.z = Mathf.Lerp(cameraTransform.localPosition.z, targetPosition, cameraCollisionRecoverySpeed);
-        cameraTransform.localPosition = _cameraPosition;
     }
     
     public void ShakePositional(Vector3 shakePosition, CameraShakeOptions options)

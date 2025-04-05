@@ -8,6 +8,7 @@ namespace NuiN.NExtensions
         public virtual void Exit(TContext context) { }
         public virtual void FrameUpdate(TContext context) { }
         public virtual void PhysicsUpdate(TContext context) { }
+        public virtual void LateUpdate(TContext context) { }
     
         public virtual void CollisionEnter(TContext context, Collision other) { }
         public virtual void CollisionStay(TContext context, Collision other) { }

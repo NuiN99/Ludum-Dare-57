@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObjects/Player/State/State/PlayerGeneralState_Dead")]
+[CreateAssetMenu(menuName = "ScriptableObjects/Player/State/States/General/PlayerGeneralState_Dead")]
 public class PlayerGeneralState_Dead : PlayerState
 {
     

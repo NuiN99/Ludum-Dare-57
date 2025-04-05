@@ -7,6 +7,11 @@ public class SpearThrowing : MonoBehaviour
     [SerializeField] Projectile spear;
     [SerializeField] Transform spearParent;
 
+    void Start()
+    {
+        RetrieveSpear();
+    }
+
     public void Throw(Vector3 force, int damage)
     {
         spear.TogglePhysics(true);
@@ -20,7 +25,9 @@ public class SpearThrowing : MonoBehaviour
     public void RetrieveSpear()
     {
         spear.transform.SetParent(spearParent);
+        spear.transform.localPosition = Vector3.zero;
         spear.TogglePhysics(false);
+        spear.ToggleRotation(false);
         
         HasSpear = true;
     }
