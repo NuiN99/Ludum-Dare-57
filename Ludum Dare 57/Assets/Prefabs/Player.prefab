@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2514971226035887242}
   - component: {fileID: 5834027759250524644}
   - component: {fileID: 5935356078497242853}
-  - component: {fileID: 8597778420351806604}
+  - component: {fileID: 2675119940217190130}
   m_Layer: 0
   m_Name: Spear
   m_TagString: Untagged
@@ -137,7 +137,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &8597778420351806604
+--- !u!114 &2675119940217190130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2197301540604697877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e31961fdba0649b9a99f13b5dde8e944, type: 3}
+  m_Script: {fileID: 11500000, guid: b5f41803653b4494bbc8128557ffeb06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <RB>k__BackingField: {fileID: 5935356078497242853}
@@ -685,10 +685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 169036058cc841f68c2400fb58f6a07a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1852069194475996792}
   rb: {fileID: 2738050046988995710}
-  moveSpeed: 5
-  damper: 0.95
-  gravity: 1
 --- !u!114 &9191769512423520198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,8 +700,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1852069194475996792}
-  range: 2.5
-  radius: 1
 --- !u!114 &2077651801646105834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,7 +712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a69b44b758e42cb80d322394fc7fa6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spear: {fileID: 8597778420351806604}
+  spear: {fileID: 2675119940217190130}
   spearParent: {fileID: 7397009925619419885}
 --- !u!114 &8557236776804738188
 MonoBehaviour:
@@ -787,7 +783,12 @@ MonoBehaviour:
       - <Condition>k__BackingField: {fileID: 11400000, guid: 578d3b234abc3a14c9a72d9c228a2c57, type: 2}
         <Value>k__BackingField: 1
   - <State>k__BackingField: {fileID: 11400000, guid: 18cbe2f72cf25cf40b12d3b6bcd739d9, type: 2}
-    <Transitions>k__BackingField: []
+    <Transitions>k__BackingField:
+    - <TargetState>k__BackingField: {fileID: 11400000, guid: 565622753808ec942b842089a092a976, type: 2}
+      <Evalutation>k__BackingField: 0
+      <Conditions>k__BackingField:
+      - <Condition>k__BackingField: {fileID: 11400000, guid: 17dbaf3b8ab2aef4685df5b0cb97c945, type: 2}
+        <Value>k__BackingField: 1
   - <State>k__BackingField: {fileID: 11400000, guid: 74f525f24bc244f42b192ff21e568a57, type: 2}
     <Transitions>k__BackingField: []
   - <State>k__BackingField: {fileID: 11400000, guid: 944dab1e1bed25c42a4ab63f442f20a3, type: 2}
@@ -802,5 +803,12 @@ MonoBehaviour:
       - <Condition>k__BackingField: {fileID: 11400000, guid: 578d3b234abc3a14c9a72d9c228a2c57, type: 2}
         <Value>k__BackingField: 0
       - <Condition>k__BackingField: {fileID: 11400000, guid: 8b601f14fbf34844180acc87b6b61a93, type: 2}
+        <Value>k__BackingField: 0
+    - <TargetState>k__BackingField: {fileID: 11400000, guid: 18cbe2f72cf25cf40b12d3b6bcd739d9, type: 2}
+      <Evalutation>k__BackingField: 0
+      <Conditions>k__BackingField:
+      - <Condition>k__BackingField: {fileID: 11400000, guid: 45d6ef9934916014ab6d2b72c16475a4, type: 2}
+        <Value>k__BackingField: 0
+      - <Condition>k__BackingField: {fileID: 11400000, guid: 17dbaf3b8ab2aef4685df5b0cb97c945, type: 2}
         <Value>k__BackingField: 0
   extraStateTransitions: []

@@ -4,8 +4,6 @@ using UnityEngine.InputSystem;
 public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] Player player;
-    [SerializeField] float range;
-    [SerializeField] float radius;
 
     void OnEnable()
     {
@@ -19,7 +17,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void OnInteractPressed_Callback(InputAction.CallbackContext ctx)
     {
-        RaycastHit[] hits = Physics.SphereCastAll(player.HeadPosition, radius, PlayerCamera.Instance.Forward, range);
+        RaycastHit[] hits = Physics.SphereCastAll(player.HeadPosition, player.Stats.InteractRadius, PlayerCamera.Instance.Forward, player.Stats.InteractRange);
         IInteractable closestInteractable = null;
         float closestDistance = Mathf.Infinity;
         foreach (RaycastHit hit in hits)
@@ -41,9 +39,9 @@ public class PlayerInteraction : MonoBehaviour
         if (PlayerCamera.Instance == null) return;
         
         Vector3 start = player.HeadPosition;
-        Vector3 end = player.HeadPosition + PlayerCamera.Instance.Forward * range;
-        Gizmos.DrawSphere(start, radius);
-        Gizmos.DrawSphere(end, radius);
+        Vector3 end = player.HeadPosition + PlayerCamera.Instance.Forward * player.Stats.InteractRange;
+        Gizmos.DrawSphere(start, player.Stats.InteractRadius);
+        Gizmos.DrawSphere(end, player.Stats.InteractRadius);
         Gizmos.DrawLine(start, end);
     }
 }

@@ -9,7 +9,8 @@ public class PlayerStateCondition_Input : Condition<Player>
     {
         Move,
         Aim,
-        Attack
+        Attack,
+        Dash,
     }
     public enum PressType
     {
@@ -29,6 +30,7 @@ public class PlayerStateCondition_Input : Condition<Player>
             InputType.Move => EvaluateInput(InputManager.Controls.Actions.Move),
             InputType.Aim => EvaluateInput(InputManager.Controls.Actions.Aim),
             InputType.Attack => EvaluateInput(InputManager.Controls.Actions.Attack),
+            InputType.Dash => EvaluateInput(InputManager.Controls.Actions.Dash),
             _ => false
         };
     }

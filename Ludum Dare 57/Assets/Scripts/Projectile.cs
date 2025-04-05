@@ -2,7 +2,7 @@ using System;
 using NuiN.NExtensions;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour, IInteractable
+public class Projectile : MonoBehaviour
 {
     [field: SerializeField, InjectComponent] public Rigidbody RB { get; private set; }
     [SerializeField, InjectComponent] Collider col;
@@ -24,6 +24,7 @@ public class Projectile : MonoBehaviour, IInteractable
     public void TogglePhysics(bool enabled)
     {
         RB.isKinematic = !enabled;
+        col.enabled = enabled;
         
         if (!RB.isKinematic)
         {
@@ -60,11 +61,5 @@ public class Projectile : MonoBehaviour, IInteractable
     {
         Quaternion targetRotation = Quaternion.LookRotation(RB.linearVelocity.normalized);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-    }
-
-    void IInteractable.Interact(Player player)
-    {
-        col.enabled = false;
-        player.SpearThrowing.Retrieve();
     }
 }

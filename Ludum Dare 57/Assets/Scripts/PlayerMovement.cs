@@ -3,14 +3,29 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] Rigidbody rb;
-    [SerializeField] float moveSpeed;
-    [SerializeField] float damper;
-    [SerializeField] float gravity;
+    public bool CanDash => _dashCooldownTimer.IsComplete;
     
+    [SerializeField] Player player;
+    [SerializeField] Rigidbody rb;
+
+    Timer _dashCooldownTimer;
+
+    void Awake()
+    {
+        _dashCooldownTimer = new Timer(player.Stats.DashCooldown, true);
+    }
+
     public void Move(Vector3 direction, float speedMult = 1f)
     {
-        rb.AddForce(direction * (moveSpeed * speedMult));
+        rb.AddForce(direction * (player.Stats.MoveSpeed * speedMult));
+    }
+
+    public void Dash()
+    {
+        Vector3 dir = GetMovementDirection();
+        if (dir == Vector3.zero) dir = PlayerCamera.Instance.Forward;
+        rb.linearVelocity = dir * player.Stats.DashForce;
+        _dashCooldownTimer.Restart();
     }
     
     public Vector3 GetMovementDirection()
@@ -26,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
-        rb.linearVelocity *= damper;
+        rb.AddForce(Vector3.down * player.Stats.Gravity, ForceMode.Acceleration);
+        rb.linearVelocity *= player.Stats.VelocityDamper;
     }
 }
