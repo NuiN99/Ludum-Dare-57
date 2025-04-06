@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623b967dcccf4e27b153cd6c260426cf, type: 3}
   m_Name: PlayerActionState_Throw
   m_EditorClassIdentifier: 
+  animationPlayData:
+    <Animation>k__BackingField: SpearThrow
+    <Priority>k__BackingField: 2
+    <LayerIndex>k__BackingField: 0
+    <CrossFade>k__BackingField: 0

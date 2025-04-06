@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ae48c73a4044d182c44c76f587f51e, type: 3}
   m_Name: PlayerActionState_Wait
   m_EditorClassIdentifier: 
+  animationPlayData:
+    <Animation>k__BackingField: Idle
+    <Priority>k__BackingField: 0
+    <LayerIndex>k__BackingField: 0
+    <CrossFade>k__BackingField: 0

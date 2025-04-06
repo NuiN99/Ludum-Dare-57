@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392020d09b274e87a37b9b58849d80f0, type: 3}
   m_Name: PlayerActionState_Aim
   m_EditorClassIdentifier: 
+  animationPlayData:
+    <Animation>k__BackingField: SpearAim
+    <Priority>k__BackingField: 2
+    <LayerIndex>k__BackingField: 0
+    <CrossFade>k__BackingField: 0

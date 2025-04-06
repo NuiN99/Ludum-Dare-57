@@ -530,6 +530,7 @@ GameObject:
   - component: {fileID: 2077651801646105834}
   - component: {fileID: 8557236776804738188}
   - component: {fileID: 1356553756890170000}
+  - component: {fileID: 5509860728970536177}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -672,6 +673,7 @@ MonoBehaviour:
   <Stats>k__BackingField: {fileID: 11400000, guid: db6928c0fb6dd0944a8b7a7a7b004cec, type: 2}
   <SpearThrowing>k__BackingField: {fileID: 2077651801646105834}
   <Movement>k__BackingField: {fileID: 9050528178062830108}
+  animator: {fileID: 5509860728970536177}
   head: {fileID: 6457488282970632000}
 --- !u!114 &9050528178062830108
 MonoBehaviour:
@@ -812,3 +814,25 @@ MonoBehaviour:
       - <Condition>k__BackingField: {fileID: 11400000, guid: 17dbaf3b8ab2aef4685df5b0cb97c945, type: 2}
         <Value>k__BackingField: 0
   extraStateTransitions: []
+--- !u!95 &5509860728970536177
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9218409742864614028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f0907b0df925dc941a2d8fc3cca82ee8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
