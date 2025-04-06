@@ -5,17 +5,18 @@ public class PlayerSpearHandling : MonoBehaviour
 {
     public bool HasSpear { get; private set; }
     public bool IsPoking => !_spearPokeDurationTimer.IsComplete;
-    public Vector3 SpearPosition => spear.transform.position;
+    public Vector3 SpearPosition => _activeSpear.transform.position;
     
     [SerializeField] Player player;
-    [SerializeField] Projectile spear;
+    [SerializeField] Spear spearPrefab;
+    [SerializeField] float explodeForce = 10f; 
+    [SerializeField] Vector3 holdOffset;
 
     Timer _spearPokeDurationTimer;
 
-    Transform _hitTransform;
-    Vector3 _onHitPositionOffset;
-    Vector3 _onHitEulerAnglesOffset;
-    Vector3 _initialHoldOffset;
+
+    Spear _activeSpear;
+    Spear.Data _activeSpearData;
 
     void Awake()
     {
@@ -24,33 +25,28 @@ public class PlayerSpearHandling : MonoBehaviour
 
     void Start()
     {
-        _initialHoldOffset = spear.transform.localPosition;
-        Physics.IgnoreCollision(spear.Col, player.Col);
+        _activeSpear = Instantiate(spearPrefab);
         Retrieve();
     }
 
     public void Throw(Vector3 force, int damage)
     {
-        _onHitPositionOffset = Vector3.zero;
-        _onHitEulerAnglesOffset = Vector3.zero;
-        
-        spear.TogglePhysics(true);
-        spear.ToggleRotation(true);
-        spear.transform.SetParent(null);
-        spear.Launch(force, damage, OnHit_Callback);
+        Physics.IgnoreCollision(_activeSpear.Col, player.Col);
+        _activeSpear.TogglePhysics(true);
+        _activeSpear.ToggleRotation(true);
+        _activeSpear.transform.SetParent(null);
+        _activeSpear.Launch(force, damage, OnHit_Callback);
         
         HasSpear = false;
     }
 
     public void Retrieve()
     {
-        _hitTransform = null;
-        
-        spear.transform.SetParent(player.Hand);
-        spear.transform.localPosition = _initialHoldOffset;
-        spear.transform.localRotation = Quaternion.identity;
-        spear.TogglePhysics(false);
-        spear.ToggleRotation(false);
+        _activeSpear.transform.SetParent(player.Hand);
+        _activeSpear.transform.localPosition = holdOffset;
+        _activeSpear.transform.localRotation = Quaternion.identity;
+        _activeSpear.TogglePhysics(false);
+        _activeSpear.ToggleRotation(false);
         
         HasSpear = true;
     }
@@ -70,35 +66,29 @@ public class PlayerSpearHandling : MonoBehaviour
 
     void Update()
     {
-        if (_hitTransform == null)
+        if (_activeSpear != null)
         {
-            if (_onHitPositionOffset != Vector3.zero && HasSpear == false && spear.RB.isKinematic)
-            {
-                spear.TogglePhysics(true);
-                spear.RB.AddForce(-spear.transform.forward * 5f, ForceMode.Impulse);
-            }
-            return;
+            _activeSpearData = new Spear.Data(_activeSpear.transform.position, _activeSpear.transform.rotation, _activeSpear.RB.linearVelocity);
         }
-
-        Vector3 targetPos = _hitTransform.TransformPoint(-_onHitPositionOffset);
-
-        spear.transform.eulerAngles = _hitTransform.eulerAngles + _onHitEulerAnglesOffset;
-        spear.transform.position = targetPos;
+        else
+        {
+            _activeSpear = Instantiate(spearPrefab, _activeSpearData.position, _activeSpearData.rotation);
+            _activeSpear.ToggleRotation(false);
+            _activeSpear.RB.linearVelocity = _activeSpearData.velocity;
+            _activeSpear.RB.AddForce(-_activeSpear.transform.forward * explodeForce, ForceMode.VelocityChange);
+        }
     }
 
     void OnHit_Callback(Collision collision, int damage)
     {
         if (collision.collider.TryGetComponent(out IDamageable damageable))
         {
-            _onHitPositionOffset = damageable.Position - spear.RB.position;
-            _onHitEulerAnglesOffset = collision.transform.eulerAngles - spear.RB.rotation.eulerAngles;
-            _hitTransform = collision.transform;
-            
+            _activeSpear.transform.SetParent(collision.transform);
             damageable.TakeDamage(damage, PlayerCamera.Instance.Forward);
         }
         
-        spear.ToggleRotation(false);
-        spear.TogglePhysics(false);
+        _activeSpear.ToggleRotation(false);
+        _activeSpear.TogglePhysics(false);
     }
     
     void OnDrawGizmos()
