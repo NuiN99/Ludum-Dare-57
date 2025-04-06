@@ -10,9 +10,17 @@ public class Player : MonoBehaviour
     [field: SerializeField] public PlayerStats Stats { get; private set; }
     [field: SerializeField, InjectComponent] public SpearThrowing SpearThrowing { get; private set; }
     [field: SerializeField, InjectComponent] public PlayerMovement Movement { get; private set; }
-
-    [SerializeField] Transform head;
     
+    public PriorityAnimator PriorityAnimator { get; private set; }
+
+    [SerializeField] Animator animator;
+    [SerializeField] Transform head;
+
+    void Awake()
+    {
+        PriorityAnimator = new PriorityAnimator(animator);
+    }
+
     void Start()
     {
         PlayerCamera.Instance.SetTrackingTarget(head);

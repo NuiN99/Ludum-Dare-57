@@ -219,10 +219,10 @@ MonoBehaviour:
   maxTessellationFactor: 3
   tessellationFactorFadeStart: 150
   tessellationFactorFadeRange: 1850
-  refractionColor: {r: 0.2603273, g: 0.2603273, b: 0.2603273, a: 1}
+  refractionColor: {r: 0.4865309, g: 0.4865309, b: 0.4865309, a: 1}
   maxRefractionDistance: 1
   absorptionDistance: 100
-  scatteringColor: {r: 0.0001446592, g: 0.13023897, b: 0.111822985, a: 1}
+  scatteringColor: {r: 0, g: 0.06511071, b: 0.05640813, a: 1}
   ambientScattering: 0.1
   heightScattering: 0.1
   displacementScattering: 0.3
@@ -246,10 +246,10 @@ MonoBehaviour:
   waterFoamDebugMode: 0
   underWater: 1
   volumeBounds: {fileID: 0}
-  volumeDepth: 150
+  volumeDepth: 224.44
   volumeHeight: 0
   volumePrority: 0
-  absorptionDistanceMultiplier: 1
+  absorptionDistanceMultiplier: 1.31
   underWaterAmbientProbeContribution: 1
   underWaterScatteringColorMode: 0
   underWaterScatteringColor: {r: 0, g: 0.27, b: 0.23, a: 1}
@@ -361,7 +361,7 @@ Transform:
   m_GameObject: {fileID: 506323161}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 100, z: 0}
+  m_LocalPosition: {x: 0, y: 200, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
