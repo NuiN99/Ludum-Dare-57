@@ -1,3 +1,4 @@
+using Modules.Rendering.Outline;
 using NuiN.NExtensions;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class Part : MonoBehaviour, IInteractable
     [field: SerializeField] public Type PartType { get; private set; }
     [SerializeField, InjectComponent] Rigidbody rb;
     [SerializeField, InjectComponent] Collider col;
+    [SerializeField, InjectComponent] OutlineComponent outline;
 
     public void Interact(Player player)
     {
@@ -15,6 +17,7 @@ public class Part : MonoBehaviour, IInteractable
         
         rb.isKinematic = true;
         col.enabled = false;
+        outline.enabled = false;
         player.Interaction.SetHeldPart(this);
     }
 
@@ -23,5 +26,6 @@ public class Part : MonoBehaviour, IInteractable
         transform.parent = null;
         rb.isKinematic = false;
         col.enabled = true;
+        outline.enabled = true;
     }
 }

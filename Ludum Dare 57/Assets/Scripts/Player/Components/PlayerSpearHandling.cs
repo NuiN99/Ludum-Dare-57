@@ -47,6 +47,7 @@ public class PlayerSpearHandling : MonoBehaviour
         _activeSpear.transform.localRotation = Quaternion.identity;
         _activeSpear.TogglePhysics(false);
         _activeSpear.ToggleRotation(false);
+        _activeSpear.ToggleOutline(false);
         
         HasSpear = true;
     }
@@ -85,6 +86,10 @@ public class PlayerSpearHandling : MonoBehaviour
         {
             _activeSpear.transform.SetParent(collision.transform);
             damageable.TakeDamage(damage, PlayerCamera.Instance.Forward);
+        }
+        else
+        {
+            _activeSpear.ToggleOutline(true);
         }
         
         _activeSpear.ToggleRotation(false);

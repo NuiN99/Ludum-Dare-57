@@ -1,3 +1,4 @@
+using Modules.Rendering.Outline;
 using UnityEngine;
 
 public class Spear : Projectile, IInteractable
@@ -14,6 +15,13 @@ public class Spear : Projectile, IInteractable
             this.rotation = rotation;
             this.velocity = velocity;
         }
+    }
+
+    [SerializeField] OutlineComponent outline;
+    
+    public void ToggleOutline(bool isOn)
+    {
+        outline.enabled = isOn;
     }
     
     void IInteractable.Interact(Player player)
