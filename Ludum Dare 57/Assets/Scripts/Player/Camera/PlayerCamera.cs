@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    public enum ListenerPositioning {  }
+    public Vector3 TargetPosition => followTarget.position;
     public static PlayerCamera Instance { get; private set; }
     public static event Action OnPlayerCameraStart = delegate { };
     public Vector3 Forward => CinemachineCam.transform.forward;

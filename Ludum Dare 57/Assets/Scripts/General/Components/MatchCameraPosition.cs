@@ -1,9 +1,23 @@
+using NuiN.NExtensions;
 using UnityEngine;
 
 public class MatchCameraPosition : MonoBehaviour
 {
-    void LateUpdate()
+    [SerializeField] float interval;
+
+    Timer _intervalTimer;
+
+    void Awake()
     {
-        transform.position = PlayerCamera.Instance.CinemachineCam.transform.position;
+        _intervalTimer = new Timer(interval);
+    }
+
+    void Update()
+    {
+        if (_intervalTimer.IsComplete)
+        {
+            _intervalTimer.Restart();
+            transform.position = PlayerCamera.Instance.TargetPosition;
+        }
     }
 }

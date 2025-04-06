@@ -68,25 +68,36 @@ public class PlayerSpearHandling : MonoBehaviour
 
     void Update()
     {
-        if (_hitTransform == null) return;
-        
-        spear.transform.position = _hitTransform.position + _onHitPositionOffset;
+        if (_hitTransform == null)
+        {
+            if (HasSpear == false && spear.RB.isKinematic)
+            {
+                spear.TogglePhysics(true);
+
+                spear.RB.AddForce(-spear.transform.forward * 5f, ForceMode.Impulse);
+            }
+            return;
+        }
+
+        Vector3 targetPos = _hitTransform.TransformPoint(-_onHitPositionOffset);
+
         spear.transform.eulerAngles = _hitTransform.eulerAngles + _onHitEulerAnglesOffset;
+        spear.transform.position = targetPos;
     }
 
     void OnHit_Callback(Collision collision, int damage)
     {
-        spear.ToggleRotation(false);
-        spear.TogglePhysics(false);
-        
         if (collision.collider.TryGetComponent(out IDamageable damageable))
         {
-            _onHitPositionOffset = damageable.Position - spear.transform.position;
-            _onHitEulerAnglesOffset = collision.transform.eulerAngles - spear.transform.eulerAngles;
+            _onHitPositionOffset = damageable.Position - spear.RB.position;
+            _onHitEulerAnglesOffset = collision.transform.eulerAngles - spear.RB.rotation.eulerAngles;
             _hitTransform = collision.transform;
             
             damageable.TakeDamage(damage, PlayerCamera.Instance.Forward);
         }
+        
+        spear.ToggleRotation(false);
+        spear.TogglePhysics(false);
     }
     
     void OnDrawGizmos()
