@@ -8,7 +8,7 @@ public class PlayerActionState_Throw : PlayerState
     {
         base.Enter(context);
 
-        Vector3 centerPos = context.Head.position + PlayerCamera.Instance.Forward * 1000f;
+        Vector3 centerPos = context.Head.position + PlayerCamera.Instance.Forward * 15f;
         Vector3 throwDir = VectorUtils.Direction(context.SpearHandling.SpearPosition, centerPos);
         
         context.SpearHandling.Throw(throwDir * context.Stats.SpearThrowForce, context.Stats.SpearThrowDamage);
