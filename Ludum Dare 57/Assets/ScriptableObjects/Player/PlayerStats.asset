@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93de18e04fb4d4593e2c6d3367d8212, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  <MoveSpeed>k__BackingField: 5
+  <MoveSpeed>k__BackingField: 10
   <VelocityDamper>k__BackingField: 0.95
   <Gravity>k__BackingField: 1
   <DashForce>k__BackingField: 20

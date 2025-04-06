@@ -1,16 +1,12 @@
+using System.Linq;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [field: SerializeField] public EnemyHealth Health { get; private set; }
+    [field: SerializeField] public EnemyTargeting Targeting { get; private set; }
+    [field: SerializeField] public EnemyAttacking Attacking { get; private set; }
+    [field: SerializeField] public Rigidbody RB { get; private set; }
+    
+    
 }

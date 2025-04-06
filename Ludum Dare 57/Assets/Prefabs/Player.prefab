@@ -528,6 +528,7 @@ GameObject:
   - component: {fileID: 9050528178062830108}
   - component: {fileID: 9191769512423520198}
   - component: {fileID: 5462431276303067339}
+  - component: {fileID: 7845624747949016037}
   - component: {fileID: 8557236776804738188}
   - component: {fileID: 1356553756890170000}
   - component: {fileID: 5509860728970536177}
@@ -615,7 +616,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9218409742864614028}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 297ae40758687644e8f55633c1ede277, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -717,6 +718,18 @@ MonoBehaviour:
   player: {fileID: 1852069194475996792}
   spear: {fileID: 2675119940217190130}
   spearParent: {fileID: 7397009925619419885}
+--- !u!114 &7845624747949016037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9218409742864614028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8029caf25b7b4738b2bcc6d1a9b69246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8557236776804738188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,6 +835,8 @@ MonoBehaviour:
     - <TargetState>k__BackingField: {fileID: 11400000, guid: 944dab1e1bed25c42a4ab63f442f20a3, type: 2}
       <Evalutation>k__BackingField: 0
       <Conditions>k__BackingField:
+      - <Condition>k__BackingField: {fileID: 11400000, guid: 8b601f14fbf34844180acc87b6b61a93, type: 2}
+        <Value>k__BackingField: 0
       - <Condition>k__BackingField: {fileID: 11400000, guid: 12b31637f8ea1cf4185c214c89daf11f, type: 2}
         <Value>k__BackingField: 0
       - <Condition>k__BackingField: {fileID: 11400000, guid: b2a22118942968b428507a77dbb14859, type: 2}
