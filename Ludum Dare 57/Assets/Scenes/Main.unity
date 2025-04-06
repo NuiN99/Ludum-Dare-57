@@ -207,12 +207,12 @@ MonoBehaviour:
   surfaceType: 0
   geometryType: 3
   meshRenderers: []
-  timeMultiplier: 0.25
+  timeMultiplier: 0.1
   scriptInteractions: 0
   cpuEvaluateRipples: 0
   customMaterial: {fileID: 0}
-  startSmoothness: 1
-  endSmoothness: 0.90000004
+  startSmoothness: 0.099999905
+  endSmoothness: 0
   smoothnessFadeStart: 100
   smoothnessFadeDistance: 500
   tessellation: 0
@@ -326,10 +326,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  repetitionSize: 500
+  repetitionSize: 250
   largeOrientationValue: 0
-  largeWindSpeed: 30
-  largeChaos: 0.8
+  largeWindSpeed: 250
+  largeChaos: 1
   largeBand0Multiplier: 1
   largeBand0FadeMode: 1
   largeBand0FadeStart: 1500
