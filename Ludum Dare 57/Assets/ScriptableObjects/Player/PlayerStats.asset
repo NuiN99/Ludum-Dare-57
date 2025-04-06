@@ -20,5 +20,8 @@ MonoBehaviour:
   <SpearThrowForce>k__BackingField: 50
   <SpearThrowDamage>k__BackingField: 2
   <SpearPokeDamage>k__BackingField: 1
+  <SpearPokeRange>k__BackingField: 2.5
+  <SpearPokeRadius>k__BackingField: 0.5
+  <SpearPokeDuration>k__BackingField: 0.5
   <InteractRange>k__BackingField: 2.5
   <InteractRadius>k__BackingField: 1

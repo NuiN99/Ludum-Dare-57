@@ -14,6 +14,9 @@ public class PlayerStats : ScriptableObject
     [field: SerializeField] public float SpearThrowForce { get; private set; }
     [field: SerializeField] public int SpearThrowDamage { get; private set; } = 2;
     [field: SerializeField] public int SpearPokeDamage { get; private set; } = 1;
+    [field: SerializeField] public float SpearPokeRange { get; private set; } = 1.5f;
+    [field: SerializeField] public float SpearPokeRadius { get; private set; } = 0.5f;
+    [field: SerializeField] public float SpearPokeDuration { get; private set; } = 0.5f;
     
     [field: Header("Interaction")]
     [field: SerializeField] public float InteractRange { get; private set; } = 2.5f;

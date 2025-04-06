@@ -6,6 +6,6 @@ public class PlayerActionState_Throw : PlayerState
     public override void Enter(Player context)
     {
         base.Enter(context);
-        context.SpearThrowing.Throw(PlayerCamera.Instance.Forward * context.Stats.SpearThrowForce, context.Stats.SpearThrowDamage);
+        context.SpearHandling.Throw(PlayerCamera.Instance.Forward * context.Stats.SpearThrowForce, context.Stats.SpearThrowDamage);
     }
 }

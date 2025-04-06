@@ -10,6 +10,7 @@ public class PlayerStateCondition_Flag : Condition<Player>
         CanDash,
         IsDead,
         IsCheckingRadar,
+        IsPoking,
     }
 
     [SerializeField] FlagType flag;
@@ -18,10 +19,11 @@ public class PlayerStateCondition_Flag : Condition<Player>
     {
         return flag switch
         {
-            FlagType.HasSpear => context.SpearThrowing.HasSpear,
+            FlagType.HasSpear => context.SpearHandling.HasSpear,
             FlagType.CanDash => context.Movement.CanDash,
             FlagType.IsDead => context.IsDead,
             FlagType.IsCheckingRadar => context.IsCheckingRadar,
+            FlagType.IsPoking => context.SpearHandling.IsPoking,
             _ => false
         };
     }
