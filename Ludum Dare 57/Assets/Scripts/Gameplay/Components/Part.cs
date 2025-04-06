@@ -11,6 +11,8 @@ public class Part : MonoBehaviour, IInteractable
 
     public void Interact(Player player)
     {
+        if (player.Interaction.HeldPart != null) return;
+        
         rb.isKinematic = true;
         col.enabled = false;
         player.Interaction.SetHeldPart(this);
