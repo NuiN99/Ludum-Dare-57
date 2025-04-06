@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
+    [field: SerializeField] public EntityType Type { get; private set; }
     public bool IsStunned { get; private set; }
     
     [SerializeField, InjectComponent] Enemy enemy;

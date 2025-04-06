@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using NuiN.NExtensions;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class EnemyTargeting : MonoBehaviour
 
     [SerializeField] float searchRadius = 10f;
     [SerializeField] float searchInterval;
+    [SerializeField] List<EntityType> validTargets;
 
     Timer _searchIntervalTimer;
 
@@ -35,6 +37,8 @@ public class EnemyTargeting : MonoBehaviour
 
             if (!col.TryGetComponent(out IDamageable damageable)) continue;
             
+            if(!IsValidTarget(damageable)) continue;
+            
             closest = damageable;
             closestDist = dist;
         }
@@ -45,6 +49,11 @@ public class EnemyTargeting : MonoBehaviour
     public void ForgetTarget()
     {
         Target = null;
+    }
+
+    public bool IsValidTarget(IDamageable target)
+    {
+        return validTargets.Contains(target.Type);
     }
 
     void OnDrawGizmos()

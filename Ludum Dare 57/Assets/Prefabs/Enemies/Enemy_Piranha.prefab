@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b94cb70e8fd4db0ad9aa045f9837ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Type>k__BackingField: 1
   enemy: {fileID: 5604341309613564672}
   stunDuration: 0.75
 --- !u!114 &7583862534150274191
@@ -185,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   searchRadius: 50
   searchInterval: 1
+  validTargets: 00000000
 --- !u!114 &5354929906922119350
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,7 +34,7 @@ public class EnemyState_AttackLunge : EnemyState
         foreach (Collider col in colliders)
         {
             if(col.transform == context.transform || context.Attacking.CurrentHitTargets.Contains(col)) continue;
-            if (col.TryGetComponent(out IDamageable damageable))
+            if (col.TryGetComponent(out IDamageable damageable) && context.Targeting.IsValidTarget(damageable))
             {
                 context.Attacking.CurrentHitTargets.Add(col);
                 damageable.TakeDamage(1, context.transform.forward);
