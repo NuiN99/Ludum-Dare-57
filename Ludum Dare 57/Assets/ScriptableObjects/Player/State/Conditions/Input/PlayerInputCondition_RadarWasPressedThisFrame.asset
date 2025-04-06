@@ -9,17 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 811b06e5bca6e7640a5715ca13af88b2, type: 3}
-  m_Name: RadarDetectable_Set
+  m_Script: {fileID: 11500000, guid: 94f7182b803e4b9097b8b5ace447c611, type: 3}
+  m_Name: PlayerInputCondition_RadarWasPressedThisFrame
   m_EditorClassIdentifier: 
-  description: 
-  entities: []
-  logActions: 1
-  componentHolders:
-    prefabs: []
-    scene: []
-  gettersAndSetters:
-    Getters: []
-    Setters: []
-    getters: []
-    setters: []
+  input: 4
+  pressType: 2

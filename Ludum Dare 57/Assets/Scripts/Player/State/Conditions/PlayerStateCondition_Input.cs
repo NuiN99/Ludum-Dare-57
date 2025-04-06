@@ -11,6 +11,7 @@ public class PlayerStateCondition_Input : Condition<Player>
         Aim,
         Attack,
         Dash,
+        Radar,
     }
     public enum PressType
     {
@@ -31,6 +32,7 @@ public class PlayerStateCondition_Input : Condition<Player>
             InputType.Aim => EvaluateInput(InputManager.Controls.Actions.Aim),
             InputType.Attack => EvaluateInput(InputManager.Controls.Actions.Attack),
             InputType.Dash => EvaluateInput(InputManager.Controls.Actions.Dash),
+            InputType.Radar => EvaluateInput(InputManager.Controls.Actions.Radar),
             _ => false
         };
     }

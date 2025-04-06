@@ -23,7 +23,7 @@ public class PlayerStateCondition_Flag : Condition<Player>
             FlagType.HasSpear => context.SpearHandling.HasSpear,
             FlagType.CanDash => context.Movement.CanDash,
             FlagType.IsDead => context.IsDead,
-            FlagType.IsCheckingRadar => context.IsCheckingRadar,
+            FlagType.IsCheckingRadar => context.Radar.IsOpen,
             FlagType.IsPoking => context.SpearHandling.IsPoking,
             FlagType.IsHoldingPart => context.Interaction.HeldPart != null,
             _ => false

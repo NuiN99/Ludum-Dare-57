@@ -3,5 +3,5 @@ using NuiN.ScriptableHarmony.Core;
 
 namespace NuiN.ScriptableHarmony
 {   
-    public class RadarDetectableRuntimeSetItem : RuntimeSetComponent<RadarDetectable> { }
+    public class RadarTargetRuntimeSetItem : RuntimeSetComponent<RadarTarget> { }
 }

@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 4931090635376508071}
   - component: {fileID: 780726345505477853}
   - component: {fileID: 3166193494660433167}
-  - component: {fileID: 8031055540977325072}
+  - component: {fileID: 8737525140570916694}
   m_Layer: 0
   m_Name: Enemy_AnglerFish
   m_TagString: Untagged
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SignalStrength>k__BackingField: 0.5
---- !u!114 &8031055540977325072
+--- !u!114 &8737525140570916694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7755961390784599302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ae32b6172e752e4696cc163863ea9cb, type: 3}
+  m_Script: {fileID: 11500000, guid: dd967a903c858a0488af372170fecbd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thisObject: {fileID: 3166193494660433167}
