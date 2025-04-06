@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 8030936615911171882}
   - component: {fileID: 4931090635376508071}
   - component: {fileID: 780726345505477853}
+  - component: {fileID: 3166193494660433167}
+  - component: {fileID: 8031055540977325072}
   m_Layer: 0
   m_Name: Enemy_AnglerFish
   m_TagString: Untagged
@@ -328,3 +330,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partPrefab: {fileID: 3803964164571508585, guid: 4c9676b1180142548a55c12da9d90155, type: 3}
+--- !u!114 &3166193494660433167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7755961390784599302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77fa578e9b799b4e806b4f6c536e85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <SignalStrength>k__BackingField: 0.5
+--- !u!114 &8031055540977325072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7755961390784599302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae32b6172e752e4696cc163863ea9cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisObject: {fileID: 3166193494660433167}
+  runtimeSet:
+    runtimeSet: {fileID: 11400000, guid: f3e4f81763e203d4682889623f86346d, type: 2}
+  lifetimeType: 0
