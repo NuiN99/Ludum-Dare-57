@@ -4,9 +4,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Enemy/State/States/AttackLunge")]
 public class EnemyState_AttackLunge : EnemyState
 {
-    [SerializeField] float lungeForce = 20f;
+    [SerializeField] float lungeSpeed = 20f;
     [SerializeField] float lungeDuration = 1f;
     [SerializeField] float damageRadius = 3f;
+    [SerializeField] float lungeSpread = 3f;
     
     public override void Enter(Enemy context)
     {
@@ -15,10 +16,12 @@ public class EnemyState_AttackLunge : EnemyState
         
         context.Attacking.RestartAttackTimer(lungeDuration);
         
-        Vector3 dir = VectorUtils.Direction(context.transform.position, context.Targeting.Target.Position);
+        Vector3 generalTargetPos = context.Targeting.Target.Position + Random.insideUnitSphere * lungeSpread;
+        Vector3 dir = VectorUtils.Direction(context.transform.position, generalTargetPos);
         
         context.transform.rotation = Quaternion.LookRotation(dir);
-        context.RB.linearVelocity = dir * lungeForce;
+        
+        context.Attacking.SetAttackDir(dir);
         
         context.Attacking.CurrentHitTargets.Clear();
     }
@@ -39,10 +42,19 @@ public class EnemyState_AttackLunge : EnemyState
         }
     }
 
+    public override void PhysicsUpdate(Enemy context)
+    {
+        base.PhysicsUpdate(context);
+
+        Vector3 targetDir = VectorUtils.Direction(context.transform.position, context.Targeting.Target.Position);
+        context.RB.AddForce((context.Attacking.AttackDir + targetDir).normalized  * lungeSpeed, ForceMode.Acceleration);;
+    }
+
     public override void Exit(Enemy context)
     {
         base.Exit(context);
         context.Attacking.CurrentHitTargets.Clear();
+        context.Attacking.AttackTimer.CompleteTimer();
     }
 
     public override void DrawGizmos(Enemy context)

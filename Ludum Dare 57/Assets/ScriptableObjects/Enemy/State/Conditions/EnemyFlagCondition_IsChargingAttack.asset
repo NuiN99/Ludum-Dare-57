@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb3c596c10c34e9eb63da5df06787cc0, type: 3}
-  m_Name: EnemyState_Attack_Lunge
+  m_Script: {fileID: 11500000, guid: dc62ff3808b8c8a49a279a23ef1b0548, type: 3}
+  m_Name: EnemyFlagCondition_IsChargingAttack
   m_EditorClassIdentifier: 
-  lungeSpeed: 15
-  lungeDuration: 3
-  damageRadius: 3
-  lungeSpread: 5
+  flag: 5

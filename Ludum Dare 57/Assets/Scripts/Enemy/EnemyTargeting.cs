@@ -42,5 +42,14 @@ public class EnemyTargeting : MonoBehaviour
         Target = closest;
     }
 
-    public void ForgetTarget() => Target = null;
+    public void ForgetTarget()
+    {
+        Target = null;
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, searchRadius);
+    }
 }

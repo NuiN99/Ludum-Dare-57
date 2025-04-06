@@ -17,6 +17,7 @@ public class EnemyState_ChaseSimple : EnemyState
         base.PhysicsUpdate(context);
 
         if (context.Targeting.Target == null) return;
+        
         Vector3 targetDir = VectorUtils.Direction(context.transform.position, context.Targeting.Target.Position);
         context.RB.AddForce(targetDir * speed, ForceMode.Acceleration);
     }

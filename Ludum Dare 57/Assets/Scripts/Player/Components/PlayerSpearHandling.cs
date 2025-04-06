@@ -5,6 +5,7 @@ public class PlayerSpearHandling : MonoBehaviour
 {
     public bool HasSpear { get; private set; }
     public bool IsPoking => !_spearPokeDurationTimer.IsComplete;
+    public Vector3 SpearPosition => spear.transform.position;
     
     [SerializeField] Player player;
     [SerializeField] Projectile spear;
@@ -50,7 +51,7 @@ public class PlayerSpearHandling : MonoBehaviour
         RaycastHit[] hits = Physics.SphereCastAll(player.Head.position, player.Stats.SpearPokeRadius, PlayerCamera.Instance.Forward, player.Stats.SpearPokeRange);
         foreach (RaycastHit hit in hits)
         {
-            if (!hit.collider.TryGetComponent(out IDamageable damageable)) continue;
+            if (hit.transform == player.transform || !hit.collider.TryGetComponent(out IDamageable damageable)) continue;
             
             damageable?.TakeDamage(player.Stats.SpearPokeDamage, PlayerCamera.Instance.Forward);
         }
