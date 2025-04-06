@@ -69,7 +69,7 @@ public class PlayerCamera : MonoBehaviour
         OnPlayerCameraStart.Invoke();
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         RotateCamera();
 
