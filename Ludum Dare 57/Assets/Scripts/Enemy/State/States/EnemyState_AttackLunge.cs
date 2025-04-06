@@ -40,6 +40,8 @@ public class EnemyState_AttackLunge : EnemyState
                 damageable.TakeDamage(1, context.transform.forward);
             }
         }
+
+        context.transform.rotation = Quaternion.LookRotation(context.RB.linearVelocity);
     }
 
     public override void PhysicsUpdate(Enemy context)

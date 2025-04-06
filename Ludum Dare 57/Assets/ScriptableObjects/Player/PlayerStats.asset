@@ -18,7 +18,7 @@ MonoBehaviour:
   <DashForce>k__BackingField: 20
   <DashCooldown>k__BackingField: 2.5
   <SpearThrowForce>k__BackingField: 50
-  <SpearThrowDamage>k__BackingField: 2
+  <SpearThrowDamage>k__BackingField: 3
   <SpearPokeDamage>k__BackingField: 1
   <SpearPokeRange>k__BackingField: 2.5
   <SpearPokeRadius>k__BackingField: 0.5

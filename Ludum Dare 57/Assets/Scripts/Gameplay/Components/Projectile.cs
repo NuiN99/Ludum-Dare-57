@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [field: SerializeField, InjectComponent] public Rigidbody RB { get; private set; }
-    [SerializeField, InjectComponent] Collider col;
+    [field: SerializeField, InjectComponent] public Collider Col { get; private set; }
     [SerializeField] float rotationSpeed;
     
     Action<Collision, int> _onHit;
@@ -18,13 +18,12 @@ public class Projectile : MonoBehaviour
         _onHit = onHit;
         _damage = damage;
         RB.linearVelocity = force;
-        col.enabled = true;
     }
 
     public void TogglePhysics(bool enabled)
     {
         RB.isKinematic = !enabled;
-        col.enabled = enabled;
+        Col.isTrigger = !enabled;
         
         if (!RB.isKinematic)
         {

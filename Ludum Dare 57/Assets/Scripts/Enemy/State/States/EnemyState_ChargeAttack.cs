@@ -23,6 +23,12 @@ public class EnemyState_ChargeAttack : EnemyState
         context.RB.AddForce(-targetDir * chargeMoveBackwardsSpeed, ForceMode.Acceleration);
     }
 
+    public override void FrameUpdate(Enemy context)
+    {
+        base.FrameUpdate(context);
+        context.transform.rotation = Quaternion.LookRotation(VectorUtils.Direction(context.transform.position, context.Targeting.Target.Position));
+    }
+
     public override void Exit(Enemy context)
     {
         base.Exit(context);

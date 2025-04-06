@@ -13,6 +13,11 @@ public class PlayerSpearHandling : MonoBehaviour
 
     Timer _spearPokeDurationTimer;
 
+    Transform _hitTransform;
+    Vector3 _onHitPositionOffset;
+    Vector3 _onHitEulerAnglesOffset;
+    Vector3 _initialHoldOffset;
+
     void Awake()
     {
         _spearPokeDurationTimer = new Timer(player.Stats.SpearPokeDuration, true);
@@ -20,6 +25,8 @@ public class PlayerSpearHandling : MonoBehaviour
 
     void Start()
     {
+        _initialHoldOffset = spear.transform.localPosition;
+        Physics.IgnoreCollision(spear.Col, player.Col);
         Retrieve();
     }
 
@@ -35,8 +42,10 @@ public class PlayerSpearHandling : MonoBehaviour
 
     public void Retrieve()
     {
+        _hitTransform = null;
+        
         spear.transform.SetParent(spearParent);
-        spear.transform.localPosition = Vector3.zero;
+        spear.transform.localPosition = _initialHoldOffset;
         spear.transform.localRotation = Quaternion.identity;
         spear.TogglePhysics(false);
         spear.ToggleRotation(false);
@@ -57,13 +66,25 @@ public class PlayerSpearHandling : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (_hitTransform == null) return;
+        
+        spear.transform.position = _hitTransform.position + _onHitPositionOffset;
+        spear.transform.eulerAngles = _hitTransform.eulerAngles + _onHitEulerAnglesOffset;
+    }
+
     void OnHit_Callback(Collision collision, int damage)
     {
         spear.ToggleRotation(false);
-        spear.RB.linearVelocity *= 0.25f;
+        spear.TogglePhysics(false);
         
         if (collision.collider.TryGetComponent(out IDamageable damageable))
         {
+            _onHitPositionOffset = damageable.Position - spear.transform.position;
+            _onHitEulerAnglesOffset = collision.transform.eulerAngles - spear.transform.eulerAngles;
+            _hitTransform = collision.transform;
+            
             damageable.TakeDamage(damage, PlayerCamera.Instance.Forward);
         }
     }

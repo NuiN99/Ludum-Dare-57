@@ -7,5 +7,13 @@ public class EnemyState_Stunned : EnemyState
     {
         base.Enter(context);
         Debug.Log($"Enemy {context.name}: Stunned");
+        
+        context.RB.constraints = RigidbodyConstraints.None;
+    }
+
+    public override void Exit(Enemy context)
+    {
+        base.Exit(context);
+        context.RB.constraints = RigidbodyConstraints.FreezeRotation;
     }
 }

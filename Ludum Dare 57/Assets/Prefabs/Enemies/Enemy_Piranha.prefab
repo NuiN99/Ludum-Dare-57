@@ -47,7 +47,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6609863039110401306}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &6862284900525006277
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &5604341309613564672
 MonoBehaviour:
@@ -171,7 +171,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 1
   enemy: {fileID: 5604341309613564672}
+  maxHealth: 3
   stunDuration: 0.75
+  deathParticles:
+  - {fileID: 5014992052893491101, guid: 58f7db3732c330c42ac2f791bca13339, type: 3}
+  deathParticlesSize: 1
 --- !u!114 &7583862534150274191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +224,13 @@ MonoBehaviour:
   stateTransitions:
   - <State>k__BackingField: {fileID: 11400000, guid: 59cbea6cf7c7c3847b9e38c217886a48, type: 2}
     <Transitions>k__BackingField:
+    - <TargetState>k__BackingField: {fileID: 11400000, guid: 507d24e238eb9a04597d2ab13b0c71a1, type: 2}
+      <Evalutation>k__BackingField: 0
+      <Conditions>k__BackingField:
+      - <Condition>k__BackingField: {fileID: 11400000, guid: 6b5ab75f4e6144145bef5beec52d4b1b, type: 2}
+        <Value>k__BackingField: 0
+      - <Condition>k__BackingField: {fileID: 11400000, guid: 0d3df7005c558e34299ac483e725cbc5, type: 2}
+        <Value>k__BackingField: 1
     - <TargetState>k__BackingField: {fileID: 11400000, guid: 98b181fd757b2784eb2c191190a14650, type: 2}
       <Evalutation>k__BackingField: 0
       <Conditions>k__BackingField:

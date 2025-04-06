@@ -21,4 +21,10 @@ public class EnemyState_ChaseSimple : EnemyState
         Vector3 targetDir = VectorUtils.Direction(context.transform.position, context.Targeting.Target.Position);
         context.RB.AddForce(targetDir * speed, ForceMode.Acceleration);
     }
+
+    public override void FrameUpdate(Enemy context)
+    {
+        base.FrameUpdate(context);
+        context.transform.rotation = Quaternion.LookRotation(VectorUtils.Direction(context.transform.position, context.Targeting.Target.Position));
+    }
 }

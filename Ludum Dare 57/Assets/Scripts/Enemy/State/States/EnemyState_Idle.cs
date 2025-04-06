@@ -9,6 +9,12 @@ public class EnemyState_Idle : EnemyState
         Debug.Log($"Enemy {context.name}: Idle");
     }
 
+    public override void Exit(Enemy context)
+    {
+        base.Exit(context);
+        context.RB.constraints = RigidbodyConstraints.FreezeRotation;
+    }
+
     public override void FrameUpdate(Enemy context)
     {
         base.FrameUpdate(context);

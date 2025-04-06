@@ -12,6 +12,7 @@ public class EnemyStateCondition_Flag : Condition<Enemy>
         IsInAttackRangeOfTarget,
         IsRecovering,
         IsChargingAttack,
+        IsDead,
     }
 
     [SerializeField] FlagType flag;
@@ -26,6 +27,7 @@ public class EnemyStateCondition_Flag : Condition<Enemy>
             FlagType.IsInAttackRangeOfTarget => context.Attacking.IsInAttackRangeOfTarget(),
             FlagType.IsRecovering => !context.Attacking.RecoveryTimer.IsComplete,
             FlagType.IsChargingAttack => !context.Attacking.AttackChargeTimer.IsComplete,
+            FlagType.IsDead => context.Health.CurHealth <= 0,
             _ => false
         };
     }
