@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -180968899737457053}
   - component: {fileID: 2908504970023110622}
   m_Layer: 0
-  m_Name: Part_Cog
+  m_Name: Part_Sonar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Part : MonoBehaviour, IInteractable
 {
+    public enum Type { Sonar, Propellor, Launcher }
+    
+    [field: SerializeField] public Type PartType { get; private set; }
     [SerializeField, InjectComponent] Rigidbody rb;
     [SerializeField, InjectComponent] Collider col;
 
