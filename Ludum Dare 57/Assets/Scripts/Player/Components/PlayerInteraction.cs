@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] Player player;
+    
+    public Part HeldPart { get; private set; }
 
     void OnEnable()
     {
@@ -17,6 +19,13 @@ public class PlayerInteraction : MonoBehaviour
 
     void OnInteractPressed_Callback(InputAction.CallbackContext ctx)
     {
+        if (HeldPart != null)
+        {
+            HeldPart.Release();
+            HeldPart = null;
+            return;
+        }
+        
         RaycastHit[] hits = Physics.SphereCastAll(player.Head.position, player.Stats.InteractRadius, PlayerCamera.Instance.Forward, player.Stats.InteractRange);
         IInteractable closestInteractable = null;
         float closestDistance = Mathf.Infinity;
@@ -34,6 +43,14 @@ public class PlayerInteraction : MonoBehaviour
         closestInteractable?.Interact(player);
     }
 
+    public void SetHeldPart(Part part)
+    {
+        HeldPart = part;
+        part.transform.SetParent(player.Hand);
+        part.transform.localPosition = Vector3.zero;
+        part.transform.localRotation = Quaternion.identity;
+    }
+    
     void OnDrawGizmos()
     {
         Vector3 start = player.Head.position;

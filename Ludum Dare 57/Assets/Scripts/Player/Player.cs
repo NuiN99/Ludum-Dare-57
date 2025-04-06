@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
     [field: SerializeField] public PlayerStats Stats { get; private set; }
     [field: SerializeField, InjectComponent] public PlayerSpearHandling SpearHandling { get; private set; }
     [field: SerializeField, InjectComponent] public PlayerMovement Movement { get; private set; }
+    [field: SerializeField, InjectComponent] public PlayerInteraction Interaction { get; private set; }
     [field: SerializeField] public Transform Head { get; private set; }
+    [field: SerializeField] public Transform Hand { get; private set; }
     [field: SerializeField, InjectComponent] public Collider Col { get; private set; }
 
     public PriorityAnimator PriorityAnimator { get; private set; }

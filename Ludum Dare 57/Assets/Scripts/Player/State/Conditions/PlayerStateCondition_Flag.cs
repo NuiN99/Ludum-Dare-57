@@ -11,6 +11,7 @@ public class PlayerStateCondition_Flag : Condition<Player>
         IsDead,
         IsCheckingRadar,
         IsPoking,
+        IsHoldingPart,
     }
 
     [SerializeField] FlagType flag;
@@ -24,6 +25,7 @@ public class PlayerStateCondition_Flag : Condition<Player>
             FlagType.IsDead => context.IsDead,
             FlagType.IsCheckingRadar => context.IsCheckingRadar,
             FlagType.IsPoking => context.SpearHandling.IsPoking,
+            FlagType.IsHoldingPart => context.Interaction.HeldPart != null,
             _ => false
         };
     }

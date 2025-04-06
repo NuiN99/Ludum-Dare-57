@@ -9,7 +9,6 @@ public class PlayerSpearHandling : MonoBehaviour
     
     [SerializeField] Player player;
     [SerializeField] Projectile spear;
-    [SerializeField] Transform spearParent;
 
     Timer _spearPokeDurationTimer;
 
@@ -32,6 +31,9 @@ public class PlayerSpearHandling : MonoBehaviour
 
     public void Throw(Vector3 force, int damage)
     {
+        _onHitPositionOffset = Vector3.zero;
+        _onHitEulerAnglesOffset = Vector3.zero;
+        
         spear.TogglePhysics(true);
         spear.ToggleRotation(true);
         spear.transform.SetParent(null);
@@ -44,7 +46,7 @@ public class PlayerSpearHandling : MonoBehaviour
     {
         _hitTransform = null;
         
-        spear.transform.SetParent(spearParent);
+        spear.transform.SetParent(player.Hand);
         spear.transform.localPosition = _initialHoldOffset;
         spear.transform.localRotation = Quaternion.identity;
         spear.TogglePhysics(false);
@@ -70,10 +72,9 @@ public class PlayerSpearHandling : MonoBehaviour
     {
         if (_hitTransform == null)
         {
-            if (HasSpear == false && spear.RB.isKinematic)
+            if (_onHitPositionOffset != Vector3.zero && HasSpear == false && spear.RB.isKinematic)
             {
                 spear.TogglePhysics(true);
-
                 spear.RB.AddForce(-spear.transform.forward * 5f, ForceMode.Impulse);
             }
             return;

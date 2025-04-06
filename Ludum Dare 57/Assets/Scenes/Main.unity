@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 1027476593}
   - component: {fileID: 1027476592}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Submarine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,7 +231,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: f1e38594f14520c48bc546f3a41f4f56, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -270,8 +270,8 @@ Transform:
   m_GameObject: {fileID: 1027476591}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7450204, y: 2.0555274, z: 3.331}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.84}
+  m_LocalPosition: {x: -5.98, y: -0.62, z: 0.19}
+  m_LocalScale: {x: 4.12425, y: 3.5515, z: 7.3379526}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -729,18 +729,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water
       objectReference: {fileID: 0}
-    - target: {fileID: 4843317125415442248, guid: bb8b6442f5a13d9458b8f3146923c53d, type: 3}
-      propertyPath: ripples
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4843317125415442248, guid: bb8b6442f5a13d9458b8f3146923c53d, type: 3}
-      propertyPath: caustics
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4843317125415442248, guid: bb8b6442f5a13d9458b8f3146923c53d, type: 3}
-      propertyPath: decalRegionSize.y
-      value: 200
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -803,6 +791,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9720caca039e8b64f9d5752d08537d29, type: 3}
+--- !u!1001 &4239167611093209619
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6590365504227013173, guid: fda44cf3b62d30f4cb0a2d9618890be1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590365504227013173, guid: fda44cf3b62d30f4cb0a2d9618890be1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590365504227013173, guid: fda44cf3b62d30f4cb0a2d9618890be1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590365504227013173, guid: fda44cf3b62d30f4cb0a2d9618890be1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590365504227013173, guid: fda44cf3b62d30f4cb0a2d9618890be1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590365504227013173, guid: fda44cf3b62d30f4cb0a2d9618890be1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590365504227013173, guid: fda44cf3b62d30f4cb0a2d9618890be1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590365504227013173, guid: fda44cf3b62d30f4cb0a2d9618890be1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590365504227013173, guid: fda44cf3b62d30f4cb0a2d9618890be1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590365504227013173, guid: fda44cf3b62d30f4cb0a2d9618890be1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755961390784599302, guid: fda44cf3b62d30f4cb0a2d9618890be1, type: 3}
+      propertyPath: m_Name
+      value: Enemy_AnglerFish
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fda44cf3b62d30f4cb0a2d9618890be1, type: 3}
 --- !u!1001 &7891154615261177343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -875,3 +920,4 @@ SceneRoots:
   - {fileID: 1027476595}
   - {fileID: 3159341717289288317}
   - {fileID: 1281069136}
+  - {fileID: 4239167611093209619}
