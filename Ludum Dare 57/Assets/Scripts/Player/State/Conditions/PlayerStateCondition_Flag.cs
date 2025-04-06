@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Player/State/Conditions/Flag")]
 public class PlayerStateCondition_Flag : Condition<Player>
 {
-    public enum FlagType
+    enum FlagType
     {
         HasSpear,
         CanDash,

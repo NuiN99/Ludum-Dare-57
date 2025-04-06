@@ -8,6 +8,11 @@ public class PlayerGeneralState_Swim : PlayerState
     {
         base.LateFrameUpdate(context);
         context.RotateBodyToCamera();
+    }
+
+    public override void PhysicsUpdate(Player context)
+    {
+        base.PhysicsUpdate(context);
         context.Movement.Move(context.Movement.GetMovementDirection());
     }
 }

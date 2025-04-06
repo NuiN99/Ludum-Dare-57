@@ -1,0 +1,55 @@
+using NuiN.NExtensions;
+using UnityEngine;
+
+[CreateAssetMenu(menuName = "ScriptableObjects/Enemy/State/States/AttackLunge")]
+public class EnemyState_AttackLunge : EnemyState
+{
+    [SerializeField] float lungeForce = 20f;
+    [SerializeField] float lungeDuration = 1f;
+    [SerializeField] float damageRadius = 3f;
+    
+    public override void Enter(Enemy context)
+    {
+        base.Enter(context);
+        Debug.Log($"Enemy {context.name}: AttackLunge");
+        
+        context.Attacking.RestartAttackTimer(lungeDuration);
+        
+        Vector3 dir = VectorUtils.Direction(context.transform.position, context.Targeting.Target.Position);
+        
+        context.transform.rotation = Quaternion.LookRotation(dir);
+        context.RB.linearVelocity = dir * lungeForce;
+        
+        context.Attacking.CurrentHitTargets.Clear();
+    }
+
+    public override void FrameUpdate(Enemy context)
+    {
+        base.FrameUpdate(context);
+        Collider[] colliders = Physics.OverlapSphere(context.transform.position, damageRadius);
+
+        foreach (Collider col in colliders)
+        {
+            if(col.transform == context.transform || context.Attacking.CurrentHitTargets.Contains(col)) continue;
+            if (col.TryGetComponent(out IDamageable damageable))
+            {
+                context.Attacking.CurrentHitTargets.Add(col);
+                damageable.TakeDamage(1, context.transform.forward);
+            }
+        }
+    }
+
+    public override void Exit(Enemy context)
+    {
+        base.Exit(context);
+        context.Attacking.CurrentHitTargets.Clear();
+    }
+
+    public override void DrawGizmos(Enemy context)
+    {
+        base.DrawGizmos(context);
+
+        Gizmos.color = Color.red.WithAlpha(0.1f);
+        Gizmos.DrawSphere(context.transform.position, damageRadius);
+    }
+}

@@ -52,7 +52,7 @@ public class PlayerSpearHandling : MonoBehaviour
         {
             if (!hit.collider.TryGetComponent(out IDamageable damageable)) continue;
             
-            damageable?.TakeDamage(player.Stats.SpearPokeDamage);
+            damageable?.TakeDamage(player.Stats.SpearPokeDamage, PlayerCamera.Instance.Forward);
         }
     }
 
@@ -63,7 +63,7 @@ public class PlayerSpearHandling : MonoBehaviour
         
         if (collision.collider.TryGetComponent(out IDamageable damageable))
         {
-            damageable.TakeDamage(damage);
+            damageable.TakeDamage(damage, PlayerCamera.Instance.Forward);
         }
     }
     
