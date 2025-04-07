@@ -85,8 +85,8 @@ MonoBehaviour:
   cameraPivot: {fileID: 8500691638381988677}
   cameraTransform: {fileID: 4837089333310873202}
   cameraNoise: {fileID: 7660738689972581985}
-  cameraSpeedX: 0.25
-  cameraSpeedY: 0.25
+  cameraSpeedX: 0.15
+  cameraSpeedY: 0.15
   minLookAngle: -89
   maxLookAngle: 89
   shakeDistanceMax: 25
