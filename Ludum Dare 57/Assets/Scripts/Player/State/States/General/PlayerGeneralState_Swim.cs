@@ -13,6 +13,19 @@ public class PlayerGeneralState_Swim : PlayerState
     public override void PhysicsUpdate(Player context)
     {
         base.PhysicsUpdate(context);
-        context.Movement.Move(context.Movement.GetMovementDirection());
+
+        Vector3 moveDir = context.Movement.GetMovementDirection();
+        if (InputManager.Controls.Actions.Ascend.IsPressed())
+        {
+            moveDir.y = 1f;
+            moveDir.Normalize();
+        }
+        else if (InputManager.Controls.Actions.Descend.IsPressed())
+        {
+            moveDir.y = -1f;
+            moveDir.Normalize();
+        }
+
+        context.Movement.Move(moveDir);
     }
 }
