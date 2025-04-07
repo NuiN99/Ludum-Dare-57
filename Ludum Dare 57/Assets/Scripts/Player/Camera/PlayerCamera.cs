@@ -42,6 +42,7 @@ public class PlayerCamera : MonoBehaviour
     Coroutine _shakeRoutine;
 
     bool _disableRotation;
+    bool _rotateToFollowTarget;
     
     public void SetTrackingTarget(Transform target)
     {
@@ -53,6 +54,11 @@ public class PlayerCamera : MonoBehaviour
         float targetAngle = rotation.eulerAngles.y;
         float angleDifference = Mathf.DeltaAngle(_angleY, targetAngle);
         SpleenTween.Value(_angleY, _angleY + angleDifference, 0.2f, val => _angleY = val).SetEase(Ease.OutCubic);
+    }
+
+    public void EnableRotateToFollowTarget()
+    {
+        _rotateToFollowTarget = true;
     }
 
     public void DisableRotation()
@@ -105,6 +111,12 @@ public class PlayerCamera : MonoBehaviour
 
     void RotateCamera()
     {
+        if (_rotateToFollowTarget)
+        {
+            cameraTransform.rotation = followTarget.rotation;
+            return;
+        }
+        
         //look
         Vector3 rotation = new Vector3(_angleX, 0, 0);
         Quaternion targetRotation = Quaternion.Euler(rotation);

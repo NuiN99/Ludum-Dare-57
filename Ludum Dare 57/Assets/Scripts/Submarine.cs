@@ -6,8 +6,8 @@ public class Submarine : MonoBehaviour
 {
     [SerializeField] List<RepairableSubmarinePart> repairableParts;
     [SerializeField] OutlineComponent[] outlines;
-
     [SerializeField] GameObject[] repairedVisuals;
+    [SerializeField] PilotableSubmarine pilotableSubmarine;
     
     bool _isRepaired;
 
@@ -53,6 +53,8 @@ public class Submarine : MonoBehaviour
         {
             visual.gameObject.SetActive(true);
         }
+        
+        pilotableSubmarine.SetRepaired();
         
         _isRepaired = true;
     }
