@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{aa2583fb-e70d-4d17-8723-44313c883b62}">
+	<object class="AudioFile" id="{fc85d1de-6b84-43f3-be0e-e38e9bf14f5d}">
 		<property name="assetPath">
-			<value>Trident/LD57_Throw.wav</value>
+			<value>Trident/LD57_Throw_01.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
@@ -11,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<property name="length">
-			<value>0.91299319727891159</value>
+			<value>1.1152607709750566</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{77f1dd70-7b99-486c-9013-d7fb1e288abc}</destination>

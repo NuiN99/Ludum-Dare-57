@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{a3cae3af-a224-48e7-9572-ef0a764c3166}">
+	<object class="AudioFile" id="{953d3e77-3f83-4282-8429-bf0784f5a29c}">
 		<property name="assetPath">
-			<value>Breath/LD57_BreathOut_01.wav</value>
+			<value>Trident/LD57_Poke_Bubbles_02.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
@@ -11,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<property name="length">
-			<value>2.5245124716553287</value>
+			<value>0.53761904761904766</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{77f1dd70-7b99-486c-9013-d7fb1e288abc}</destination>

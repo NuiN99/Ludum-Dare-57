@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{2d1fed20-ba7a-47e4-8255-ab2e640ec5c2}">
+		<property name="assetPath">
+			<value>Breath/LD57_BreatheOut_02.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>2.609909297052154</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{77f1dd70-7b99-486c-9013-d7fb1e288abc}</destination>
+		</relationship>
+	</object>
+</objects>
