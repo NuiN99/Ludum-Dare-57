@@ -44,7 +44,7 @@ public class PlayerSpearHandling : MonoBehaviour
         
         HasSpear = false;
 
-        spearThrowSound.PlayEventAttached(_activeSpear.transform);
+        spearThrowSound.PlayEvent();
     }
 
     public void Retrieve()
