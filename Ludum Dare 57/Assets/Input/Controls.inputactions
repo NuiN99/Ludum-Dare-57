@@ -33,24 +33,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ascend",
-                    "type": "Button",
-                    "id": "94c5da86-35e5-450c-aba2-da861c6b5aa5",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Descend",
-                    "type": "Button",
-                    "id": "56032ce2-c5f7-4d1a-963d-3e15c14f352c",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Aim",
                     "type": "Button",
                     "id": "0d36e6b8-4ba8-4dd6-bda5-8670543a2f89",
@@ -178,17 +160,6 @@
                 },
                 {
                     "name": "",
-                    "id": "932d984c-3d5d-4892-8ef7-a54bd6dd256e",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Ascend",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "951a49db-1c93-4add-a29e-5399c940c077",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -201,6 +172,17 @@
                 {
                     "name": "",
                     "id": "ab974bc1-69c0-4947-a9ad-05b95da68aeb",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "27a77a2c-a30b-4729-b265-8e1043082f72",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
@@ -212,22 +194,11 @@
                 {
                     "name": "",
                     "id": "49406077-fa61-4b55-bd33-76602e5067f0",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Radar",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "685cbd87-4652-4678-ad48-b295c49c3f0e",
-                    "path": "<Keyboard>/leftCtrl",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Descend",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

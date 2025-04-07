@@ -32,5 +32,7 @@ public class RepairableSubmarinePart : MonoBehaviour, IInteractable
         repairedVisual.SetActive(true);
         SpleenTween.Scale(repairedVisual.transform, Vector3.zero, repairedVisual.transform.localScale, 0.25f).SetEase(Ease.OutElastic);
         brokenParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        
+        GameEvents.InvokePartRepaired(requiredPart);
     }
 }

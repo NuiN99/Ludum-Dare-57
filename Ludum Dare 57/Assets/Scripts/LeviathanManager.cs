@@ -40,7 +40,7 @@ public class LeviathanManager : MonoBehaviour
     void SpawnLeviathan()
     {
         Debug.Log("Leviathan Spawned!");
-
+        
         _spawnIntervalTimer.Restart();
         _leviathanIsActive = true;
         leviathan.gameObject.SetActive(true);
@@ -48,6 +48,8 @@ public class LeviathanManager : MonoBehaviour
         Vector3 randSphere = Random.insideUnitSphere;
         Vector3 spawnOffset = randSphere.With(y: Mathf.Abs(randSphere.y * 0.25f)).normalized * spawnDistance;
         leviathan.transform.position = Player.Instance.transform.position + spawnOffset;
+        
+        GameEvents.InvokeLeviathanActiveStateChanged(true);
     }
 
     void DespawnLeviathan()
@@ -57,5 +59,7 @@ public class LeviathanManager : MonoBehaviour
         _spawnIntervalTimer.Restart();
         _leviathanIsActive = false;
         leviathan.gameObject.SetActive(false);
+        
+        GameEvents.InvokeLeviathanActiveStateChanged(false);
     }
 }

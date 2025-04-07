@@ -55,24 +55,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Ascend"",
-                    ""type"": ""Button"",
-                    ""id"": ""94c5da86-35e5-450c-aba2-da861c6b5aa5"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Descend"",
-                    ""type"": ""Button"",
-                    ""id"": ""56032ce2-c5f7-4d1a-963d-3e15c14f352c"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Aim"",
                     ""type"": ""Button"",
                     ""id"": ""0d36e6b8-4ba8-4dd6-bda5-8670543a2f89"",
@@ -200,17 +182,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""932d984c-3d5d-4892-8ef7-a54bd6dd256e"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Ascend"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""951a49db-1c93-4add-a29e-5399c940c077"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -223,6 +194,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ab974bc1-69c0-4947-a9ad-05b95da68aeb"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""27a77a2c-a30b-4729-b265-8e1043082f72"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -234,22 +216,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""49406077-fa61-4b55-bd33-76602e5067f0"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Radar"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""685cbd87-4652-4678-ad48-b295c49c3f0e"",
-                    ""path"": ""<Keyboard>/leftCtrl"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Descend"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -263,8 +234,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Actions_Move = m_Actions.FindAction("Move", throwIfNotFound: true);
         m_Actions_Rotate = m_Actions.FindAction("Rotate", throwIfNotFound: true);
         m_Actions_Dash = m_Actions.FindAction("Dash", throwIfNotFound: true);
-        m_Actions_Ascend = m_Actions.FindAction("Ascend", throwIfNotFound: true);
-        m_Actions_Descend = m_Actions.FindAction("Descend", throwIfNotFound: true);
         m_Actions_Aim = m_Actions.FindAction("Aim", throwIfNotFound: true);
         m_Actions_Attack = m_Actions.FindAction("Attack", throwIfNotFound: true);
         m_Actions_Interact = m_Actions.FindAction("Interact", throwIfNotFound: true);
@@ -338,8 +307,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Actions_Move;
     private readonly InputAction m_Actions_Rotate;
     private readonly InputAction m_Actions_Dash;
-    private readonly InputAction m_Actions_Ascend;
-    private readonly InputAction m_Actions_Descend;
     private readonly InputAction m_Actions_Aim;
     private readonly InputAction m_Actions_Attack;
     private readonly InputAction m_Actions_Interact;
@@ -351,8 +318,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Actions_Move;
         public InputAction @Rotate => m_Wrapper.m_Actions_Rotate;
         public InputAction @Dash => m_Wrapper.m_Actions_Dash;
-        public InputAction @Ascend => m_Wrapper.m_Actions_Ascend;
-        public InputAction @Descend => m_Wrapper.m_Actions_Descend;
         public InputAction @Aim => m_Wrapper.m_Actions_Aim;
         public InputAction @Attack => m_Wrapper.m_Actions_Attack;
         public InputAction @Interact => m_Wrapper.m_Actions_Interact;
@@ -375,12 +340,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
-            @Ascend.started += instance.OnAscend;
-            @Ascend.performed += instance.OnAscend;
-            @Ascend.canceled += instance.OnAscend;
-            @Descend.started += instance.OnDescend;
-            @Descend.performed += instance.OnDescend;
-            @Descend.canceled += instance.OnDescend;
             @Aim.started += instance.OnAim;
             @Aim.performed += instance.OnAim;
             @Aim.canceled += instance.OnAim;
@@ -406,12 +365,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
-            @Ascend.started -= instance.OnAscend;
-            @Ascend.performed -= instance.OnAscend;
-            @Ascend.canceled -= instance.OnAscend;
-            @Descend.started -= instance.OnDescend;
-            @Descend.performed -= instance.OnDescend;
-            @Descend.canceled -= instance.OnDescend;
             @Aim.started -= instance.OnAim;
             @Aim.performed -= instance.OnAim;
             @Aim.canceled -= instance.OnAim;
@@ -446,8 +399,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
-        void OnAscend(InputAction.CallbackContext context);
-        void OnDescend(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
