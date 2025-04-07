@@ -3,9 +3,21 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Enemy/State/States/Stunned")]
 public class EnemyState_Stunned : EnemyState
 {
+    [SerializeField] float rotForce = 100f;
     public override void Enter(Enemy context)
     {
         base.Enter(context);
         Debug.Log($"Enemy {context.name}: Stunned");
+
+        if(context.Health.CurHealth <= 0) return;
+        
+        context.RB.constraints = RigidbodyConstraints.None;
+        context.RB.angularVelocity = Random.insideUnitSphere.normalized * rotForce;
+    }
+
+    public override void Exit(Enemy context)
+    {
+        base.Exit(context);
+        context.RB.constraints = RigidbodyConstraints.FreezeRotation;
     }
 }
