@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; private set; }
+    
     [field: SerializeField] public PlayerStats Stats { get; private set; }
     [field: SerializeField, InjectComponent] public PlayerSpearHandling SpearHandling { get; private set; }
     [field: SerializeField, InjectComponent] public PlayerMovement Movement { get; private set; }
@@ -11,6 +13,7 @@ public class Player : MonoBehaviour
     [field: SerializeField, InjectComponent] public PlayerHealth Health { get; private set; }
     [field: SerializeField] public Transform Head { get; private set; }
     [field: SerializeField] public Transform Hand { get; private set; }
+    [field: SerializeField, InjectComponent] public Rigidbody RB { get; private set; }
     [field: SerializeField, InjectComponent] public Collider Col { get; private set; }
 
     public PriorityAnimator PriorityAnimator { get; private set; }
@@ -20,6 +23,9 @@ public class Player : MonoBehaviour
     void Awake()
     {
         PriorityAnimator = new PriorityAnimator(animator);
+        
+        if(Instance != null && Instance != this) Destroy(gameObject);
+        else Instance = this;
     }
 
     void Start()

@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
     public bool CanDash => _dashCooldownTimer.IsComplete;
     
     [SerializeField] Player player;
-    [SerializeField] Rigidbody rb;
 
     Timer _dashCooldownTimer;
 
@@ -17,14 +16,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(Vector3 direction, float speedMult = 1f)
     {
-        rb.AddForce(direction * (player.Stats.MoveSpeed * speedMult));
+        player.RB.AddForce(direction * (player.Stats.MoveSpeed * speedMult));
     }
 
     public void Dash()
     {
         Vector3 dir = GetMovementDirection();
         if (dir == Vector3.zero) dir = PlayerCamera.Instance.Forward;
-        rb.linearVelocity = dir * player.Stats.DashForce;
+        player.RB.linearVelocity = dir * player.Stats.DashForce;
         _dashCooldownTimer.Restart();
     }
     
@@ -41,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.AddForce(Vector3.down * player.Stats.Gravity, ForceMode.Acceleration);
-        rb.linearVelocity *= player.Stats.VelocityDamper;
+        player.RB.AddForce(Vector3.down * player.Stats.Gravity, ForceMode.Acceleration);
+        player.RB.linearVelocity *= player.Stats.VelocityDamper;
     }
 }

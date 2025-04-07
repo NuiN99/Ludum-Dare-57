@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5615109999302507467}
   - component: {fileID: 3162578821821268414}
   - component: {fileID: 1879344474193723517}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4382987495419414591}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DirectionIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 7397009925619419885}
   - component: {fileID: 5751145503054425523}
   - component: {fileID: 7274476700036112021}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6457488282970632000}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8823290584244183966}
   - component: {fileID: 7576064656084367434}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Radar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 5948548909331100201}
   - component: {fileID: 6402400692285148574}
   - component: {fileID: 2595950559957644052}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 5450430320250625829}
   - component: {fileID: 2323330107641518629}
   - component: {fileID: 7550046762258302960}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 7959084585854576747}
   - component: {fileID: 4702411035976596558}
   - component: {fileID: 8624397840218660809}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -886,7 +886,7 @@ GameObject:
   - component: {fileID: 2017122159627498615}
   - component: {fileID: 1768331516245653589}
   - component: {fileID: 8605212790953644070}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 4163773730462022944}
   - component: {fileID: 6120430724155875221}
   - component: {fileID: 979324133778148659}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BlinkIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1067,7 +1067,7 @@ GameObject:
   - component: {fileID: 8557236776804738188}
   - component: {fileID: 1356553756890170000}
   - component: {fileID: 5509860728970536177}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1161,6 +1161,7 @@ MonoBehaviour:
   <Health>k__BackingField: {fileID: 7845624747949016037}
   <Head>k__BackingField: {fileID: 6457488282970632000}
   <Hand>k__BackingField: {fileID: 7397009925619419885}
+  <RB>k__BackingField: {fileID: 2738050046988995710}
   <Col>k__BackingField: {fileID: 606755636922295083}
   animator: {fileID: 5509860728970536177}
 --- !u!114 &9050528178062830108
@@ -1176,7 +1177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1852069194475996792}
-  rb: {fileID: 2738050046988995710}
 --- !u!114 &9191769512423520198
 MonoBehaviour:
   m_ObjectHideFlags: 0
