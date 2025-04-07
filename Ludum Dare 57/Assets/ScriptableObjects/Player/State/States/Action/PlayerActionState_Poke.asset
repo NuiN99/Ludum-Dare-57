@@ -16,4 +16,4 @@ MonoBehaviour:
     <Animation>k__BackingField: SpearPoke
     <Priority>k__BackingField: 2
     <LayerIndex>k__BackingField: 0
-    <CrossFade>k__BackingField: 0
+    <CrossFade>k__BackingField: 0.1

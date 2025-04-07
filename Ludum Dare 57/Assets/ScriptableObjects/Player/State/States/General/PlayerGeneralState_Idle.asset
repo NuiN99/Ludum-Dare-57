@@ -16,4 +16,4 @@ MonoBehaviour:
     <Animation>k__BackingField: Idle
     <Priority>k__BackingField: 0
     <LayerIndex>k__BackingField: 0
-    <CrossFade>k__BackingField: 0
+    <CrossFade>k__BackingField: 0.1

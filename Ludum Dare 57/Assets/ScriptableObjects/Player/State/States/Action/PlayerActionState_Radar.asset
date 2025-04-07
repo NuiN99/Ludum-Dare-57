@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2097043994e44e3a7ff1b98895276e9, type: 3}
   m_Name: PlayerActionState_Radar
   m_EditorClassIdentifier: 
+  animationPlayData:
+    <Animation>k__BackingField: OpenRadar
+    <Priority>k__BackingField: 2
+    <LayerIndex>k__BackingField: 0
+    <CrossFade>k__BackingField: 0.1

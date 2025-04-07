@@ -40,6 +40,8 @@ public class PlayerCamera : MonoBehaviour
     Vector3 _cameraPosition;
     
     Coroutine _shakeRoutine;
+
+    bool _disableRotation;
     
     public void SetTrackingTarget(Transform target)
     {
@@ -51,6 +53,11 @@ public class PlayerCamera : MonoBehaviour
         float targetAngle = rotation.eulerAngles.y;
         float angleDifference = Mathf.DeltaAngle(_angleY, targetAngle);
         SpleenTween.Value(_angleY, _angleY + angleDifference, 0.2f, val => _angleY = val).SetEase(Ease.OutCubic);
+    }
+
+    public void DisableRotation()
+    {
+        _disableRotation = true;
     }
 
     void Awake()
@@ -88,9 +95,12 @@ public class PlayerCamera : MonoBehaviour
 
     void RotateCamera()
     {
-        _angleX -= InputManager.RotateInput.y * cameraSpeedY;
-        _angleX = Mathf.Clamp(_angleX, minLookAngle, maxLookAngle);
-        _angleY += (InputManager.RotateInput.x * cameraSpeedX);
+        if (!_disableRotation)
+        {
+            _angleX -= InputManager.RotateInput.y * cameraSpeedY;
+            _angleX = Mathf.Clamp(_angleX, minLookAngle, maxLookAngle);
+            _angleY += (InputManager.RotateInput.x * cameraSpeedX);
+        }
 
         //look
         Vector3 rotation = new Vector3(_angleX, 0, 0);
