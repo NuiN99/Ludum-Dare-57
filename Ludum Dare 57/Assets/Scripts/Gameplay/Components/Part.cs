@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Part : MonoBehaviour, IInteractable
 {
-    public enum Type { Sonar, Propellor, Launcher }
+    public enum Type { Sonar, Propeller, Torpedo }
     
     [field: SerializeField] public Type PartType { get; private set; }
     [SerializeField, InjectComponent] Rigidbody rb;
