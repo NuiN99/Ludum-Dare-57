@@ -11,6 +11,7 @@ public class PlayerSpearHandling : MonoBehaviour
     [SerializeField] Spear spearPrefab;
     [SerializeField] float explodeForce = 10f; 
     [SerializeField] Vector3 holdOffset;
+    [SerializeField] float respawnYThreshold = -50f;
 
     [SerializeField] FMODSoundPlayer spearHitFleshSound;
     [SerializeField] FMODSoundPlayer spearCritSound;
@@ -101,6 +102,11 @@ public class PlayerSpearHandling : MonoBehaviour
             if (HasSpear)
             {
                 _activeSpear.gameObject.SetActive(player.Interaction.HeldPart == null);
+            }
+
+            if (_activeSpear.transform.position.y < respawnYThreshold)
+            {
+                Retrieve();
             }
         }
         else

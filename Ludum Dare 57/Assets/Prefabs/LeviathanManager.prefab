@@ -156,7 +156,7 @@ MonoBehaviour:
   head: {fileID: 981830376424591066}
   chargeRange: 125
   chargeSpeed: 17.5
-  moveSpeed: 5
+  moveSpeed: 7.5
   chargeDuration: 20
   rotateSpeed: 0.1
   raycastCheckDist: 57.5
