@@ -295,6 +295,30 @@ MonoBehaviour:
     runtimeSet: {fileID: 11400000, guid: f3e4f81763e203d4682889623f86346d, type: 2}
   directionIndicator: {fileID: 4382987495419414591}
   blinkLight: {fileID: 8674961539296329994}
+  clickSound:
+    eventReference:
+      Guid:
+        Data1: -1929130902
+        Data2: 1117345401
+        Data3: -105582200
+        Data4: -893281141
+      Path: event:/SFX/Radar/Radar_Click
+  openSound:
+    eventReference:
+      Guid:
+        Data1: -1579580278
+        Data2: 1159002657
+        Data3: 402140601
+        Data4: 193310944
+      Path: event:/SFX/Radar/Radar_Open
+  closeSound:
+    eventReference:
+      Guid:
+        Data1: 2077641679
+        Data2: 1191503871
+        Data3: 1628755092
+        Data4: -285620903
+      Path: event:/SFX/Radar/Radar_Close
 --- !u!1 &3663370068353747127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,6 +1230,54 @@ MonoBehaviour:
   spearPrefab: {fileID: 6775559261790020615, guid: 4039db02bdf963a46a1ca9e61b04ff38, type: 3}
   explodeForce: 10
   holdOffset: {x: 0, y: 0, z: 0.5}
+  spearHitFleshSound:
+    eventReference:
+      Guid:
+        Data1: -228082616
+        Data2: 1327892957
+        Data3: 1305343923
+        Data4: 2086011427
+      Path: event:/SFX/Combat/Spear_Hit_Flesh
+  spearCritSound:
+    eventReference:
+      Guid:
+        Data1: -2045011274
+        Data2: 1197014345
+        Data3: 1826447766
+        Data4: -1583843523
+      Path: event:/SFX/Combat/Spear_Hit_Crit
+  spearHitGroundSound:
+    eventReference:
+      Guid:
+        Data1: -2030131270
+        Data2: 1320105113
+        Data3: -1887567221
+        Data4: -1062000656
+      Path: event:/SFX/Combat/Spear_Hit_Wall
+  spearPokeSound:
+    eventReference:
+      Guid:
+        Data1: 1940527599
+        Data2: 1139005790
+        Data3: -150357063
+        Data4: 167369387
+      Path: event:/SFX/Combat/Spear_Poke
+  spearThrowSound:
+    eventReference:
+      Guid:
+        Data1: -1965935837
+        Data2: 1238072443
+        Data3: 1474454942
+        Data4: 56480475
+      Path: event:/SFX/Combat/Spear_Throw
+  spearPickupSound:
+    eventReference:
+      Guid:
+        Data1: -454455834
+        Data2: 1241419885
+        Data3: 560457400
+        Data4: 726141347
+      Path: event:/SFX/Actions/Pickup_Trident
 --- !u!114 &7845624747949016037
 MonoBehaviour:
   m_ObjectHideFlags: 0

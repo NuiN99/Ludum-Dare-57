@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
+    public bool IsDamageableCrit => false;
     public EntityType Type => EntityType.Player;
     public Vector3 Position => transform.position;
     public float CurrentHealth { get; private set; }

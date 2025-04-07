@@ -8,6 +8,8 @@ public class EnemyState_AttackLunge : EnemyState
     [SerializeField] float lungeDuration = 1f;
     [SerializeField] float damageRadius = 3f;
     [SerializeField] float lungeSpread = 3f;
+
+    [SerializeField] FMODSoundPlayer biteSound;
     
     public override void Enter(Enemy context)
     {
@@ -38,6 +40,7 @@ public class EnemyState_AttackLunge : EnemyState
             {
                 context.Attacking.CurrentHitTargets.Add(col);
                 damageable.TakeDamage(1, context.transform.forward);
+                biteSound.PlayEventAttached(context.transform);
             }
         }
 

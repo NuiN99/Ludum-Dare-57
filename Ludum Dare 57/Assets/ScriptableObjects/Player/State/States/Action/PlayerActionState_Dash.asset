@@ -12,3 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bebcc3429944ecda813e054228b4559, type: 3}
   m_Name: PlayerActionState_Dash
   m_EditorClassIdentifier: 
+  animationPlayData:
+    <Animation>k__BackingField: 
+    <Priority>k__BackingField: 0
+    <LayerIndex>k__BackingField: 0
+    <CrossFade>k__BackingField: 0
+  dashSound:
+    eventReference:
+      Guid:
+        Data1: -657445392
+        Data2: 1340167003
+        Data3: 691446454
+        Data4: 1604907377
+      Path: event:/SFX/Actions/Dash

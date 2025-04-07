@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{a670e329-a397-4272-a54f-c18bf981ed5f}">
+		<property name="assetPath">
+			<value>Player/LD57_Player_Damage.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.38396825396825396</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{77f1dd70-7b99-486c-9013-d7fb1e288abc}</destination>
+		</relationship>
+	</object>
+</objects>

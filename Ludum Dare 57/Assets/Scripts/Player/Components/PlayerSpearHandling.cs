@@ -12,6 +12,13 @@ public class PlayerSpearHandling : MonoBehaviour
     [SerializeField] float explodeForce = 10f; 
     [SerializeField] Vector3 holdOffset;
 
+    [SerializeField] FMODSoundPlayer spearHitFleshSound;
+    [SerializeField] FMODSoundPlayer spearCritSound;
+    [SerializeField] FMODSoundPlayer spearHitGroundSound;
+    [SerializeField] FMODSoundPlayer spearPokeSound;
+    [SerializeField] FMODSoundPlayer spearThrowSound;
+    [SerializeField] FMODSoundPlayer spearPickupSound;
+    
     Timer _spearPokeDurationTimer;
     Spear _activeSpear;
     Spear.Data _activeSpearData;
@@ -36,6 +43,8 @@ public class PlayerSpearHandling : MonoBehaviour
         _activeSpear.Launch(force, damage, OnHit_Callback);
         
         HasSpear = false;
+
+        spearThrowSound.PlayEventAttached(_activeSpear.transform);
     }
 
     public void Retrieve()
@@ -48,18 +57,38 @@ public class PlayerSpearHandling : MonoBehaviour
         _activeSpear.ToggleOutline(false);
         
         HasSpear = true;
+        
+        spearPickupSound.PlayEvent();
     }
 
     public void Poke()
     {
         _spearPokeDurationTimer.Restart();
+
+        spearPokeSound.PlayEvent();
+
+        bool hitWall = false;
+        Vector3 hitWallPos = Vector3.zero;
         
         RaycastHit[] hits = Physics.SphereCastAll(player.Head.position, player.Stats.SpearPokeRadius, PlayerCamera.Instance.Forward, player.Stats.SpearPokeRange);
         foreach (RaycastHit hit in hits)
         {
-            if (hit.transform == player.transform || !hit.collider.TryGetComponent(out IDamageable damageable)) continue;
-            
+            if (hit.transform == player.transform) continue;
+
+            if (!hit.collider.TryGetComponent(out IDamageable damageable))
+            {
+                hitWall = true;
+                hitWallPos = hit.point;
+                continue;
+            }
+
+            spearHitFleshSound.PlayAtPosition(hit.point);
             damageable?.TakeDamage(player.Stats.SpearPokeDamage, PlayerCamera.Instance.Forward);
+        }
+
+        if (hitWall)
+        {
+            spearHitGroundSound.PlayAtPosition(hitWallPos);
         }
     }
 
@@ -85,16 +114,27 @@ public class PlayerSpearHandling : MonoBehaviour
 
     void OnHit_Callback(Collision collision, int damage)
     {
+        Vector3 hitPoint = collision.GetContact(0).point;
         if (collision.collider.TryGetComponent(out IDamageable damageable))
         {
             _activeSpear.transform.SetParent(collision.transform);
             damageable.TakeDamage(damage, PlayerCamera.Instance.Forward);
+
+            if (damageable.IsDamageableCrit)
+            {
+                spearCritSound.PlayAtPosition(hitPoint);
+            }
+            else
+            {
+                spearHitFleshSound.PlayAtPosition(hitPoint);
+            }
         }
         else
         {
             _activeSpear.ToggleOutline(true);
         }
         
+        spearHitGroundSound.PlayAtPosition(hitPoint);
         _activeSpear.ToggleRotation(false);
         _activeSpear.TogglePhysics(false);
     }

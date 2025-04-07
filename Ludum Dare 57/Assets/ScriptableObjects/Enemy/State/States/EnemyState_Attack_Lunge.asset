@@ -16,3 +16,11 @@ MonoBehaviour:
   lungeDuration: 3
   damageRadius: 3
   lungeSpread: 5
+  biteSound:
+    eventReference:
+      Guid:
+        Data1: -2135996404
+        Data2: 1192167134
+        Data3: -521436542
+        Data4: -1074874200
+      Path: event:/SFX/Fish/Piranha/Piranha_Bite

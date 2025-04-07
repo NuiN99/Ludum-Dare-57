@@ -20,6 +20,11 @@ public class PlayerRadar : MonoBehaviour
 
     [SerializeField] Transform directionIndicator;
     [SerializeField] GameObject blinkLight;
+
+    [Header("Sounds")] 
+    [SerializeField] FMODSoundPlayer clickSound;
+    [SerializeField] FMODSoundPlayer openSound;
+    [SerializeField] FMODSoundPlayer closeSound;
     
     Timer _blinkDurationTimer;
     float _blinkTime;
@@ -28,11 +33,15 @@ public class PlayerRadar : MonoBehaviour
     {
         _blinkDurationTimer.Restart();
         IsOpen = true;
+
+        openSound.PlayEvent();
     }
 
     public void CloseRadar()
     {
         IsOpen = false;
+        
+        closeSound.PlayEvent();
     }
 
     void Awake()
@@ -108,6 +117,8 @@ public class PlayerRadar : MonoBehaviour
             _blinkTime = 0f;
             blinkLight.SetActive(true);
             _blinkDurationTimer.Restart();
+            
+            clickSound.PlayEvent();
         }
     }
 }

@@ -179,6 +179,14 @@ MonoBehaviour:
   deathParticles:
   - {fileID: 5014992052893491101, guid: 58f7db3732c330c42ac2f791bca13339, type: 3}
   deathParticlesSize: 2
+  deathSound:
+    eventReference:
+      Guid:
+        Data1: -1989764084
+        Data2: 1252774955
+        Data3: 1780256646
+        Data4: 1629387590
+      Path: event:/SFX/Fish/Fish_Explode
 --- !u!114 &5691676349800306169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f77fa578e9b799b4e806b4f6c536e85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <SignalStrength>k__BackingField: 0.5
+  <OverrideRadar>k__BackingField: 0
 --- !u!114 &8737525140570916694
 MonoBehaviour:
   m_ObjectHideFlags: 0

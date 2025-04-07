@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
+    public bool IsDamageableCrit => false;
     [field: SerializeField] public EntityType Type { get; private set; }
     public bool IsStunned { get; private set; }
     public int CurHealth { get; private set; }
@@ -14,6 +15,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [SerializeField] float stunDuration = 0.75f;
     [SerializeField] List<ParticleSystem> deathParticles;
     [SerializeField] float deathParticlesSize;
+
+    [SerializeField] FMODSoundPlayer deathSound;
 
     void Start()
     {
@@ -36,6 +39,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void Die()
     {
         ParticleSpawner.SpawnAll(deathParticles, transform.position, Random.rotation, scaleMultiplier: deathParticlesSize);
+        deathSound.PlayAtPosition(transform.position);
         Destroy(enemy.gameObject);
     }
 }

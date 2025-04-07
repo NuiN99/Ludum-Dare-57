@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{3ea3061d-49e9-46b4-a409-24c50b4460bb}">
+		<property name="assetPath">
+			<value>Dash/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{77f1dd70-7b99-486c-9013-d7fb1e288abc}</destination>
+		</relationship>
+	</object>
+</objects>

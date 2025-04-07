@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{3861a0a6-7b88-4362-bca9-5cceb4e31c93}">
+		<property name="assetPath">
+			<value>Trident/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{77f1dd70-7b99-486c-9013-d7fb1e288abc}</destination>
+		</relationship>
+	</object>
+</objects>
