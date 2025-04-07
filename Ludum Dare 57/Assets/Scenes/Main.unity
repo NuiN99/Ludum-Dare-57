@@ -660,8 +660,8 @@ MonoBehaviour:
       Data4: -1131452413
     Path: event:/SFX/Ambience/Breath
   Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
@@ -1270,8 +1270,8 @@ MonoBehaviour:
       Data4: -141817515
     Path: event:/SFX/Ambience/Ambience
   Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
@@ -1364,6 +1364,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1216210292}
+  - component: {fileID: 1216210293}
   m_Layer: 0
   m_Name: Sounds_Ambience
   m_TagString: Untagged
@@ -1386,8 +1387,23 @@ Transform:
   m_Children:
   - {fileID: 1088020878}
   - {fileID: 592356526}
+  - {fileID: 1534515046}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1216210293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216210291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207ca2172487ece4fb4cc6b11fcc151a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breathingSound: {fileID: 592356525}
+  leviathanMusic: {fileID: 1534515045}
 --- !u!1 &1263619476
 GameObject:
   m_ObjectHideFlags: 0
@@ -2166,6 +2182,69 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ff896615b6c52748a1ab098ee440c45, type: 3}
+--- !u!1 &1534515045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1534515046}
+  - component: {fileID: 1534515047}
+  m_Layer: 0
+  m_Name: SoundPlayer_LeviathanMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1534515046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534515045}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1216210292}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1534515047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534515045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 596189488
+      Data2: 1234664100
+      Data3: -1450006653
+      Data4: -1517556147
+    Path: event:/Music/Music_Leviathan_Fight
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1647042235
 GameObject:
   m_ObjectHideFlags: 0
