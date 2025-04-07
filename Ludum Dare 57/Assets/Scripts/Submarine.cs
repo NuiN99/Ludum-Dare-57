@@ -14,6 +14,8 @@ public class Submarine : MonoBehaviour, IDamageable
     [SerializeField] GameObject[] repairedVisuals;
     [SerializeField] PilotableSubmarine pilotableSubmarine;
     
+    [SerializeField] FMODSoundPlayer repairedPartSound;
+    
     bool _isRepaired;
 
     void Awake()
@@ -42,6 +44,8 @@ public class Submarine : MonoBehaviour, IDamageable
 
     public void RepairPart(RepairableSubmarinePart part)
     {
+        repairedPartSound.PlayAtPosition(part.transform.position);
+        
         repairableParts.Remove(part);
      
         if (repairableParts.Count <= 0)
@@ -74,5 +78,6 @@ public class Submarine : MonoBehaviour, IDamageable
     void IDamageable.TakeDamage(int damage, Vector3 direction)
     {
         Debug.LogError("Sub took damage:" + damage);
+        GameEvents.InvokePlayerDied();
     }
 }

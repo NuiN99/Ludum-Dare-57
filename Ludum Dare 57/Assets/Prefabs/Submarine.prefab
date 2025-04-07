@@ -427,6 +427,14 @@ MonoBehaviour:
   - {fileID: 621337673689417115}
   - {fileID: 2613047264438221052}
   pilotableSubmarine: {fileID: 6597316563771289301}
+  repairedPartSound:
+    eventReference:
+      Guid:
+        Data1: 1048419339
+        Data2: 1162887088
+        Data3: 323602843
+        Data4: -447312774
+      Path: event:/SFX/Submarine/Sub_Part_Placed
 --- !u!114 &6597316563771289301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +470,38 @@ MonoBehaviour:
         Data3: 691446454
         Data4: 1604907377
       Path: event:/SFX/Actions/Dash
+  torpedoShootSound:
+    eventReference:
+      Guid:
+        Data1: 302915629
+        Data2: 1276388304
+        Data3: -537879140
+        Data4: -1598597919
+      Path: event:/SFX/Submarine/Sub_Shoot
+  torpedoExplodeSound:
+    eventReference:
+      Guid:
+        Data1: 1974585640
+        Data2: 1195798917
+        Data3: -575515255
+        Data4: 1384745960
+      Path: event:/SFX/Submarine/Sub_Torpedo_Explode
+  idleSound:
+    eventReference:
+      Guid:
+        Data1: -842003239
+        Data2: 1205642980
+        Data3: -1157545044
+        Data4: -231439597
+      Path: event:/SFX/Submarine/Sub_Idle
+  repairedSound:
+    eventReference:
+      Guid:
+        Data1: -655563654
+        Data2: 1220556905
+        Data3: -1295351648
+        Data4: -2076294581
+      Path: event:/SFX/Submarine/Sub_Fully_Repaired
 --- !u!136 &4438854561857878999
 CapsuleCollider:
   m_ObjectHideFlags: 0

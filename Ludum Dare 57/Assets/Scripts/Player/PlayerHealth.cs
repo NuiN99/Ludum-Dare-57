@@ -57,6 +57,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         Debug.Log("Player died");
         IsDead = true;
+        GameEvents.InvokePlayerDied();
     }
 
     void Update()

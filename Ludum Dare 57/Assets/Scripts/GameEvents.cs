@@ -16,4 +16,7 @@ public static class GameEvents
     
     public static event Action OnPlayerEnterSubmarine = delegate { };
     public static void InvokePlayerEnterSubmarine() => OnPlayerEnterSubmarine.Invoke();
+    
+    public static event Action OnPlayerDied = delegate { };
+    public static void InvokePlayerDied() => OnPlayerDied.Invoke();
 }

@@ -27,6 +27,11 @@ public class PilotableSubmarine : MonoBehaviour, IInteractable
     [SerializeField] int torpedoDamage = 5;
     
     [SerializeField] FMODSoundPlayer dashSound;
+    [SerializeField] FMODSoundPlayer torpedoShootSound;
+    [SerializeField] FMODSoundPlayer torpedoExplodeSound;
+    
+    [SerializeField] FMODSoundPlayer idleSound;
+    [SerializeField] FMODSoundPlayer repairedSound;
     
     bool _isActive;
     
@@ -54,6 +59,8 @@ public class PilotableSubmarine : MonoBehaviour, IInteractable
 
     public void SetRepaired()
     {
+        idleSound.PlayEventAttached(pilotTransform);
+        repairedSound.PlayEventAttached(pilotTransform);
         col.enabled = true;
     }
 
@@ -150,6 +157,8 @@ public class PilotableSubmarine : MonoBehaviour, IInteractable
             return;
         }
 
+        torpedoShootSound.PlayEvent();
+
         Vector3 forceVector = shootPos.forward * shootForce;
         Quaternion rot = Quaternion.LookRotation(forceVector);
         Projectile torpedo = Instantiate(torpedoPrefab, shootPos.position, rot);
@@ -164,6 +173,8 @@ public class PilotableSubmarine : MonoBehaviour, IInteractable
     {
         Vector3 hitPoint = collision.GetContact(0).point;
         ParticleSpawner.Spawn(torpedoExplosion, hitPoint, Random.rotation);
+        
+        torpedoExplodeSound.PlayAtPosition(hitPoint);
 
         Collider[] hits = Physics.OverlapSphere(hitPoint, torpedoExplodeRadius);
 
