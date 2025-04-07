@@ -6,6 +6,7 @@ public class GameStateManager : MonoBehaviour
     public static GameStateManager Instance { get; private set; }
     public bool HasCollectedFirstPart { get; private set; }
     public bool LeviathanIsActive { get; private set; }
+    public bool HasRepairedSubmarine { get; private set; }
 
     // ReSharper disable once CollectionNeverQueried.Local
     List<Part.Type> _collectedParts = new();
@@ -31,6 +32,8 @@ public class GameStateManager : MonoBehaviour
     {
         HasCollectedFirstPart = true;
         _collectedParts.Add(type);
+        
+        if(_collectedParts.Count >= 2) HasRepairedSubmarine = true;
     }
 
     void OnLeviathanActiveStateChanged(bool isActive)

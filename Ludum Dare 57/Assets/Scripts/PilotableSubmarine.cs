@@ -85,6 +85,8 @@ public class PilotableSubmarine : MonoBehaviour, IInteractable
         
         Move();
         Rotate();
+
+        Player.Instance.transform.position = pilotTransform.position;
     }
 
     void Move()

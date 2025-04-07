@@ -37,7 +37,7 @@ public class PiranhaSpawner : MonoBehaviour
 
     void Update()
     {
-        if (_isInitiallyDelayed || GameStateManager.Instance.LeviathanIsActive)
+        if (_isInitiallyDelayed || GameStateManager.Instance.LeviathanIsActive || GameStateManager.Instance.HasRepairedSubmarine)
         {
             return;
         }

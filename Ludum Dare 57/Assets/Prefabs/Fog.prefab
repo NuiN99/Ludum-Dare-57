@@ -85,7 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
     albedo: {r: 0, g: 0.028301895, b: 0.022883696, a: 1}
-    meanFreePath: 20
+    meanFreePath: 40
     blendingMode: 1
     priority: 0
     anisotropy: 0

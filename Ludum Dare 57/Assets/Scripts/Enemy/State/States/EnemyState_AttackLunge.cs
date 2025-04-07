@@ -8,9 +8,12 @@ public class EnemyState_AttackLunge : EnemyState
     [SerializeField] float lungeDuration = 1f;
     [SerializeField] float damageRadius = 3f;
     [SerializeField] float lungeSpread = 3f;
+    [SerializeField] int damage = 1;
+
+    [SerializeField] Vector3 damageOffset;
 
     [SerializeField] FMODSoundPlayer biteSound;
-    
+
     public override void Enter(Enemy context)
     {
         base.Enter(context);
@@ -20,8 +23,6 @@ public class EnemyState_AttackLunge : EnemyState
         Vector3 generalTargetPos = context.Targeting.Target.Position + Random.insideUnitSphere * lungeSpread;
         Vector3 dir = VectorUtils.Direction(context.transform.position, generalTargetPos);
         
-        context.transform.rotation = Quaternion.LookRotation(dir);
-        
         context.Attacking.SetAttackDir(dir);
         
         context.Attacking.CurrentHitTargets.Clear();
@@ -30,7 +31,7 @@ public class EnemyState_AttackLunge : EnemyState
     public override void FrameUpdate(Enemy context)
     {
         base.FrameUpdate(context);
-        Collider[] colliders = Physics.OverlapSphere(context.transform.position, damageRadius);
+        Collider[] colliders = Physics.OverlapSphere(context.transform.TransformPoint(damageOffset), damageRadius);
 
         foreach (Collider col in colliders)
         {
@@ -38,20 +39,19 @@ public class EnemyState_AttackLunge : EnemyState
             if (col.TryGetComponent(out IDamageable damageable) && context.Targeting.IsValidTarget(damageable))
             {
                 context.Attacking.CurrentHitTargets.Add(col);
-                damageable.TakeDamage(1, context.transform.forward);
+                damageable.TakeDamage(damage, context.transform.forward);
                 biteSound.PlayEventAttached(context.transform);
             }
         }
 
-        context.transform.rotation = Quaternion.Slerp(context.transform.rotation, Quaternion.LookRotation(context.RB.linearVelocity), 10f * Time.deltaTime);
+        context.transform.rotation = Quaternion.Slerp(context.transform.rotation, Quaternion.LookRotation(context.Attacking.AttackDir), 10f * Time.deltaTime);
     }
 
     public override void PhysicsUpdate(Enemy context)
     {
         base.PhysicsUpdate(context);
 
-        Vector3 targetDir = VectorUtils.Direction(context.transform.position, context.Targeting.Target.Position);
-        context.RB.AddForce((context.Attacking.AttackDir + targetDir).normalized  * lungeSpeed, ForceMode.Acceleration);;
+        context.RB.linearVelocity = context.Attacking.AttackDir * lungeSpeed;
     }
 
     public override void Exit(Enemy context)
@@ -66,6 +66,6 @@ public class EnemyState_AttackLunge : EnemyState
         base.DrawGizmos(context);
 
         Gizmos.color = Color.red.WithAlpha(0.1f);
-        Gizmos.DrawSphere(context.transform.position, damageRadius);
+        Gizmos.DrawSphere(context.transform.TransformPoint(damageOffset), damageRadius);
     }
 }

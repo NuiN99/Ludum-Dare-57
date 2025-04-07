@@ -4,7 +4,9 @@ using UnityEngine;
 public class LeviathanManager : MonoBehaviour
 {
     [SerializeField] Leviathan leviathan;
-
+    [SerializeField] Enemy leviathanAIVersion;
+    
+    
     [SerializeField] float minSpawnInterval;
     [SerializeField] float maxSpawnInterval;
     [SerializeField] float spawnDistance;
@@ -20,7 +22,25 @@ public class LeviathanManager : MonoBehaviour
 
     void Start()
     {
+        leviathanAIVersion.gameObject.SetActive(false);
         DespawnLeviathan();
+    }
+
+    void OnEnable()
+    {
+        GameEvents.OnPlayerEnterSubmarine += ChangeStateToAILeviathan;
+    }
+
+    void OnDisable()
+    {
+        GameEvents.OnPlayerEnterSubmarine -= ChangeStateToAILeviathan;
+    }
+
+    void ChangeStateToAILeviathan()
+    {
+        DespawnLeviathan();
+        _spawnIntervalTimer = new TimerRandom(float.MaxValue, float.MaxValue);
+        leviathanAIVersion.gameObject.SetActive(true);
     }
 
     void Update()

@@ -9,6 +9,7 @@ public class EnemyTargeting : MonoBehaviour
     [SerializeField] float searchRadius = 10f;
     [SerializeField] float searchInterval;
     [SerializeField] List<EntityType> validTargets;
+    [SerializeField] LayerMask detectMask;
 
     Timer _searchIntervalTimer;
 
@@ -21,7 +22,7 @@ public class EnemyTargeting : MonoBehaviour
     {
         if (!_searchIntervalTimer.IsComplete) return;
         
-        Collider[] colliders = Physics.OverlapSphere(transform.position, searchRadius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, searchRadius, detectMask);
 
         if (colliders.Length <= 0) return;
 

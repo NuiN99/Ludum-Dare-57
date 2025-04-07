@@ -2,8 +2,13 @@ using System.Collections.Generic;
 using Modules.Rendering.Outline;
 using UnityEngine;
 
-public class Submarine : MonoBehaviour
+public class Submarine : MonoBehaviour, IDamageable
 {
+    public bool IsDead { get; set; }
+    public bool IsDamageableCrit => false;
+    public EntityType Type => EntityType.Player;
+    public Vector3 Position => transform.position;
+    
     [SerializeField] List<RepairableSubmarinePart> repairableParts;
     [SerializeField] OutlineComponent[] outlines;
     [SerializeField] GameObject[] repairedVisuals;
@@ -65,5 +70,9 @@ public class Submarine : MonoBehaviour
         {
             outline.enabled = isOn;
         }
+    }
+    void IDamageable.TakeDamage(int damage, Vector3 direction)
+    {
+        Debug.LogError("Sub took damage:" + damage);
     }
 }

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3c596c10c34e9eb63da5df06787cc0, type: 3}
   m_Name: EnemyState_Attack_Lunge
   m_EditorClassIdentifier: 
-  lungeSpeed: 15
-  lungeDuration: 3
+  lungeSpeed: 11
+  lungeDuration: 2
   damageRadius: 1
-  lungeSpread: 5
+  lungeSpread: 4
   biteSound:
     eventReference:
       Guid:

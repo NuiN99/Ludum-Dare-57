@@ -10,7 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83d6c97b4bfc26c458c8d079993864d5, type: 3}
-  m_Name: EnemyState_Stunned
+  m_Name: EnemyState_Stunned_Leviathan
   m_EditorClassIdentifier: 
   rotForce: 5
-  affectRotation: 1
