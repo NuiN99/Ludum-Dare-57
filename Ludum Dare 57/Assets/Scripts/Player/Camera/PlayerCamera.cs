@@ -76,6 +76,16 @@ public class PlayerCamera : MonoBehaviour
         OnPlayerCameraStart.Invoke();
     }
 
+    void Update()
+    {
+        if (!_disableRotation)
+        {
+            _angleX -= InputManager.RotateInput.y * cameraSpeedY;
+            _angleX = Mathf.Clamp(_angleX, minLookAngle, maxLookAngle);
+            _angleY += (InputManager.RotateInput.x * cameraSpeedX);
+        }
+    }
+
     void FixedUpdate()
     {
         RotateCamera();
@@ -95,13 +105,6 @@ public class PlayerCamera : MonoBehaviour
 
     void RotateCamera()
     {
-        if (!_disableRotation)
-        {
-            _angleX -= InputManager.RotateInput.y * cameraSpeedY;
-            _angleX = Mathf.Clamp(_angleX, minLookAngle, maxLookAngle);
-            _angleY += (InputManager.RotateInput.x * cameraSpeedX);
-        }
-
         //look
         Vector3 rotation = new Vector3(_angleX, 0, 0);
         Quaternion targetRotation = Quaternion.Euler(rotation);
