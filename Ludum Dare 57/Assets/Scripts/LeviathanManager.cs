@@ -46,7 +46,7 @@ public class LeviathanManager : MonoBehaviour
         leviathan.gameObject.SetActive(true);
 
         Vector3 randSphere = Random.insideUnitSphere;
-        Vector3 spawnOffset = randSphere.With(y: Mathf.Abs(randSphere.y * 0.25f)).normalized * spawnDistance;
+        Vector3 spawnOffset = randSphere.With(y: Mathf.Abs(randSphere.y)).normalized * spawnDistance;
         leviathan.transform.position = Player.Instance.transform.position + spawnOffset;
         
         GameEvents.InvokeLeviathanActiveStateChanged(true);
