@@ -5,9 +5,9 @@ public class RepairableSubmarinePart : MonoBehaviour, IInteractable
     [SerializeField] Part.Type requiredPart;
     [SerializeField] GameObject repairedVisual;
     [SerializeField] ParticleSystem brokenParticles;
-
+    [SerializeField] Collider col;
+    
     Submarine _submarine;
-    bool _isRepaired = false;
     
     void Start()
     {
@@ -21,14 +21,13 @@ public class RepairableSubmarinePart : MonoBehaviour, IInteractable
     
     public void Interact(Player player)
     {
-        if (_isRepaired) return;
-        
         if(player.Interaction.HeldPart == null || player.Interaction.HeldPart.PartType != requiredPart) return;
+
+        col.enabled = false;
         
         player.Interaction.DestroyHeldPart();
         
         _submarine.RepairPart(this);
-        _isRepaired = true;
         repairedVisual.SetActive(true);
         brokenParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
