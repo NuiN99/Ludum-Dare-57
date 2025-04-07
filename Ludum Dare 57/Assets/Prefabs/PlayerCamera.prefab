@@ -89,7 +89,7 @@ MonoBehaviour:
   cameraSpeedY: 0.25
   minLookAngle: -89
   maxLookAngle: 89
-  shakeDistanceMax: 0
+  shakeDistanceMax: 25
   shakeDistanceEase: 6
   followTarget: {fileID: 0}
 --- !u!1 &2957788519992951830

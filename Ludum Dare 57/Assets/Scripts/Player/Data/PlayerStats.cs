@@ -21,5 +21,9 @@ public class PlayerStats : ScriptableObject
     [field: Header("Interaction")]
     [field: SerializeField] public float InteractRange { get; private set; } = 2.5f;
     [field: SerializeField] public float InteractRadius { get; private set; } = 1f;
-
+    
+    [field: Header("Health")]
+    [field: SerializeField] public int MaxHealth { get; private set; } = 3;
+    [field: SerializeField] public int RechargeHealthDuration { get; private set; } = 10;
+    [field: SerializeField] public float HitInvicibilityDuration { get; private set; } = 0.5f; 
 }

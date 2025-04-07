@@ -3,13 +3,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public bool IsDead { get; private set; }
-
     [field: SerializeField] public PlayerStats Stats { get; private set; }
     [field: SerializeField, InjectComponent] public PlayerSpearHandling SpearHandling { get; private set; }
     [field: SerializeField, InjectComponent] public PlayerMovement Movement { get; private set; }
     [field: SerializeField, InjectComponent] public PlayerInteraction Interaction { get; private set; }
     [field: SerializeField, InjectComponent] public PlayerRadar Radar { get; private set; }
+    [field: SerializeField, InjectComponent] public PlayerHealth Health { get; private set; }
     [field: SerializeField] public Transform Head { get; private set; }
     [field: SerializeField] public Transform Hand { get; private set; }
     [field: SerializeField, InjectComponent] public Collider Col { get; private set; }
