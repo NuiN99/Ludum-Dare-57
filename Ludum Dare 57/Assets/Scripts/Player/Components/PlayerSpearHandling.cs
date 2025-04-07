@@ -13,8 +13,6 @@ public class PlayerSpearHandling : MonoBehaviour
     [SerializeField] Vector3 holdOffset;
 
     Timer _spearPokeDurationTimer;
-
-
     Spear _activeSpear;
     Spear.Data _activeSpearData;
 
@@ -70,6 +68,11 @@ public class PlayerSpearHandling : MonoBehaviour
         if (_activeSpear != null)
         {
             _activeSpearData = new Spear.Data(_activeSpear.transform.position, _activeSpear.transform.rotation, _activeSpear.RB.linearVelocity);
+
+            if (HasSpear)
+            {
+                _activeSpear.gameObject.SetActive(player.Interaction.HeldPart == null);
+            }
         }
         else
         {

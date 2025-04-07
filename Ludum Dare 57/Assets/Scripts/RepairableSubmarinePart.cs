@@ -1,3 +1,4 @@
+using NuiN.SpleenTween;
 using UnityEngine;
 
 public class RepairableSubmarinePart : MonoBehaviour, IInteractable
@@ -29,6 +30,7 @@ public class RepairableSubmarinePart : MonoBehaviour, IInteractable
         
         _submarine.RepairPart(this);
         repairedVisual.SetActive(true);
+        SpleenTween.Scale(repairedVisual.transform, Vector3.zero, repairedVisual.transform.localScale, 0.25f).SetEase(Ease.OutElastic);
         brokenParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
 }
