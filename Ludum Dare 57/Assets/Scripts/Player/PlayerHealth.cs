@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public EntityType Type => EntityType.Player;
     public Vector3 Position => transform.position;
     public float CurrentHealth { get; private set; }
-    public bool IsDead { get; private set; }
+    public bool IsDead { get; set; }
     
     [SerializeField] int maxHealth;
     [SerializeField] Player player;

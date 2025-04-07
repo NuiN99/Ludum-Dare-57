@@ -6,7 +6,6 @@ public class EnemyState_Idle : EnemyState
     public override void Enter(Enemy context)
     {
         base.Enter(context);
-        Debug.Log($"Enemy {context.name}: Idle");
     }
 
     public override void Exit(Enemy context)

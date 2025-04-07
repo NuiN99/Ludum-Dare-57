@@ -13,6 +13,8 @@ public class EnemyStateCondition_Flag : Condition<Enemy>
         IsRecovering,
         IsChargingAttack,
         IsDead,
+        IsFleeing,
+        HealthIsBelowHalf,
     }
 
     [SerializeField] FlagType flag;
@@ -28,6 +30,8 @@ public class EnemyStateCondition_Flag : Condition<Enemy>
             FlagType.IsRecovering => !context.Attacking.RecoveryTimer.IsComplete,
             FlagType.IsChargingAttack => !context.Attacking.AttackChargeTimer.IsComplete,
             FlagType.IsDead => context.Health.CurHealth <= 0,
+            FlagType.IsFleeing => !context.Attacking.FleeTimer.IsComplete,
+            FlagType.HealthIsBelowHalf => context.Health.CurHealth <= context.Health.MaxHealth / 2,
             _ => false
         };
     }

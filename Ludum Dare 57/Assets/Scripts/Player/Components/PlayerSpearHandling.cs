@@ -131,30 +131,37 @@ public class PlayerSpearHandling : MonoBehaviour
 
     void OnHit_Callback(Collision collision, int damage)
     {
+        bool bouncedOffEnemy = false;
+        
         Vector3 hitPoint = collision.GetContact(0).point;
         if (collision.collider.TryGetComponent(out IDamageable damageable))
         {
-            _activeSpear.transform.SetParent(collision.transform);
             damageable.TakeDamage(damage, PlayerCamera.Instance.Forward);
             ParticleSpawner.Spawn(hitEnemyParticles, hitPoint, Random.rotation);
 
-            if (damageable.IsDamageableCrit)
-            {
-                spearCritSound.PlayAtPosition(hitPoint);
-            }
+            if (damageable.IsDead) _activeSpear.transform.SetParent(collision.transform);
             else
             {
-                spearHitFleshSound.PlayAtPosition(hitPoint);
+                _activeSpear.RB.linearVelocity = Vector3.zero;
+                _activeSpear.RB.AddForce(-_activeSpear.transform.forward * explodeForce * 0.5f, ForceMode.VelocityChange);
+                _activeSpear.ToggleOutline(true);
+                bouncedOffEnemy = true;
             }
+            
+            if (damageable.IsDamageableCrit) spearCritSound.PlayAtPosition(hitPoint);
+            else spearHitFleshSound.PlayAtPosition(hitPoint);
         }
         else
         {
             _activeSpear.ToggleOutline(true);
+            spearHitGroundSound.PlayAtPosition(hitPoint);
         }
-        
-        spearHitGroundSound.PlayAtPosition(hitPoint);
+
         _activeSpear.ToggleRotation(false);
-        _activeSpear.TogglePhysics(false);
+        if (!bouncedOffEnemy)
+        {
+            _activeSpear.TogglePhysics(false);
+        }
     }
     
     void OnDrawGizmos()

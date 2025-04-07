@@ -9,7 +9,6 @@ public class EnemyState_Recover : EnemyState
     public override void Enter(Enemy context)
     {
         base.Enter(context);
-        Debug.Log($"Enemy {context.name}: Recover");
         context.Attacking.RecoveryTimer.Restart();
     }
 

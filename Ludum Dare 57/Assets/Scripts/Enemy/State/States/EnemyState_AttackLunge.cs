@@ -14,7 +14,6 @@ public class EnemyState_AttackLunge : EnemyState
     public override void Enter(Enemy context)
     {
         base.Enter(context);
-        Debug.Log($"Enemy {context.name}: AttackLunge");
         
         context.Attacking.RestartAttackTimer(lungeDuration);
         
@@ -44,7 +43,7 @@ public class EnemyState_AttackLunge : EnemyState
             }
         }
 
-        context.transform.rotation = Quaternion.LookRotation(context.RB.linearVelocity);
+        context.transform.rotation = Quaternion.Slerp(context.transform.rotation, Quaternion.LookRotation(context.RB.linearVelocity), 10f * Time.deltaTime);
     }
 
     public override void PhysicsUpdate(Enemy context)

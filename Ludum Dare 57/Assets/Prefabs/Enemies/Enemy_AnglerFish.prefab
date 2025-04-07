@@ -38,7 +38,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.97, y: 10.7, z: -13.71}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5969392, y: 1.5955521, z: 2.8308}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -174,8 +174,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 1
   enemy: {fileID: 7100735804355498878}
-  maxHealth: 3
-  stunDuration: 0.75
+  maxHealth: 12
+  stunDuration: 0.25
+  dieDuration: 1.5
   deathParticles:
   - {fileID: 5014992052893491101, guid: 58f7db3732c330c42ac2f791bca13339, type: 3}
   deathParticlesSize: 2
@@ -216,8 +217,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 7100735804355498878}
   attackRange: 15
-  recoveryDuration: 1
-  attackChargeDuration: 1
+  recoveryDuration: 3
+  attackChargeDuration: 0.25
+  fleeDuration: 5
 --- !u!114 &4931090635376508071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +244,13 @@ MonoBehaviour:
         <Value>k__BackingField: 0
       - <Condition>k__BackingField: {fileID: 11400000, guid: 0d3df7005c558e34299ac483e725cbc5, type: 2}
         <Value>k__BackingField: 1
+    - <TargetState>k__BackingField: {fileID: 11400000, guid: 27d7f564b3febfc468ef43120f971b89, type: 2}
+      <Evalutation>k__BackingField: 0
+      <Conditions>k__BackingField:
+      - <Condition>k__BackingField: {fileID: 11400000, guid: 0d3df7005c558e34299ac483e725cbc5, type: 2}
+        <Value>k__BackingField: 1
+      - <Condition>k__BackingField: {fileID: 11400000, guid: 0ebb3ea0a33d3ac49a07359ece0ae671, type: 2}
+        <Value>k__BackingField: 0
     - <TargetState>k__BackingField: {fileID: 11400000, guid: 98b181fd757b2784eb2c191190a14650, type: 2}
       <Evalutation>k__BackingField: 0
       <Conditions>k__BackingField:
@@ -254,12 +263,12 @@ MonoBehaviour:
       <Conditions>k__BackingField:
       - <Condition>k__BackingField: {fileID: 11400000, guid: 0d3df7005c558e34299ac483e725cbc5, type: 2}
         <Value>k__BackingField: 0
-    - <TargetState>k__BackingField: {fileID: 11400000, guid: ae4de842c15c7fe45b8ecbd7cbaf7d72, type: 2}
+    - <TargetState>k__BackingField: {fileID: 11400000, guid: 35b0487d568ff58468fd81ac092be0d9, type: 2}
       <Evalutation>k__BackingField: 0
       <Conditions>k__BackingField:
       - <Condition>k__BackingField: {fileID: 11400000, guid: 73bdc73e642c651499a9155e83b5e780, type: 2}
         <Value>k__BackingField: 0
-  - <State>k__BackingField: {fileID: 11400000, guid: ae4de842c15c7fe45b8ecbd7cbaf7d72, type: 2}
+  - <State>k__BackingField: {fileID: 11400000, guid: 35b0487d568ff58468fd81ac092be0d9, type: 2}
     <Transitions>k__BackingField:
     - <TargetState>k__BackingField: {fileID: 11400000, guid: 59cbea6cf7c7c3847b9e38c217886a48, type: 2}
       <Evalutation>k__BackingField: 0
@@ -278,7 +287,7 @@ MonoBehaviour:
       <Conditions>k__BackingField:
       - <Condition>k__BackingField: {fileID: 11400000, guid: 0d3df7005c558e34299ac483e725cbc5, type: 2}
         <Value>k__BackingField: 0
-    - <TargetState>k__BackingField: {fileID: 11400000, guid: 641879ab09189e342b048daf97905d40, type: 2}
+    - <TargetState>k__BackingField: {fileID: 11400000, guid: 348aee162ea0630479756d0f86637c07, type: 2}
       <Evalutation>k__BackingField: 0
       <Conditions>k__BackingField:
       - <Condition>k__BackingField: {fileID: 11400000, guid: d812537032d7df8478c097fcc299b412, type: 2}
@@ -290,7 +299,31 @@ MonoBehaviour:
       <Conditions>k__BackingField:
       - <Condition>k__BackingField: {fileID: 11400000, guid: 73bdc73e642c651499a9155e83b5e780, type: 2}
         <Value>k__BackingField: 1
-  - <State>k__BackingField: {fileID: 11400000, guid: 641879ab09189e342b048daf97905d40, type: 2}
+  - <State>k__BackingField: {fileID: 11400000, guid: 348aee162ea0630479756d0f86637c07, type: 2}
+    <Transitions>k__BackingField:
+    - <TargetState>k__BackingField: {fileID: 11400000, guid: 59cbea6cf7c7c3847b9e38c217886a48, type: 2}
+      <Evalutation>k__BackingField: 0
+      <Conditions>k__BackingField:
+      - <Condition>k__BackingField: {fileID: 11400000, guid: 0d3df7005c558e34299ac483e725cbc5, type: 2}
+        <Value>k__BackingField: 0
+    - <TargetState>k__BackingField: {fileID: 11400000, guid: cb888264185b00242a188cccf577d5b2, type: 2}
+      <Evalutation>k__BackingField: 0
+      <Conditions>k__BackingField:
+      - <Condition>k__BackingField: {fileID: 11400000, guid: 754cfdf48f377ac4b8695f97155b23d2, type: 2}
+        <Value>k__BackingField: 1
+  - <State>k__BackingField: {fileID: 11400000, guid: cb888264185b00242a188cccf577d5b2, type: 2}
+    <Transitions>k__BackingField:
+    - <TargetState>k__BackingField: {fileID: 11400000, guid: 59cbea6cf7c7c3847b9e38c217886a48, type: 2}
+      <Evalutation>k__BackingField: 0
+      <Conditions>k__BackingField:
+      - <Condition>k__BackingField: {fileID: 11400000, guid: 0d3df7005c558e34299ac483e725cbc5, type: 2}
+        <Value>k__BackingField: 0
+    - <TargetState>k__BackingField: {fileID: 11400000, guid: d80b14b46675cfa4c91371f6524cdd26, type: 2}
+      <Evalutation>k__BackingField: 0
+      <Conditions>k__BackingField:
+      - <Condition>k__BackingField: {fileID: 11400000, guid: 754cfdf48f377ac4b8695f97155b23d2, type: 2}
+        <Value>k__BackingField: 1
+  - <State>k__BackingField: {fileID: 11400000, guid: d80b14b46675cfa4c91371f6524cdd26, type: 2}
     <Transitions>k__BackingField:
     - <TargetState>k__BackingField: {fileID: 11400000, guid: 59cbea6cf7c7c3847b9e38c217886a48, type: 2}
       <Evalutation>k__BackingField: 0
@@ -309,7 +342,7 @@ MonoBehaviour:
       <Conditions>k__BackingField:
       - <Condition>k__BackingField: {fileID: 11400000, guid: 0d3df7005c558e34299ac483e725cbc5, type: 2}
         <Value>k__BackingField: 0
-    - <TargetState>k__BackingField: {fileID: 11400000, guid: ae4de842c15c7fe45b8ecbd7cbaf7d72, type: 2}
+    - <TargetState>k__BackingField: {fileID: 11400000, guid: 35b0487d568ff58468fd81ac092be0d9, type: 2}
       <Evalutation>k__BackingField: 0
       <Conditions>k__BackingField:
       - <Condition>k__BackingField: {fileID: 11400000, guid: 7046d046416f76e46b89c40d0d7f9c3b, type: 2}
@@ -322,6 +355,18 @@ MonoBehaviour:
       - <Condition>k__BackingField: {fileID: 11400000, guid: 7046d046416f76e46b89c40d0d7f9c3b, type: 2}
         <Value>k__BackingField: 1
       - <Condition>k__BackingField: {fileID: 11400000, guid: 73bdc73e642c651499a9155e83b5e780, type: 2}
+        <Value>k__BackingField: 1
+  - <State>k__BackingField: {fileID: 11400000, guid: 27d7f564b3febfc468ef43120f971b89, type: 2}
+    <Transitions>k__BackingField:
+    - <TargetState>k__BackingField: {fileID: 11400000, guid: 59cbea6cf7c7c3847b9e38c217886a48, type: 2}
+      <Evalutation>k__BackingField: 0
+      <Conditions>k__BackingField:
+      - <Condition>k__BackingField: {fileID: 11400000, guid: 0d3df7005c558e34299ac483e725cbc5, type: 2}
+        <Value>k__BackingField: 0
+    - <TargetState>k__BackingField: {fileID: 11400000, guid: 98b181fd757b2784eb2c191190a14650, type: 2}
+      <Evalutation>k__BackingField: 0
+      <Conditions>k__BackingField:
+      - <Condition>k__BackingField: {fileID: 11400000, guid: eab5b987d62a0b449a646c4f5a60dcb0, type: 2}
         <Value>k__BackingField: 1
   extraStateTransitions: []
   enemy: {fileID: 7100735804355498878}

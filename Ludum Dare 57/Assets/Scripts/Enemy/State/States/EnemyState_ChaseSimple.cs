@@ -9,7 +9,6 @@ public class EnemyState_ChaseSimple : EnemyState
     public override void Enter(Enemy context)
     {
         base.Enter(context);
-        Debug.Log($"Enemy {context.name}: ChaseSimple");
     }
 
     public override void PhysicsUpdate(Enemy context)
