@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lungeSpeed: 15
   lungeDuration: 3
-  damageRadius: 3
+  damageRadius: 1
   lungeSpread: 5
   biteSound:
     eventReference:
