@@ -12,7 +12,9 @@ public class PlayerSpearHandling : MonoBehaviour
     [SerializeField] float explodeForce = 10f; 
     [SerializeField] Vector3 holdOffset;
     [SerializeField] float respawnYThreshold = -50f;
-
+    [SerializeField] ParticleSystem hitEnemyParticles;
+    
+    [Header("Sounds")]
     [SerializeField] FMODSoundPlayer spearHitFleshSound;
     [SerializeField] FMODSoundPlayer spearCritSound;
     [SerializeField] FMODSoundPlayer spearHitGroundSound;
@@ -39,6 +41,10 @@ public class PlayerSpearHandling : MonoBehaviour
     {
         Physics.IgnoreCollision(_activeSpear.Col, player.Col);
         _activeSpear.TogglePhysics(true);
+        
+        _activeSpear.Col.enabled = true;
+        _activeSpear.Col.isTrigger = false;
+        
         _activeSpear.ToggleRotation(true);
         _activeSpear.transform.SetParent(null);
         _activeSpear.Launch(force, damage, OnHit_Callback);
@@ -56,6 +62,8 @@ public class PlayerSpearHandling : MonoBehaviour
         _activeSpear.TogglePhysics(false);
         _activeSpear.ToggleRotation(false);
         _activeSpear.ToggleOutline(false);
+
+        _activeSpear.Col.enabled = false;
         
         HasSpear = true;
         
@@ -80,11 +88,14 @@ public class PlayerSpearHandling : MonoBehaviour
             {
                 hitWall = true;
                 hitWallPos = hit.point;
+                
                 continue;
             }
 
             spearHitFleshSound.PlayAtPosition(hit.point);
             damageable?.TakeDamage(player.Stats.SpearPokeDamage, PlayerCamera.Instance.Forward);
+            
+            ParticleSpawner.Spawn(hitEnemyParticles, hit.point, Random.rotation);
         }
 
         if (hitWall)
@@ -125,6 +136,7 @@ public class PlayerSpearHandling : MonoBehaviour
         {
             _activeSpear.transform.SetParent(collision.transform);
             damageable.TakeDamage(damage, PlayerCamera.Instance.Forward);
+            ParticleSpawner.Spawn(hitEnemyParticles, hitPoint, Random.rotation);
 
             if (damageable.IsDamageableCrit)
             {

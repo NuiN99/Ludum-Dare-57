@@ -23,7 +23,6 @@ public class Projectile : MonoBehaviour
     public void TogglePhysics(bool enabled)
     {
         RB.isKinematic = !enabled;
-        Col.isTrigger = !enabled;
         
         if (!RB.isKinematic)
         {

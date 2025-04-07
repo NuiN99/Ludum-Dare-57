@@ -1231,6 +1231,7 @@ MonoBehaviour:
   explodeForce: 10
   holdOffset: {x: 0, y: 0, z: 0.5}
   respawnYThreshold: -50
+  hitEnemyParticles: {fileID: 5014992052893491101, guid: ba9c70f58f38b31409f1ac77500f406b, type: 3}
   spearHitFleshSound:
     eventReference:
       Guid:
@@ -1296,6 +1297,8 @@ MonoBehaviour:
   damageShakeMax:
     intensity: 10
     duration: 1.5
+  damagedParticles: {fileID: 5014992052893491101, guid: ba9c70f58f38b31409f1ac77500f406b, type: 3}
+  damagedParticlesSizeMult: 1
 --- !u!114 &8557236776804738188
 MonoBehaviour:
   m_ObjectHideFlags: 0

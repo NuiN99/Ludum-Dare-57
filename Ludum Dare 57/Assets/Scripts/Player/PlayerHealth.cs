@@ -14,6 +14,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     [SerializeField] CameraShakeOptions damageShakeMax;
 
+    [SerializeField] ParticleSystem damagedParticles;
+    [SerializeField] float damagedParticlesSizeMult;
+
     Timer _invincibilityTimer;
     Timer _regenTimer;
 
@@ -41,6 +44,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         
         _regenTimer.Restart();
         _invincibilityTimer.Restart();
+
+        ParticleSpawner.Spawn(damagedParticles, transform.position, Random.rotation, scaleMultiplier: damagedParticlesSizeMult);
 
         if (CurrentHealth <= 0)
         {
