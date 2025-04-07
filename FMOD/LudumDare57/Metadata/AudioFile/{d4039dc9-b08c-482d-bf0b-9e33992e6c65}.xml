@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{d4039dc9-b08c-482d-bf0b-9e33992e6c65}">
 		<property name="assetPath">
-			<value>music_leviathan_fight.wav</value>
+			<value>music_mainmenu.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
