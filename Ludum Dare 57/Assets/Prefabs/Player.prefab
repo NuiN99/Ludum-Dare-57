@@ -290,6 +290,7 @@ MonoBehaviour:
   minBlinkInterval: 0.05
   maxBlinkInterval: 5
   blinkDuration: 0.1
+  overrideDirectionSpinSpeed: 1000
   detectableTargets:
     runtimeSet: {fileID: 11400000, guid: f3e4f81763e203d4682889623f86346d, type: 2}
   directionIndicator: {fileID: 4382987495419414591}

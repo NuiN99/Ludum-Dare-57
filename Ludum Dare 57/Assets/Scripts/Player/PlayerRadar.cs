@@ -1,3 +1,4 @@
+using System.Linq;
 using NuiN.NExtensions;
 using NuiN.ScriptableHarmony;
 using NuiN.ScriptableHarmony.Core;
@@ -13,7 +14,8 @@ public class PlayerRadar : MonoBehaviour
     [SerializeField] float minBlinkInterval = 0.1f;
     [SerializeField] float maxBlinkInterval = 5f;
     [SerializeField] float blinkDuration;
-    
+    [SerializeField] float overrideDirectionSpinSpeed = 5f;
+
     [SerializeField] GetRuntimeSet<RadarTarget> detectableTargets;
 
     [SerializeField] Transform directionIndicator;
@@ -46,6 +48,13 @@ public class PlayerRadar : MonoBehaviour
     void Update()
     {
         if(IsOpen == false) return;
+
+        if (detectableTargets.Entities.Any(target => target.OverrideRadar))
+        {
+            directionIndicator.transform.Rotate(Vector3.up, overrideDirectionSpinSpeed * Time.deltaTime, Space.Self);
+            UpdateRadarBlinking(1f);
+            return;
+        }
         
         RadarTarget closestTarget = null;
         float closestDist = float.MaxValue;
