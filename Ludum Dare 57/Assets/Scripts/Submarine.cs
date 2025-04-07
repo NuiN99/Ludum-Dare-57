@@ -6,6 +6,8 @@ public class Submarine : MonoBehaviour
 {
     [SerializeField] List<RepairableSubmarinePart> repairableParts;
     [SerializeField] OutlineComponent[] outlines;
+
+    [SerializeField] GameObject[] repairedVisuals;
     
     bool _isRepaired;
 
@@ -15,6 +17,11 @@ public class Submarine : MonoBehaviour
         foreach (var part in repairableParts)
         {
             part.Init(this);
+        }
+        
+        foreach (var visual in repairedVisuals)
+        {
+            visual.gameObject.SetActive(false);
         }
     }
 
@@ -34,9 +41,20 @@ public class Submarine : MonoBehaviour
      
         if (repairableParts.Count <= 0)
         {
-            _isRepaired = true;
-            Debug.Log("Repaired Submarine! : " + _isRepaired);
+            Repair();
         }
+    }
+
+    void Repair()
+    {
+        Debug.Log("Repaired Submarine! : " + _isRepaired);
+
+        foreach (var visual in repairedVisuals)
+        {
+            visual.gameObject.SetActive(true);
+        }
+        
+        _isRepaired = true;
     }
 
     void ToggleOutlines(bool isOn)
