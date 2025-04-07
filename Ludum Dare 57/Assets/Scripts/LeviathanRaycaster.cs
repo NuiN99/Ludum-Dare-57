@@ -15,6 +15,7 @@ public class LeviathanRaycaster : MonoBehaviour
     {
         if (Physics.Raycast(headPos.position, Vector3.down, raycastDist, layer))
         {
+            Vector3 newAttackDir = Vector3.MoveTowards(enemy.Attacking.AttackDir, enemy.Attacking.AttackDir.With(2).normalized, adjustSpeed);
             enemy.Attacking.SetAttackDir(enemy.Attacking.AttackDir.Add(y: adjustSpeed * Time.deltaTime));
         }
     }

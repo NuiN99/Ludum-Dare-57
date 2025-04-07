@@ -163,7 +163,15 @@ public class PlayerSpearHandling : MonoBehaviour
             _activeSpear.TogglePhysics(false);
         }
     }
-    
+
+    void OnDisable()
+    {
+        if (_activeSpear != null)
+        {
+            _activeSpear.ToggleOutline(false);
+        }
+    }
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

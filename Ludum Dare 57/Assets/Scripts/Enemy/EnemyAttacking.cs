@@ -22,6 +22,7 @@ public class EnemyAttacking : MonoBehaviour
         RecoveryTimer = new Timer(recoveryDuration);
         AttackChargeTimer = new Timer(attackChargeDuration);
         FleeTimer = new Timer(fleeDuration);
+        RestartAttackTimer(0);
     }
 
     public void RestartAttackTimer(float newDuration)
