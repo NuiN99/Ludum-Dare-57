@@ -19,6 +19,8 @@ public class PlayerInteraction : MonoBehaviour
 
     void OnInteractPressed_Callback(InputAction.CallbackContext ctx)
     {
+        if (player.Health.IsDead || player.Radar.IsOpen) return;
+        
         RaycastHit[] hits = Physics.SphereCastAll(player.Head.position, player.Stats.InteractRadius, PlayerCamera.Instance.Forward, player.Stats.InteractRange);
         IInteractable closestInteractable = null;
         float closestDistance = Mathf.Infinity;

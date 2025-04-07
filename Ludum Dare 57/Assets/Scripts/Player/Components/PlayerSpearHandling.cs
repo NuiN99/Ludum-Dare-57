@@ -129,7 +129,7 @@ public class PlayerSpearHandling : MonoBehaviour
         }
     }
 
-    void OnHit_Callback(Collision collision, int damage)
+    void OnHit_Callback(Collision collision, Projectile _, int damage)
     {
         bool bouncedOffEnemy = false;
         

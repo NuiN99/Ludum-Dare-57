@@ -13,4 +13,7 @@ public static class GameEvents
 
     public static event Action<bool> OnLeviathanActiveStateChanged = delegate { };
     public static void InvokeLeviathanActiveStateChanged(bool isActive) => OnLeviathanActiveStateChanged.Invoke(isActive);
+    
+    public static event Action OnPlayerEnterSubmarine = delegate { };
+    public static void InvokePlayerEnterSubmarine() => OnPlayerEnterSubmarine.Invoke();
 }

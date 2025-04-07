@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2447834939444120073}
   - component: {fileID: 3623928426061733649}
   - component: {fileID: 1577052209725056803}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Canopy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 4213418090703045862}
   - component: {fileID: 8762139115811578415}
   - component: {fileID: 7818727174576894962}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Light_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,19 +239,19 @@ MonoBehaviour:
   m_LightUnit: 0
   m_LuxAtDistance: 1
   m_Intensity: 0
-  m_InnerSpotPercent: 0
+  m_InnerSpotPercent: 35.61941
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
-  m_VolumetricDimmer: 1
+  m_VolumetricDimmer: 16
   m_FadeDistance: 10000
-  m_VolumetricFadeDistance: 10000
+  m_VolumetricFadeDistance: 100
   m_AffectDiffuse: 1
   m_AffectSpecular: 1
   m_NonLightmappedOnly: 0
   m_ShapeWidth: 0.5
   m_ShapeHeight: 0.5
   m_AspectRatio: 1
-  m_ShapeRadius: 0.025
+  m_ShapeRadius: 5
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
   m_CustomSpotLightShadowCone: 30
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 6597316563771289301}
   - component: {fileID: 4438854561857878999}
   - component: {fileID: 1228472590229354621}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Submarine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,6 +398,7 @@ Transform:
   - {fileID: 3385711295146493753}
   - {fileID: 141576193895906073}
   - {fileID: 1468612201208079013}
+  - {fileID: 2175480374810950579}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 107.846, z: 0}
 --- !u!114 &4469031309942587288
@@ -444,6 +445,22 @@ MonoBehaviour:
   moveSpeed: 15
   turnTorque: 0.01
   maxAngularSpeed: 1000
+  dashSpeed: 50
+  dashCooldown: 2.5
+  shootPos: {fileID: 2175480374810950579}
+  torpedoPrefab: {fileID: 3856488622008894362, guid: 9bdf88825e8f0a54d8f9a0d020183d1e, type: 3}
+  torpedoExplosion: {fileID: 5014992052893491101, guid: 84c345348d89f5e48a8bb8470142e0ca, type: 3}
+  shootCooldown: 3
+  shootForce: 45
+  torpedoExplodeRadius: 10
+  dashSound:
+    eventReference:
+      Guid:
+        Data1: -657445392
+        Data2: 1340167003
+        Data3: 691446454
+        Data4: 1604907377
+      Path: event:/SFX/Actions/Dash
 --- !u!136 &4438854561857878999
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -503,7 +520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1468612201208079013}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PilotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,13 +535,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608543793988355216}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.49, y: 1.1, z: -0}
+  m_LocalRotation: {x: 0.06592074, y: -0.70402735, z: 0.06592073, w: 0.70402735}
+  m_LocalPosition: {x: -0.117, y: 1.223, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 979264596182515556}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 10.698, y: -90, z: 0}
 --- !u!1 &2082047410774208897
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +553,7 @@ GameObject:
   - component: {fileID: 2352218191636718569}
   - component: {fileID: 3003926181485531580}
   - component: {fileID: 6115159321943240921}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Chair001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -624,7 +641,7 @@ GameObject:
   - component: {fileID: 3649639547641676964}
   - component: {fileID: 7604613801740867038}
   - component: {fileID: 8697526075348730973}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tank_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -744,7 +761,7 @@ GameObject:
   - component: {fileID: 1944461053850569996}
   - component: {fileID: 387613771173101155}
   - component: {fileID: 3331640982322300212}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Light_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -986,7 +1003,7 @@ GameObject:
   - component: {fileID: 1536196228952390475}
   - component: {fileID: 2589810823789290858}
   - component: {fileID: 6806421406381842498}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tank_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1104,7 +1121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3385711295146493753}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1149,7 +1166,7 @@ GameObject:
   - component: {fileID: 1941117168672948851}
   - component: {fileID: 1725435384091857608}
   - component: {fileID: 1448609838344178771}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Light_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1389,7 +1406,7 @@ GameObject:
   - component: {fileID: 5457804496871399520}
   - component: {fileID: 7233091463779681519}
   - component: {fileID: 2726990364027329586}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Controller_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1473,7 +1490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2829432653247341599}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RepairableParts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1510,7 +1527,7 @@ GameObject:
   - component: {fileID: 1207311016790461286}
   - component: {fileID: 1998051452419775535}
   - component: {fileID: 8970726221436324459}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sonar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1630,7 +1647,7 @@ GameObject:
   - component: {fileID: 1201000132817705506}
   - component: {fileID: 4189054320271652879}
   - component: {fileID: 8542617774201677731}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RepairablePart_Torpedo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1702,7 +1719,7 @@ GameObject:
   - component: {fileID: 4547116012515925243}
   - component: {fileID: 3001970681921933416}
   - component: {fileID: 8189240675497355914}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Torpedo_Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1786,7 +1803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 141576193895906073}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RepairedVisuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1822,7 +1839,7 @@ GameObject:
   - component: {fileID: 4320435247344858600}
   - component: {fileID: 7382659357660572233}
   - component: {fileID: 1067713339291307495}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Controller001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1908,7 +1925,7 @@ GameObject:
   - component: {fileID: 2175344270487707660}
   - component: {fileID: 3057492253799861945}
   - component: {fileID: 8507901232376853590}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Panels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1994,7 +2011,7 @@ GameObject:
   - component: {fileID: 243089896592046987}
   - component: {fileID: 8824931025387390127}
   - component: {fileID: 3002826519894269650}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Oxygen_004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2080,7 +2097,7 @@ GameObject:
   - component: {fileID: 7363787088857858134}
   - component: {fileID: 8056449228009738640}
   - component: {fileID: 4596791337181399874}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Oxygen_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2168,7 +2185,7 @@ GameObject:
   - component: {fileID: 1824429295591386963}
   - component: {fileID: 6017240092737879466}
   - component: {fileID: 3436043039445539682}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Main_Hull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2288,7 +2305,7 @@ GameObject:
   - component: {fileID: 314548637714357977}
   - component: {fileID: 1709497704687098280}
   - component: {fileID: 4244072601661432}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RepairablePart_Propellor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2362,7 +2379,7 @@ GameObject:
   - component: {fileID: 8303124070909454041}
   - component: {fileID: 5071734763213813465}
   - component: {fileID: 8916118309190938780}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particles_Broken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7402,7 +7419,7 @@ GameObject:
   - component: {fileID: 2305428264207511510}
   - component: {fileID: 8779148764339525843}
   - component: {fileID: 7162790315892035890}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Torpedo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7486,7 +7503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 274472191679440740}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Torpedo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7523,7 +7540,7 @@ GameObject:
   - component: {fileID: 3532421054229328910}
   - component: {fileID: 4484375912577305593}
   - component: {fileID: 5922223834111347}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particles_Broken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12552,6 +12569,37 @@ MonoBehaviour:
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+--- !u!1 &8606040584095687302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2175480374810950579}
+  m_Layer: 11
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2175480374810950579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8606040584095687302}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.99, y: -1.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 979264596182515556}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &8822060823182684783
 GameObject:
   m_ObjectHideFlags: 0
@@ -12563,7 +12611,7 @@ GameObject:
   - component: {fileID: 2943554447340887200}
   - component: {fileID: 1309690638330175058}
   - component: {fileID: 3150246425908774629}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Propeller
   m_TagString: Untagged
   m_Icon: {fileID: 0}

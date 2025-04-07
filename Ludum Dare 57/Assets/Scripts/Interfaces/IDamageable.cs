@@ -13,4 +13,5 @@ public enum EntityType
 {
     Player,
     Piranha,
+    Leviathan,
 }

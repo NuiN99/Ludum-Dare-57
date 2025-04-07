@@ -8,11 +8,11 @@ public class Projectile : MonoBehaviour
     [field: SerializeField, InjectComponent] public Collider Col { get; private set; }
     [SerializeField] float rotationSpeed;
     
-    Action<Collision, int> _onHit;
+    Action<Collision, Projectile, int> _onHit;
     int _damage;
     bool _rotate = true;
     
-    public void Launch(Vector3 force, int damage, Action<Collision, int> onHit)
+    public void Launch(Vector3 force, int damage, Action<Collision, Projectile, int> onHit)
     {
         transform.rotation = Quaternion.LookRotation(force.normalized);
         _onHit = onHit;
@@ -43,7 +43,7 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        _onHit?.Invoke(other, _damage);
+        _onHit?.Invoke(other, this, _damage);
         _onHit = null;
     }
 

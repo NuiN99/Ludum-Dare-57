@@ -1,4 +1,6 @@
+using NuiN.NExtensions;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PilotableSubmarine : MonoBehaviour, IInteractable
 {
@@ -11,14 +13,44 @@ public class PilotableSubmarine : MonoBehaviour, IInteractable
     
     [SerializeField] float turnTorque = 50f;
     [SerializeField] float maxAngularSpeed = 1f;
+
+    [SerializeField] float dashSpeed;
+
+    [SerializeField] float dashCooldown;
+
+    [SerializeField] Transform shootPos;
+    [SerializeField] Projectile torpedoPrefab;
+    [SerializeField] ParticleSystem torpedoExplosion;
+    [SerializeField] float shootCooldown;
+    [SerializeField] float shootForce;
+    [SerializeField] float torpedoExplodeRadius;
+    [SerializeField] int torpedoDamage = 5;
+    
+    [SerializeField] FMODSoundPlayer dashSound;
     
     bool _isActive;
+    
+    Timer _dashCooldownTimer;
+    Timer _shootCooldownTimer;
+
+    void Awake()
+    {
+        _dashCooldownTimer = new Timer(dashCooldown, true);
+        _shootCooldownTimer = new Timer(shootCooldown, true);
+    }
 
     void Start()
     {
         col.enabled = false;
         rb.isKinematic = true;
     }
+
+    void OnDisable()
+    {
+        InputManager.Controls.Actions.Dash.performed -= Dash_Callback;
+        InputManager.Controls.Actions.Attack.performed -= Shoot_Callback;
+    }
+    
 
     public void SetRepaired()
     {
@@ -29,6 +61,9 @@ public class PilotableSubmarine : MonoBehaviour, IInteractable
     {
         if (_isActive) return;
         
+        InputManager.Controls.Actions.Dash.performed += Dash_Callback;
+        InputManager.Controls.Actions.Attack.performed += Shoot_Callback;
+        
         PlayerCamera.Instance.SetTrackingTarget(pilotTransform);
         PlayerCamera.Instance.SetLookRotation(Quaternion.LookRotation(pilotTransform.forward));
         PlayerCamera.Instance.DisableRotation();
@@ -37,6 +72,8 @@ public class PilotableSubmarine : MonoBehaviour, IInteractable
         rb.isKinematic = false;
         _isActive = true;
         player.gameObject.SetActive(false);
+        
+        GameEvents.InvokePlayerEnterSubmarine();
     }
 
     void FixedUpdate()
@@ -61,7 +98,6 @@ public class PilotableSubmarine : MonoBehaviour, IInteractable
     
     void Rotate()
     {
-        
         Vector2 rotateInput = InputManager.RotateInput;
         if (rotateInput == Vector2.zero) return;
 
@@ -87,5 +123,63 @@ public class PilotableSubmarine : MonoBehaviour, IInteractable
         Vector3 moveDir = ((camTransform.forward * input.y) + (camTransform.right * input.x)).normalized;
         
         return moveDir;
+    }
+
+    void Dash_Callback(InputAction.CallbackContext ctx)
+    {
+        if (!_dashCooldownTimer.IsComplete)
+        {
+            return;
+        }
+
+        float inputDir = InputManager.MoveInput.y;
+        Vector3 dir = PlayerCamera.Instance.Forward * inputDir;
+        rb.linearVelocity = dir * dashSpeed;
+
+        dashSound.PlayEvent();
+        
+        _dashCooldownTimer.Restart();
+    }
+
+    void Shoot_Callback(InputAction.CallbackContext ctx)
+    {
+        if (!_shootCooldownTimer.IsComplete)
+        {
+            return;
+        }
+
+        Vector3 forceVector = shootPos.forward * shootForce;
+        Quaternion rot = Quaternion.LookRotation(forceVector);
+        Projectile torpedo = Instantiate(torpedoPrefab, shootPos.position, rot);
+        torpedo.Launch(forceVector, torpedoDamage, OnHit_Callback);
+
+        torpedo.DoAfter(15f, () => Destroy(torpedo.gameObject));
+        
+        _shootCooldownTimer.Restart();
+    }
+
+    void OnHit_Callback(Collision collision, Projectile projectile, int damage)
+    {
+        Vector3 hitPoint = collision.GetContact(0).point;
+        ParticleSpawner.Spawn(torpedoExplosion, hitPoint, Random.rotation);
+
+        Collider[] hits = Physics.OverlapSphere(hitPoint, torpedoExplodeRadius);
+
+        foreach (Collider hit in hits)
+        {
+            if (hit.TryGetComponent(out IDamageable damageable) && damageable.Type != EntityType.Player)
+            {
+                damageable.TakeDamage(damage, Vector3.zero);
+            }
+        }
+
+        ParticleSystem particles = projectile.GetComponentInChildren<ParticleSystem>();
+        if (particles != null)
+        {
+            particles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            particles.transform.SetParent(null);
+        }
+        
+        Destroy(projectile.gameObject);
     }
 }
