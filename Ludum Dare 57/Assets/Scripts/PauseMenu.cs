@@ -7,9 +7,27 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject root;
     bool _isGamePaused = false;
 
+    void Start()
+    {
+        if (GameStateManager.Instance.CollectedParts.Count <= 0)
+        {
+            TogglePause();
+        }
+    }
+
     public void ExitToMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void TogglePause()
+    {
+        _isGamePaused = !_isGamePaused;
+        Time.timeScale = _isGamePaused ? 0f : 1f;
+        root.SetActive(_isGamePaused);
+
+        Cursor.visible = _isGamePaused;
+        Cursor.lockState = _isGamePaused ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
     void OnEnable()
@@ -23,11 +41,6 @@ public class PauseMenu : MonoBehaviour
 
     void TogglePause(InputAction.CallbackContext ctx)
     {
-        _isGamePaused = !_isGamePaused;
-        Time.timeScale = _isGamePaused ? 0f : 1f;
-        root.SetActive(_isGamePaused);
-
-        Cursor.visible = _isGamePaused;
-        Cursor.lockState = _isGamePaused ? CursorLockMode.None : CursorLockMode.Locked;
+        TogglePause();
     }
 }
