@@ -1724,7 +1724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0765661d99a44d0aac41fe28772085e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredPart: 2
+  requiredPart: 1
   repairedVisual: {fileID: 8476796336368514272}
   brokenParticles: {fileID: 5650206178044909270}
   col: {fileID: 8542617774201677731}
@@ -2382,7 +2382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0765661d99a44d0aac41fe28772085e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredPart: 1
+  requiredPart: 0
   repairedVisual: {fileID: 8822060823182684783}
   brokenParticles: {fileID: 2843449993589873856}
   col: {fileID: 4244072601661432}

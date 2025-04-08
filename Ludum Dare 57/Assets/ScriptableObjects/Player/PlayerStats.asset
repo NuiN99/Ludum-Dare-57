@@ -25,3 +25,6 @@ MonoBehaviour:
   <SpearPokeDuration>k__BackingField: 0.5
   <InteractRange>k__BackingField: 2.5
   <InteractRadius>k__BackingField: 1
+  <MaxHealth>k__BackingField: 3
+  <RechargeHealthDuration>k__BackingField: 20
+  <HitInvicibilityDuration>k__BackingField: 0.5

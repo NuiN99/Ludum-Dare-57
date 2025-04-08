@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class DropPartOnDeath : MonoBehaviour
 {
     [SerializeField] EnemyHealth health;
-    [SerializeField] GameObject partPrefab;
+    [SerializeField] Part partPrefab;
     
     void OnEnable()
     {
@@ -16,8 +16,21 @@ public class DropPartOnDeath : MonoBehaviour
         health.OnDeath -= SpawnPart;
     }
 
+    void Start()
+    {
+        if (GameStateManager.Instance.CollectedParts.Contains(partPrefab.PartType))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void SpawnPart()
     {
+        if (GameStateManager.Instance.CollectedParts.Contains(partPrefab.PartType))
+        {
+            return;
+        }
+        
         Instantiate(partPrefab, transform.position, Quaternion.identity);
     }
 }

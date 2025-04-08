@@ -10,12 +10,17 @@ public class GameStateManager : MonoBehaviour
     public bool HasRepairedSubmarine { get; private set; }
 
     // ReSharper disable once CollectionNeverQueried.Local
-    List<Part.Type> _collectedParts = new();
+    public List<Part.Type> CollectedParts { get; private set; } = new();
 
     void Awake()
     {
         if (Instance != null && Instance != this) Destroy(gameObject);
-        else Instance = this;
+        else
+        {
+            CollectedParts = new List<Part.Type>();
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
     }
 
     void OnEnable()
@@ -32,9 +37,9 @@ public class GameStateManager : MonoBehaviour
     void OnPartRepaired(Part.Type type)
     {
         HasCollectedFirstPart = true;
-        _collectedParts.Add(type);
+        CollectedParts.Add(type);
         
-        if(_collectedParts.Count >= 2) HasRepairedSubmarine = true;
+        if(CollectedParts.Count >= 2) HasRepairedSubmarine = true;
     }
 
     void OnLeviathanActiveStateChanged(bool isActive)

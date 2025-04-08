@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c32c3510cb2cc4394715602834c519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PartType>k__BackingField: 2
+  <PartType>k__BackingField: 1
   rb: {fileID: -180968899737457053}
   col: {fileID: 6245483633682471376}
   outline: {fileID: 5403634848304101469}

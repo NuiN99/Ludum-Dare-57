@@ -32,6 +32,24 @@ public class Submarine : MonoBehaviour, IDamageable
         }
     }
 
+    void Start()
+    {
+        List<RepairableSubmarinePart> partsToRepair = new();
+        
+        foreach (RepairableSubmarinePart repairablePart in repairableParts)
+        {
+            if (GameStateManager.Instance.CollectedParts.Contains(repairablePart.PartType))
+            {
+                partsToRepair.Add(repairablePart);
+            }
+        }
+
+        foreach (RepairableSubmarinePart part in partsToRepair)
+        {
+            part.Repair();
+        }
+    }
+
     void OnEnable()
     {
         GameEvents.OnPlayerHoldingPartStateChanged += ToggleOutlines;

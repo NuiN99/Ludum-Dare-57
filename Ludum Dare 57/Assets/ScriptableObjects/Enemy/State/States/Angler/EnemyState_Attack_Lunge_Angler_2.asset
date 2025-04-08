@@ -15,7 +15,7 @@ MonoBehaviour:
   lungeSpeed: 20
   lungeDuration: 3
   damageRadius: 3
-  lungeSpread: 5
+  lungeSpread: 1
   damage: 1
   damageOffset: {x: 0, y: -2.02, z: 1.26}
   biteSound:
