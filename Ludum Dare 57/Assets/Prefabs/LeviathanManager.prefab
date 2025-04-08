@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   head: {fileID: 981830376424591066}
   chargeRange: 125
-  chargeSpeed: 25
+  chargeSpeed: 20
   moveSpeed: 8
   chargeDuration: 20
   rotateSpeed: 0.25
