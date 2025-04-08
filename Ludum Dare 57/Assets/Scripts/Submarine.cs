@@ -15,6 +15,7 @@ public class Submarine : MonoBehaviour, IDamageable
     [SerializeField] PilotableSubmarine pilotableSubmarine;
     
     [SerializeField] FMODSoundPlayer repairedPartSound;
+    [SerializeField] PlayerRadar radar;
     
     bool _isRepaired;
 
@@ -82,6 +83,8 @@ public class Submarine : MonoBehaviour, IDamageable
         }
         
         pilotableSubmarine.SetRepaired();
+        
+        radar.OpenRadar();
         
         _isRepaired = true;
     }
