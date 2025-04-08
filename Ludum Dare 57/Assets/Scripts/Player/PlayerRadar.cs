@@ -81,24 +81,13 @@ public class PlayerRadar : MonoBehaviour
         if (closestTarget == null) return;
 
         float distLerp = 1f - Mathf.InverseLerp(minDistance, maxDistance, closestDist);
-        Vector3 direction = (closestTarget.transform.position - transform.position).With(y:0).normalized;
+        Vector3 direction = (closestTarget.transform.position - transform.position).normalized;
 
-        Vector3 localUp = directionIndicator.up.With(y: Mathf.Abs(directionIndicator.up.y));
+        Vector3 localUp = directionIndicator.up;
         direction = Vector3.ProjectOnPlane(direction, localUp);
-
-        if (direction.sqrMagnitude > 0.0001f)
-        {
-            Quaternion lookRotation = Quaternion.LookRotation(direction.normalized, localUp);
-
-            Quaternion rotationDelta = Quaternion.Inverse(directionIndicator.rotation) * lookRotation;
-            rotationDelta.ToAngleAxis(out float angle, out Vector3 axis);
-
-            if (Vector3.Dot(axis, localUp) < 0f)
-                angle = -angle;
-
-            directionIndicator.Rotate(Vector3.up, angle, Space.Self);
-        }
         
+        Quaternion lookRotation = Quaternion.LookRotation(direction, localUp);
+        directionIndicator.rotation = lookRotation;
         UpdateRadarBlinking(distLerp);
     }
 

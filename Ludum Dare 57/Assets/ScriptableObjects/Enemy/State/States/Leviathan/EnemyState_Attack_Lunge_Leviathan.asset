@@ -16,7 +16,7 @@ MonoBehaviour:
   lungeDuration: 17.5
   damageRadius: 20.73
   lungeSpread: 15
-  damage: 999999
+  damage: 51
   damageOffset: {x: 0, y: -2.3, z: 74.8}
   biteSound:
     eventReference:
@@ -26,3 +26,11 @@ MonoBehaviour:
         Data3: 783578786
         Data4: -1941526574
       Path: event:/SFX/Leviathan/Leviathan_Attack
+  lungeSound:
+    eventReference:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
