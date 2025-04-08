@@ -87,16 +87,13 @@ public class TutorialManager : MonoBehaviour
             GameStateManager.Instance.HasCompletedTutorial2 = true;
         }
 
-        if (!GameStateManager.Instance.HasCompletedTutorial3)
-        {
-            yield return new WaitUntil(() => GameStateManager.Instance.CollectedParts.Count >= 2);
-            enterSubTutorial.SetActive(true);
+        yield return new WaitUntil(() => GameStateManager.Instance.CollectedParts.Count >= 2);
+        enterSubTutorial.SetActive(true);
 
-            yield return new WaitUntil(() => !Player.Instance.gameObject.activeInHierarchy);
-            enterSubTutorial.SetActive(false);
+        yield return new WaitUntil(() => !Player.Instance.gameObject.activeInHierarchy);
+        enterSubTutorial.SetActive(false);
         
-            GameStateManager.Instance.HasCompletedTutorial3 = true;
-        }
+        GameStateManager.Instance.HasCompletedTutorial3 = true;
     }
 
 }
