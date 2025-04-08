@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialDelay: 0
-  minSpawnInterval: 60
-  maxSpawnInterval: 90
-  minSpawnIntervalProgressed: 30
-  maxSpawnIntervalProgressed: 60
+  minSpawnInterval: 90
+  maxSpawnInterval: 120
+  minSpawnIntervalProgressed: 45
+  maxSpawnIntervalProgressed: 75
   minSpawnCount: 1
   maxSpawnCount: 2
   minSpawnCountProgressed: 2

@@ -228,8 +228,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leviathan: {fileID: 2073789008894648922}
   leviathanAIVersion: {fileID: 893994325399934349}
-  minSpawnInterval: 90
-  maxSpawnInterval: 120
+  minSpawnInterval: 110
+  maxSpawnInterval: 150
   spawnDistance: 500
 --- !u!1 &4175399126921002114
 GameObject:

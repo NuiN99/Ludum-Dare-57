@@ -1268,7 +1268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8029caf25b7b4738b2bcc6d1a9b69246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
+  maxHealth: 5
   player: {fileID: 1852069194475996792}
   damageShakeMax:
     intensity: 10

@@ -8,6 +8,9 @@ public class GameStateManager : MonoBehaviour
     public bool HasCollectedFirstPart { get; private set; }
     public bool LeviathanIsActive { get; private set; }
     public bool HasRepairedSubmarine { get; private set; }
+    public bool HasCompletedTutorial1 { get; set; }
+    public bool HasCompletedTutorial2 { get; set; }
+    public bool HasCompletedTutorial3 { get; set; }
 
     // ReSharper disable once CollectionNeverQueried.Local
     public List<Part.Type> CollectedParts { get; private set; } = new();

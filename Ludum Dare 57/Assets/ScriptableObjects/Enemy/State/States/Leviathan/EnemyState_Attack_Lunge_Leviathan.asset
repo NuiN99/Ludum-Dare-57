@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3c596c10c34e9eb63da5df06787cc0, type: 3}
   m_Name: EnemyState_Attack_Lunge_Leviathan
   m_EditorClassIdentifier: 
-  lungeSpeed: 75
+  lungeSpeed: 65
   lungeDuration: 17.5
   damageRadius: 20.73
   lungeSpread: 15
