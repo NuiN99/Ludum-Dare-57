@@ -15,9 +15,10 @@ public class Submarine : MonoBehaviour, IDamageable
     [SerializeField] OutlineComponent[] outlines;
     [SerializeField] GameObject[] repairedVisuals;
     [SerializeField] PilotableSubmarine pilotableSubmarine;
+
+    [SerializeField] OutlineComponent cockPitOutline;
     
     [SerializeField] FMODSoundPlayer repairedPartSound;
-    [SerializeField] PlayerRadar radar;
     
     bool _isRepaired;
 
@@ -86,7 +87,7 @@ public class Submarine : MonoBehaviour, IDamageable
         
         pilotableSubmarine.SetRepaired();
         
-        radar.OpenRadar();
+        cockPitOutline.enabled = true;
         
         _isRepaired = true;
     }
@@ -96,6 +97,11 @@ public class Submarine : MonoBehaviour, IDamageable
         foreach (var outline in outlines)
         {
             outline.enabled = isOn;
+        }
+
+        if (_isRepaired)
+        {
+            cockPitOutline.enabled = true;
         }
     }
     void IDamageable.TakeDamage(int damage, Vector3 direction)

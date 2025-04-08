@@ -1,3 +1,4 @@
+using Modules.Rendering.Outline;
 using NuiN.NExtensions;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,7 +18,8 @@ public class PilotableSubmarine : MonoBehaviour, IInteractable
     [SerializeField] float dashSpeed;
 
     [SerializeField] float dashCooldown;
-
+    [SerializeField] PlayerRadar radar;
+    [SerializeField] OutlineComponent cockPitOutline;
     [SerializeField] Transform shootPos;
     [SerializeField] Projectile torpedoPrefab;
     [SerializeField] ParticleSystem torpedoExplosion;
@@ -77,6 +79,9 @@ public class PilotableSubmarine : MonoBehaviour, IInteractable
         PlayerCamera.Instance.SetLookRotation(Quaternion.LookRotation(pilotTransform.forward));
         PlayerCamera.Instance.DisableRotation();
         PlayerCamera.Instance.EnableRotateToFollowTarget();
+        
+        radar.OpenRadar();
+        cockPitOutline.enabled = false;
 
         rb.isKinematic = false;
         _isActive = true;

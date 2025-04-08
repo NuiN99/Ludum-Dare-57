@@ -92,6 +92,8 @@ public class PlayerSpearHandling : MonoBehaviour
                 continue;
             }
 
+            if (damageable.Type == EntityType.Player) continue;
+
             spearHitFleshSound.PlayAtPosition(hit.point);
             damageable?.TakeDamage(player.Stats.SpearPokeDamage, PlayerCamera.Instance.Forward);
             
@@ -134,7 +136,7 @@ public class PlayerSpearHandling : MonoBehaviour
         bool bouncedOffEnemy = false;
         
         Vector3 hitPoint = collision.GetContact(0).point;
-        if (collision.collider.TryGetComponent(out IDamageable damageable))
+        if (collision.collider.TryGetComponent(out IDamageable damageable) && damageable.Type != EntityType.Player)
         {
             damageable.TakeDamage(damage, PlayerCamera.Instance.Forward);
             ParticleSpawner.Spawn(hitEnemyParticles, hitPoint, Random.rotation);

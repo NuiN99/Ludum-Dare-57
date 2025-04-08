@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
 
     Timer _dashCooldownTimer;
 
+    public bool IsDashOnCooldown => !_dashCooldownTimer.IsComplete;
+
     void Awake()
     {
         _dashCooldownTimer = new Timer(player.Stats.DashCooldown, true);

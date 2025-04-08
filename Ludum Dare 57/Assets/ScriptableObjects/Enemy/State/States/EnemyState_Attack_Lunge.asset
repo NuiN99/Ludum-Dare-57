@@ -15,7 +15,9 @@ MonoBehaviour:
   lungeSpeed: 11
   lungeDuration: 2
   damageRadius: 1
-  lungeSpread: 4
+  lungeSpread: 2
+  damage: 1
+  damageOffset: {x: 0, y: 0, z: 0}
   biteSound:
     eventReference:
       Guid:
@@ -24,3 +26,11 @@ MonoBehaviour:
         Data3: -521436542
         Data4: -1074874200
       Path: event:/SFX/Fish/Piranha/Piranha_Bite
+  lungeSound:
+    eventReference:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 

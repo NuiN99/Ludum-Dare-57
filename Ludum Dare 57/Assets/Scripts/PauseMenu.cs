@@ -7,14 +7,6 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject root;
     bool _isGamePaused = false;
 
-    void Start()
-    {
-        if (GameStateManager.Instance.CollectedParts.Count <= 0)
-        {
-            TogglePause();
-        }
-    }
-
     public void ExitToMenu()
     {
         SceneManager.LoadScene("Menu");

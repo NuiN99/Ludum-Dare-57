@@ -264,7 +264,7 @@ MonoBehaviour:
   maxDistance: 175
   minDistance: 40
   minBlinkInterval: 0.05
-  maxBlinkInterval: 5
+  maxBlinkInterval: 3
   blinkDuration: 0.1
   overrideDirectionSpinSpeed: 2000
   detectableTargets:

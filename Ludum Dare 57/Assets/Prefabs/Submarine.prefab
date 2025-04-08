@@ -516,6 +516,7 @@ MonoBehaviour:
   - {fileID: 621337673689417115}
   - {fileID: 2613047264438221052}
   pilotableSubmarine: {fileID: 6597316563771289301}
+  cockPitOutline: {fileID: 3623928426061733649}
   repairedPartSound:
     eventReference:
       Guid:
@@ -524,7 +525,6 @@ MonoBehaviour:
         Data3: 323602843
         Data4: -447312774
       Path: event:/SFX/Submarine/Sub_Part_Placed
-  radar: {fileID: 1914154266987606699}
 --- !u!114 &6597316563771289301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,6 +545,8 @@ MonoBehaviour:
   maxAngularSpeed: 1000
   dashSpeed: 50
   dashCooldown: 2.5
+  radar: {fileID: 1914154266987606699}
+  cockPitOutline: {fileID: 3623928426061733649}
   shootPos: {fileID: 2175480374810950579}
   torpedoPrefab: {fileID: 3856488622008894362, guid: 9bdf88825e8f0a54d8f9a0d020183d1e, type: 3}
   torpedoExplosion: {fileID: 5014992052893491101, guid: 84c345348d89f5e48a8bb8470142e0ca, type: 3}
