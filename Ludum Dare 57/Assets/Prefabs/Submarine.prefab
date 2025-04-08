@@ -591,6 +591,14 @@ MonoBehaviour:
         Data3: -1295351648
         Data4: -2076294581
       Path: event:/SFX/Submarine/Sub_Fully_Repaired
+  collisionSound:
+    eventReference:
+      Guid:
+        Data1: -634893518
+        Data2: 1230284886
+        Data3: 1012753065
+        Data4: 388889294
+      Path: event:/SFX/Submarine/Sub_Collision
 --- !u!136 &4438854561857878999
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8010,7 +8018,7 @@ Transform:
   m_GameObject: {fileID: 7662621053918878472}
   serializedVersion: 2
   m_LocalRotation: {x: -0.099414736, y: -0.51269925, z: -0.2832035, w: 0.8043955}
-  m_LocalPosition: {x: -1.118, y: 0.043, z: 0.061}
+  m_LocalPosition: {x: -1.118, y: 0.34, z: 0.061}
   m_LocalScale: {x: 0.77019, y: 0.77019, z: 0.77019}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8029,8 +8037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4acba6f35f5c74a89d23789e0e6dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 250
-  minDistance: 20
+  maxDistance: 175
+  minDistance: 40
   minBlinkInterval: 0.05
   maxBlinkInterval: 5
   blinkDuration: 0.1

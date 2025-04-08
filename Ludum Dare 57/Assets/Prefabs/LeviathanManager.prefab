@@ -149,6 +149,14 @@ MonoBehaviour:
     m_Bits: 2688
   damageRadius: 21.01
   damageOffset: {x: 0, y: -1.2, z: 78.9}
+  lungeSound:
+    eventReference:
+      Guid:
+        Data1: -1690181771
+        Data2: 1144296985
+        Data3: 893403037
+        Data4: -1153853806
+      Path: event:/SFX/Leviathan/Leviathan_Attack_Stinger
 --- !u!136 &4802513697237476601
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -220,8 +228,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leviathan: {fileID: 2073789008894648922}
   leviathanAIVersion: {fileID: 893994325399934349}
-  minSpawnInterval: 200
-  maxSpawnInterval: 260
+  minSpawnInterval: 90
+  maxSpawnInterval: 120
   spawnDistance: 500
 --- !u!1 &4175399126921002114
 GameObject:
@@ -351,15 +359,23 @@ MonoBehaviour:
   dieDuration: 0.75
   deathParticles:
   - {fileID: 5014992052893491101, guid: 58f7db3732c330c42ac2f791bca13339, type: 3}
-  deathParticlesSize: 20
+  deathParticlesSize: 50
+  damagedSound:
+    eventReference:
+      Guid:
+        Data1: -1566674296
+        Data2: 1129358734
+        Data3: 60627338
+        Data4: -395969329
+      Path: event:/SFX/Leviathan/Leviathan_Damaged
   deathSound:
     eventReference:
       Guid:
-        Data1: -1989764084
-        Data2: 1252774955
-        Data3: 1780256646
-        Data4: 1629387590
-      Path: event:/SFX/Fish/Fish_Explode
+        Data1: -1425240410
+        Data2: 1119883324
+        Data3: -102807129
+        Data4: -1335778255
+      Path: event:/SFX/Leviathan/Leviathan_Death
 --- !u!114 &6596775383252621221
 MonoBehaviour:
   m_ObjectHideFlags: 0

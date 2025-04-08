@@ -14,6 +14,7 @@ public class FMODSoundPlayer
     
     public EventInstance PlayEvent(string parameterName = null, float? parameterValue = null)
     {
+        if (eventReference.IsNull) return new EventInstance();
         try
         {
             EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
@@ -39,6 +40,7 @@ public class FMODSoundPlayer
     
     public EventInstance PlayEventAttached(Transform owner, string parameterName = null, float? parameterValue = null)
     {
+        if (eventReference.IsNull) return new EventInstance();
         try
         {
             EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
@@ -66,6 +68,7 @@ public class FMODSoundPlayer
     
     public void PlayAtPosition(Vector3 position)
     {
+        if (eventReference.IsNull) return;
         try
         {
             RuntimeManager.PlayOneShot(eventReference, position);

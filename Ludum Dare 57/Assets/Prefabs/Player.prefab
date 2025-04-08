@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4acba6f35f5c74a89d23789e0e6dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 250
-  minDistance: 20
+  maxDistance: 175
+  minDistance: 40
   minBlinkInterval: 0.05
   maxBlinkInterval: 5
   blinkDuration: 0.1
@@ -1096,7 +1096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8029caf25b7b4738b2bcc6d1a9b69246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 4
   player: {fileID: 1852069194475996792}
   damageShakeMax:
     intensity: 10
@@ -1210,6 +1210,13 @@ MonoBehaviour:
       - <Condition>k__BackingField: {fileID: 11400000, guid: 960fc0dc2c31bde4bbf665e9034774f3, type: 2}
         <Value>k__BackingField: 0
       - <Condition>k__BackingField: {fileID: 11400000, guid: b5107b890bf944a42ae2d8355647056b, type: 2}
+        <Value>k__BackingField: 0
+    - <TargetState>k__BackingField: {fileID: 11400000, guid: 18cbe2f72cf25cf40b12d3b6bcd739d9, type: 2}
+      <Evalutation>k__BackingField: 0
+      <Conditions>k__BackingField:
+      - <Condition>k__BackingField: {fileID: 11400000, guid: 45d6ef9934916014ab6d2b72c16475a4, type: 2}
+        <Value>k__BackingField: 0
+      - <Condition>k__BackingField: {fileID: 11400000, guid: 17dbaf3b8ab2aef4685df5b0cb97c945, type: 2}
         <Value>k__BackingField: 0
   - <State>k__BackingField: {fileID: 11400000, guid: 944dab1e1bed25c42a4ab63f442f20a3, type: 2}
     <Transitions>k__BackingField:

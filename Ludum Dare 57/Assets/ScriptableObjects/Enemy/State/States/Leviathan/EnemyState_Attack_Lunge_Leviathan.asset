@@ -21,8 +21,8 @@ MonoBehaviour:
   biteSound:
     eventReference:
       Guid:
-        Data1: -2135996404
-        Data2: 1192167134
-        Data3: -521436542
-        Data4: -1074874200
-      Path: event:/SFX/Fish/Piranha/Piranha_Bite
+        Data1: -298656096
+        Data2: 1097571696
+        Data3: 783578786
+        Data4: -1941526574
+      Path: event:/SFX/Leviathan/Leviathan_Attack

@@ -13,10 +13,13 @@ public class EnemyState_AttackLunge : EnemyState
     [SerializeField] Vector3 damageOffset;
 
     [SerializeField] FMODSoundPlayer biteSound;
+    [SerializeField] FMODSoundPlayer lungeSound;
 
     public override void Enter(Enemy context)
     {
         base.Enter(context);
+        
+        lungeSound?.PlayEventAttached(context.transform);
         
         context.Attacking.RestartAttackTimer(lungeDuration);
         

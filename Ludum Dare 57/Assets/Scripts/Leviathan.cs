@@ -20,6 +20,8 @@ public class Leviathan : MonoBehaviour
     [SerializeField] float damageRadius;
     [SerializeField] Vector3 damageOffset;
 
+    [SerializeField] FMODSoundPlayer lungeSound;
+
     bool _isCharging;
     Vector3 _chargeDirection;
 
@@ -68,6 +70,8 @@ public class Leviathan : MonoBehaviour
             _chargeTimer.Restart();
             _isCharging = true;
             _chargeDirection = VectorUtils.Direction(transform.position, Player.Instance.transform.position + Player.Instance.RB.linearVelocity);
+
+            lungeSound.PlayEventAttached(transform);
         }
         else
         {

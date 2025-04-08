@@ -21,6 +21,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [SerializeField] List<ParticleSystem> deathParticles;
     [SerializeField] float deathParticlesSize;
 
+    [SerializeField] FMODSoundPlayer damagedSound;
     [SerializeField] FMODSoundPlayer deathSound;
 
     Coroutine _stunRoutine;
@@ -48,6 +49,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         IsStunned = true;
         this.StopCoroutineSafe(_stunRoutine);
         _stunRoutine = this.DoAfter(duration, () => IsStunned = false);
+        
+        damagedSound?.PlayAtPosition(transform.position);
 
         if (CurHealth <= 0)
         {

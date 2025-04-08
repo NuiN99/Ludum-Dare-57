@@ -1,3 +1,4 @@
+using NuiN.NExtensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -23,7 +24,12 @@ public class WinManager : MonoBehaviour
 
     void ActivateWinScreen()
     {
-        Time.timeScale = 0f;
-        root.SetActive(true);
+        this.DoAfter(5f, () =>
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Time.timeScale = 0f;
+            root.SetActive(true);
+        });
     }
 }

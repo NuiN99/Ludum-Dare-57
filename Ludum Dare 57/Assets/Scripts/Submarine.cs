@@ -98,7 +98,7 @@ public class Submarine : MonoBehaviour, IDamageable
     }
     void IDamageable.TakeDamage(int damage, Vector3 direction)
     {
-        Debug.LogError("Sub took damage:" + damage);
+        Debug.Log("Sub took damage:" + damage);
         GameEvents.InvokePlayerDied();
     }
 }

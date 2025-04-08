@@ -32,6 +32,8 @@ public class PilotableSubmarine : MonoBehaviour, IInteractable
     
     [SerializeField] FMODSoundPlayer idleSound;
     [SerializeField] FMODSoundPlayer repairedSound;
+
+    [SerializeField] FMODSoundPlayer collisionSound;
     
     bool _isActive;
     
@@ -194,5 +196,10 @@ public class PilotableSubmarine : MonoBehaviour, IInteractable
         }
         
         Destroy(projectile.gameObject);
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        collisionSound.PlayEvent();
     }
 }
