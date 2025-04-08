@@ -1,31 +1,23 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DropPartOnDeath : MonoBehaviour
 {
+    [SerializeField] EnemyHealth health;
     [SerializeField] GameObject partPrefab;
-    bool _isQuitting;
     
     void OnEnable()
     {
-        Application.quitting += SetIsQuitting;
+        health.OnDeath += SpawnPart;
     }
+
     void OnDisable()
     {
-        Application.quitting -= SetIsQuitting;
+        health.OnDeath -= SpawnPart;
     }
 
-    void SetIsQuitting()
+    void SpawnPart()
     {
-        _isQuitting = true;
-    }
-
-    void OnDestroy()
-    {
-        if (_isQuitting)
-        {
-            return;
-        }
-        
         Instantiate(partPrefab, transform.position, Quaternion.identity);
     }
 }

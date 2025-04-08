@@ -144,6 +144,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 1024
+  damageMask:
+    serializedVersion: 2
+    m_Bits: 2688
+  damageRadius: 21.01
+  damageOffset: {x: 0, y: -1.2, z: 78.9}
 --- !u!136 &4802513697237476601
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -215,8 +220,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leviathan: {fileID: 2073789008894648922}
   leviathanAIVersion: {fileID: 893994325399934349}
-  minSpawnInterval: 60
-  maxSpawnInterval: 120
+  minSpawnInterval: 200
+  maxSpawnInterval: 260
   spawnDistance: 500
 --- !u!1 &4175399126921002114
 GameObject:

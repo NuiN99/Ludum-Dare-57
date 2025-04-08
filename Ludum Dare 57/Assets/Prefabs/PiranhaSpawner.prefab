@@ -45,14 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialDelay: 0
-  minSpawnInterval: 60
-  maxSpawnInterval: 90
-  minSpawnIntervalProgressed: 30
-  maxSpawnIntervalProgressed: 45
+  minSpawnInterval: 90
+  maxSpawnInterval: 120
+  minSpawnIntervalProgressed: 60
+  maxSpawnIntervalProgressed: 90
   minSpawnCount: 1
-  maxSpawnCount: 3
+  maxSpawnCount: 2
   minSpawnCountProgressed: 2
-  maxSpawnCountProgressed: 5
+  maxSpawnCountProgressed: 3
   minSpawnDist: 20
   maxSpawnDist: 45
   piranhaPrefab: {fileID: 5604341309613564672, guid: 0f5cbc831878aff469a2c10918d145ef, type: 3}

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3c596c10c34e9eb63da5df06787cc0, type: 3}
   m_Name: EnemyState_Attack_Lunge_Angler_2
   m_EditorClassIdentifier: 
-  lungeSpeed: 24
-  lungeDuration: 6
+  lungeSpeed: 20
+  lungeDuration: 3
   damageRadius: 3
   lungeSpread: 5
   damage: 1

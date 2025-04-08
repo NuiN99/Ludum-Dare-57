@@ -16,6 +16,10 @@ public class Leviathan : MonoBehaviour
     [SerializeField] float raycastOrientSpeed;
     [SerializeField] LayerMask groundMask;
 
+    [SerializeField] LayerMask damageMask;
+    [SerializeField] float damageRadius;
+    [SerializeField] Vector3 damageOffset;
+
     bool _isCharging;
     Vector3 _chargeDirection;
 
@@ -35,6 +39,15 @@ public class Leviathan : MonoBehaviour
 
     void Update()
     {
+        Collider[] hits = Physics.OverlapSphere(transform.TransformPoint(damageOffset), damageRadius, damageMask);
+        foreach (Collider hit in hits)
+        {
+            if (hit.transform != transform && hit.transform.TryGetComponent(out IDamageable damageable))
+            {
+                damageable.TakeDamage(999, Vector3.zero);
+            }
+        }
+        
         if (_isCharging)
         {
             if (Physics.Raycast(head.position.Add(y:raycastCheckOffsetY), Vector3.down, raycastCheckDist, groundMask))
@@ -76,5 +89,8 @@ public class Leviathan : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.DrawRay(head.position.Add(y:raycastCheckOffsetY), Vector3.down * raycastCheckDist);
+
+        Gizmos.color = Color.red.WithAlpha(0.25f);
+        Gizmos.DrawSphere(transform.TransformPoint(damageOffset), damageRadius);
     }
 }

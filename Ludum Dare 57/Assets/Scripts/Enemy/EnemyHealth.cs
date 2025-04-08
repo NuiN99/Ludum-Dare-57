@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using NuiN.NExtensions;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
@@ -22,6 +24,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [SerializeField] FMODSoundPlayer deathSound;
 
     Coroutine _stunRoutine;
+
+    public event Action OnDeath = delegate { };
 
     void Start()
     {
@@ -53,6 +57,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void Die()
     {
+        OnDeath.Invoke();
+        
         ParticleSpawner.SpawnAll(deathParticles, transform.position, Random.rotation, scaleMultiplier: deathParticlesSize);
         deathSound.PlayAtPosition(transform.position);
         Destroy(enemy.gameObject);
