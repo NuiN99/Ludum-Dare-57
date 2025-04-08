@@ -2726,29 +2726,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Controls
-
-
-    Esc: Pause
-
-    E: Interact, Pick Up Spear
-
-    TAB: Use
-    Metal Detector
-
-    
-
-    Left Click (With Spear, Not Aiming): Poke
-
-    Right
-    Click (With Spear): Aim
-
-    Left Click (With Spear, While Aiming): Throw Spear
-
-    
-
-    Space
-    OR Left Shift: Dash'
+  m_text: "Controls\n\nEsc: Pause\nE: Interact, Pick Up Spear\r\nTAB: Use Metal Detector\r\n\rLeft
+    Click (With Spear, Not Aiming): Poke\r\nRight Click (With Spear): Aim\r\nLeft
+    Click (With Spear, While Aiming): Throw Spear\r\n\rSpace OR Left Shift: Dash"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d606e0f593c27ad48b5790a2c0edd3e7, type: 2}
   m_sharedMaterial: {fileID: 5411766089318705282, guid: d606e0f593c27ad48b5790a2c0edd3e7, type: 2}
