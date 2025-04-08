@@ -18,7 +18,6 @@ public class SnakeFollow : MonoBehaviour
             return;
         }
 
-        // Initialize segmentPositions with the current positions
         foreach (Transform segment in segments)
         {
             segmentPositions.Add(segment.position);
@@ -29,7 +28,6 @@ public class SnakeFollow : MonoBehaviour
     {
         if (segments.Count == 0) return;
 
-        // Head follows input or is controlled externally
         segmentPositions[0] = segments[0].position;
 
         for (int i = 1; i < segments.Count; i++)
@@ -39,7 +37,6 @@ public class SnakeFollow : MonoBehaviour
 
             segments[i].position = segmentPositions[i];
 
-            // Optional: Rotate to face the segment ahead
             Vector3 direction = segmentPositions[i - 1] - segmentPositions[i];
             if (direction != Vector3.zero)
             {

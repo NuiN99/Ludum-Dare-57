@@ -40,7 +40,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         CurHealth -= damage;
 
         enemy.RB.linearVelocity = Vector3.zero;
-        enemy.RB.AddForce(direction * (damage * 5f), ForceMode.Impulse);
+        enemy.RB.AddForce(direction * 5f, ForceMode.Impulse);
         
         if (IsDead) return;
         

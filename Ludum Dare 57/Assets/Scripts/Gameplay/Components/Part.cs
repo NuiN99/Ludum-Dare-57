@@ -19,6 +19,7 @@ public class Part : MonoBehaviour, IInteractable
         col.enabled = false;
         outline.enabled = false;
         player.Interaction.SetHeldPart(this);
+        player.SpearHandling.Retrieve();
     }
 
     public void Release()

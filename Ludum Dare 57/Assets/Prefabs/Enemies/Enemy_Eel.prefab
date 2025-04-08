@@ -113,14 +113,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7019114763359348206}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.99910814, z: -0, w: -0.04222472}
-  m_LocalPosition: {x: -5.81, y: 21.05, z: 284.71}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5323347381287243999}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -535.16, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8718755245247640535
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -184,6 +184,14 @@ MonoBehaviour:
   deathParticles:
   - {fileID: 5014992052893491101, guid: 58f7db3732c330c42ac2f791bca13339, type: 3}
   deathParticlesSize: 2
+  damagedSound:
+    eventReference:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
   deathSound:
     eventReference:
       Guid:
@@ -204,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13426f4d7c8c4c2880fea82685620158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  searchRadius: 50
+  searchRadius: 75
   searchInterval: 1
   validTargets: 00000000
   detectMask:
@@ -226,7 +234,7 @@ MonoBehaviour:
   attackRange: 30
   recoveryDuration: 2
   attackChargeDuration: 0.25
-  fleeDuration: 1
+  fleeDuration: 5
 --- !u!114 &1746862452981127428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,13 +260,6 @@ MonoBehaviour:
       - <Condition>k__BackingField: {fileID: 11400000, guid: 0d3df7005c558e34299ac483e725cbc5, type: 2}
         <Value>k__BackingField: 1
     - <TargetState>k__BackingField: {fileID: 11400000, guid: 27d7f564b3febfc468ef43120f971b89, type: 2}
-      <Evalutation>k__BackingField: 0
-      <Conditions>k__BackingField:
-      - <Condition>k__BackingField: {fileID: 11400000, guid: 0d3df7005c558e34299ac483e725cbc5, type: 2}
-        <Value>k__BackingField: 1
-      - <Condition>k__BackingField: {fileID: 11400000, guid: 0ebb3ea0a33d3ac49a07359ece0ae671, type: 2}
-        <Value>k__BackingField: 0
-    - <TargetState>k__BackingField: {fileID: 11400000, guid: 98b181fd757b2784eb2c191190a14650, type: 2}
       <Evalutation>k__BackingField: 0
       <Conditions>k__BackingField:
       - <Condition>k__BackingField: {fileID: 11400000, guid: 0d3df7005c558e34299ac483e725cbc5, type: 2}
@@ -434,11 +435,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 7674030178295134623}
   headPos: {fileID: 2646506382060946613}
-  raycastDist: 5.57
+  raycastDist: 3.03
   layer:
     serializedVersion: 2
     m_Bits: 1025
-  adjustSpeed: 0.5
+  adjustSpeed: 0.2
 --- !u!136 &4007623194440577905
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -459,9 +460,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 2.25
-  m_Height: 17.76
+  m_Height: 32.7
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: -5.6}
+  m_Center: {x: 0, y: 0, z: -13.7}
 --- !u!1001 &5650589543017789236
 PrefabInstance:
   m_ObjectHideFlags: 0

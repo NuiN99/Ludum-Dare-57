@@ -249,8 +249,6 @@ GameObject:
   - component: {fileID: 5377624522043090538}
   - component: {fileID: 5982556442960967356}
   - component: {fileID: 6939651611770798007}
-  - component: {fileID: 2745036395091520358}
-  - component: {fileID: 2590538314146829608}
   m_Layer: 8
   m_Name: Enemy_Leviathan
   m_TagString: Untagged
@@ -496,7 +494,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 1025
-  adjustSpeed: 0.5
+  adjustSpeed: 2
 --- !u!114 &6939651611770798007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,35 +508,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 5142321403169497607}
---- !u!114 &2745036395091520358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175399126921002114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f77fa578e9b799b4e806b4f6c536e85a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <OverrideRadar>k__BackingField: 0
---- !u!114 &2590538314146829608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175399126921002114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd967a903c858a0488af372170fecbd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisObject: {fileID: 2745036395091520358}
-  runtimeSet:
-    runtimeSet: {fileID: 11400000, guid: f3e4f81763e203d4682889623f86346d, type: 2}
-  lifetimeType: 1
 --- !u!1 &4458650622134531931
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,6 +603,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4873145495154747036}
+  - component: {fileID: 2972370590211926695}
+  - component: {fileID: 6642017480606227316}
   m_Layer: 8
   m_Name: HeadPos
   m_TagString: Untagged
@@ -656,6 +627,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5335339193526466400}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2972370590211926695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4601335534373882465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77fa578e9b799b4e806b4f6c536e85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <OverrideRadar>k__BackingField: 0
+--- !u!114 &6642017480606227316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4601335534373882465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd967a903c858a0488af372170fecbd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisObject: {fileID: 2972370590211926695}
+  runtimeSet:
+    runtimeSet: {fileID: 11400000, guid: f3e4f81763e203d4682889623f86346d, type: 2}
+  lifetimeType: 1
 --- !u!1001 &5584560054257864843
 PrefabInstance:
   m_ObjectHideFlags: 0

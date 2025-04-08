@@ -8,6 +8,8 @@ public class Submarine : MonoBehaviour, IDamageable
     public bool IsDamageableCrit => false;
     public EntityType Type => EntityType.Player;
     public Vector3 Position => transform.position;
+
+    [SerializeField] int health = 100;
     
     [SerializeField] List<RepairableSubmarinePart> repairableParts;
     [SerializeField] OutlineComponent[] outlines;
@@ -98,7 +100,14 @@ public class Submarine : MonoBehaviour, IDamageable
     }
     void IDamageable.TakeDamage(int damage, Vector3 direction)
     {
+        if (IsDead) return;
+        
         Debug.Log("Sub took damage:" + damage);
-        GameEvents.InvokePlayerDied();
+        health -= damage;
+        if (health <= 0)
+        {
+            IsDead = true;
+            GameEvents.InvokePlayerDied();
+        }
     }
 }
