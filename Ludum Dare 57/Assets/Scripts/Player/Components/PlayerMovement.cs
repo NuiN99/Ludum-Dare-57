@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public bool CanDash => _dashCooldownTimer.IsComplete;
     
     [SerializeField] Player player;
+    [SerializeField] FMODSoundPlayer dashSound;
 
     Timer _dashCooldownTimer;
 
@@ -21,12 +22,16 @@ public class PlayerMovement : MonoBehaviour
         player.RB.AddForce(direction * (player.Stats.MoveSpeed * speedMult));
     }
 
-    public void Dash()
+    public void TryDash()
     {
-        Vector3 dir = GetMovementDirection();
-        if (dir == Vector3.zero) dir = PlayerCamera.Instance.Forward;
-        player.RB.linearVelocity = dir * player.Stats.DashForce;
-        _dashCooldownTimer.Restart();
+        if (_dashCooldownTimer.IsComplete && !player.Health.IsDead && !player.Radar.IsOpen)
+        {
+            Vector3 dir = GetMovementDirection();
+            if (dir == Vector3.zero) dir = PlayerCamera.Instance.Forward;
+            player.RB.linearVelocity = dir * player.Stats.DashForce;
+            _dashCooldownTimer.Restart();
+            dashSound.PlayEvent();
+        }
     }
     
     public Vector3 GetMovementDirection()

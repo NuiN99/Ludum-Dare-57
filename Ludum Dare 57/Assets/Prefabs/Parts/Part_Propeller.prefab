@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9050174580313284046}
   - component: {fileID: 6921149494700772721}
   - component: {fileID: 7838130882255828584}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Propeller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: -180968899737457053}
   - component: {fileID: 2908504970023110622}
   - component: {fileID: 8490128957599132358}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Part_Propeller
   m_TagString: Untagged
   m_Icon: {fileID: 0}

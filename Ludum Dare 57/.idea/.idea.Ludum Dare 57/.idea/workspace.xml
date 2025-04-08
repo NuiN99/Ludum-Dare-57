@@ -33,6 +33,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/State/Machines/PlayerStateMachine_General.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerDeathManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RadarTarget.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Submarine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SwitchFogOnEnterSubmarine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TutorialManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -52,7 +53,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Desktop/Game Dev/Ludum Dare 57/Builds/Jam_v2\Sinking Hope.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Desktop/Game Dev/Sinking Hope/Builds/Tutorial\Sinking Hope.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Admin\Desktop\Game Dev\Ludum Dare 57\Builds" />
       <option name="PASS_PARENT_ENVS" value="1" />

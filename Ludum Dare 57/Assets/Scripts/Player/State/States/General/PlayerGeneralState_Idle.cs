@@ -9,4 +9,13 @@ public class PlayerGeneralState_Idle : PlayerState
         base.LateFrameUpdate(context);
         context.RotateBodyToCamera();
     }
+    
+    public override void FrameUpdate(Player context)
+    {
+        base.FrameUpdate(context);
+        if (InputManager.Controls.Actions.Dash.WasPressedThisFrame())
+        {
+            context.Movement.TryDash();
+        }
+    }
 }

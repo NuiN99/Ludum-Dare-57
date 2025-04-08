@@ -52,6 +52,11 @@ public class Submarine : MonoBehaviour, IDamageable
         {
             part.Repair();
         }
+
+        if (GameStateManager.Instance.HasRepairedSubmarine)
+        {
+            Repair();
+        }
     }
 
     void OnEnable()
@@ -66,14 +71,14 @@ public class Submarine : MonoBehaviour, IDamageable
 
     public void RepairPart(RepairableSubmarinePart part)
     {
-        repairedPartSound.PlayAtPosition(part.transform.position);
-        
         repairableParts.Remove(part);
      
         if (repairableParts.Count <= 0)
         {
             Repair();
         }
+        
+        repairedPartSound.PlayAtPosition(part.transform.position);
     }
 
     void Repair()

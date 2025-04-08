@@ -17,4 +17,13 @@ public class PlayerGeneralState_Swim : PlayerState
         Vector3 moveDir = context.Movement.GetMovementDirection();
         context.Movement.Move(moveDir);
     }
+
+    public override void FrameUpdate(Player context)
+    {
+        base.FrameUpdate(context);
+        if (InputManager.Controls.Actions.Dash.WasPressedThisFrame())
+        {
+            context.Movement.TryDash();
+        }
+    }
 }

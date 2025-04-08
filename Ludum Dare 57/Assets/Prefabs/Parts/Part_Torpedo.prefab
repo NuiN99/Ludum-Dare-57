@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -180968899737457053}
   - component: {fileID: 2908504970023110622}
   - component: {fileID: 6245483633682471376}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Part_Torpedo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 1616112913268532429}
   - component: {fileID: 732875664530327015}
   - component: {fileID: 5403634848304101469}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Torpedo_Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8137651528298944694}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Torpedo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 4911119930797511764}
   - component: {fileID: 8434259761095704135}
   - component: {fileID: 1282141727499831042}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Torpedo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

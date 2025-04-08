@@ -1177,6 +1177,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1852069194475996792}
+  dashSound:
+    eventReference:
+      Guid:
+        Data1: -657445392
+        Data2: 1340167003
+        Data3: 691446454
+        Data4: 1604907377
+      Path: event:/SFX/Actions/Dash
 --- !u!114 &9191769512423520198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1363,15 +1371,6 @@ MonoBehaviour:
         <Value>k__BackingField: 1
       - <Condition>k__BackingField: {fileID: 11400000, guid: b5107b890bf944a42ae2d8355647056b, type: 2}
         <Value>k__BackingField: 0
-  - <State>k__BackingField: {fileID: 11400000, guid: 18cbe2f72cf25cf40b12d3b6bcd739d9, type: 2}
-    <Transitions>k__BackingField:
-    - <TargetState>k__BackingField: {fileID: 11400000, guid: 565622753808ec942b842089a092a976, type: 2}
-      <Evalutation>k__BackingField: 1
-      <Conditions>k__BackingField:
-      - <Condition>k__BackingField: {fileID: 11400000, guid: 17dbaf3b8ab2aef4685df5b0cb97c945, type: 2}
-        <Value>k__BackingField: 1
-      - <Condition>k__BackingField: {fileID: 11400000, guid: b5107b890bf944a42ae2d8355647056b, type: 2}
-        <Value>k__BackingField: 0
   - <State>k__BackingField: {fileID: 11400000, guid: 74f525f24bc244f42b192ff21e568a57, type: 2}
     <Transitions>k__BackingField:
     - <TargetState>k__BackingField: {fileID: 11400000, guid: 565622753808ec942b842089a092a976, type: 2}
@@ -1382,13 +1381,6 @@ MonoBehaviour:
       - <Condition>k__BackingField: {fileID: 11400000, guid: 960fc0dc2c31bde4bbf665e9034774f3, type: 2}
         <Value>k__BackingField: 0
       - <Condition>k__BackingField: {fileID: 11400000, guid: b5107b890bf944a42ae2d8355647056b, type: 2}
-        <Value>k__BackingField: 0
-    - <TargetState>k__BackingField: {fileID: 11400000, guid: 18cbe2f72cf25cf40b12d3b6bcd739d9, type: 2}
-      <Evalutation>k__BackingField: 0
-      <Conditions>k__BackingField:
-      - <Condition>k__BackingField: {fileID: 11400000, guid: 45d6ef9934916014ab6d2b72c16475a4, type: 2}
-        <Value>k__BackingField: 0
-      - <Condition>k__BackingField: {fileID: 11400000, guid: 17dbaf3b8ab2aef4685df5b0cb97c945, type: 2}
         <Value>k__BackingField: 0
     - <TargetState>k__BackingField: {fileID: 11400000, guid: 6a12a64601d04ae4b8b85ebdd53ebe01, type: 2}
       <Evalutation>k__BackingField: 0
@@ -1424,13 +1416,6 @@ MonoBehaviour:
         <Value>k__BackingField: 0
       - <Condition>k__BackingField: {fileID: 11400000, guid: f78e6b19a1821ac489d9b409cf8abe57, type: 2}
         <Value>k__BackingField: 1
-    - <TargetState>k__BackingField: {fileID: 11400000, guid: 18cbe2f72cf25cf40b12d3b6bcd739d9, type: 2}
-      <Evalutation>k__BackingField: 0
-      <Conditions>k__BackingField:
-      - <Condition>k__BackingField: {fileID: 11400000, guid: 45d6ef9934916014ab6d2b72c16475a4, type: 2}
-        <Value>k__BackingField: 0
-      - <Condition>k__BackingField: {fileID: 11400000, guid: 17dbaf3b8ab2aef4685df5b0cb97c945, type: 2}
-        <Value>k__BackingField: 0
     - <TargetState>k__BackingField: {fileID: 11400000, guid: 944dab1e1bed25c42a4ab63f442f20a3, type: 2}
       <Evalutation>k__BackingField: 0
       <Conditions>k__BackingField:
