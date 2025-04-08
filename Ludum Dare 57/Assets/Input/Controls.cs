@@ -89,6 +89,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""7cbfab3d-cfc1-4ed9-a483-60e38fac4772"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -223,6 +232,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Radar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fbb254b7-bfc1-49f2-9f56-709a56f4506d"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -238,6 +258,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Actions_Attack = m_Actions.FindAction("Attack", throwIfNotFound: true);
         m_Actions_Interact = m_Actions.FindAction("Interact", throwIfNotFound: true);
         m_Actions_Radar = m_Actions.FindAction("Radar", throwIfNotFound: true);
+        m_Actions_Pause = m_Actions.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -311,6 +332,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Actions_Attack;
     private readonly InputAction m_Actions_Interact;
     private readonly InputAction m_Actions_Radar;
+    private readonly InputAction m_Actions_Pause;
     public struct ActionsActions
     {
         private @Controls m_Wrapper;
@@ -322,6 +344,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Actions_Attack;
         public InputAction @Interact => m_Wrapper.m_Actions_Interact;
         public InputAction @Radar => m_Wrapper.m_Actions_Radar;
+        public InputAction @Pause => m_Wrapper.m_Actions_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Actions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -352,6 +375,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Radar.started += instance.OnRadar;
             @Radar.performed += instance.OnRadar;
             @Radar.canceled += instance.OnRadar;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IActionsActions instance)
@@ -377,6 +403,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Radar.started -= instance.OnRadar;
             @Radar.performed -= instance.OnRadar;
             @Radar.canceled -= instance.OnRadar;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IActionsActions instance)
@@ -403,5 +432,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnRadar(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
