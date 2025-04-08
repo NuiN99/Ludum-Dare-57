@@ -19,4 +19,7 @@ public static class GameEvents
     
     public static event Action OnPlayerDied = delegate { };
     public static void InvokePlayerDied() => OnPlayerDied.Invoke();
+    
+    public static event Action OnPlayerKilledLeviathan = delegate { };
+    public static void InvokePlayerKilledLeviathan() => OnPlayerKilledLeviathan.Invoke();
 }

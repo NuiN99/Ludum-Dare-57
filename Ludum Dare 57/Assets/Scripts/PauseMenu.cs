@@ -18,6 +18,7 @@ public class PauseMenu : MonoBehaviour
     public void ExitToMenu()
     {
         SceneManager.LoadScene("Menu");
+        GameStateManager.Instance.ResetStuff();
     }
 
     public void TogglePause()

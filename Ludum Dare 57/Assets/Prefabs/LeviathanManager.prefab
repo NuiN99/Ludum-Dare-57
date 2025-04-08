@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 1192680542077256200}
   - component: {fileID: 5377624522043090538}
   - component: {fileID: 5982556442960967356}
+  - component: {fileID: 6939651611770798007}
   m_Layer: 8
   m_Name: Enemy_Leviathan
   m_TagString: Untagged
@@ -348,7 +349,7 @@ MonoBehaviour:
   dieDuration: 0.75
   deathParticles:
   - {fileID: 5014992052893491101, guid: 58f7db3732c330c42ac2f791bca13339, type: 3}
-  deathParticlesSize: 100
+  deathParticlesSize: 20
   deathSound:
     eventReference:
       Guid:
@@ -478,6 +479,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   adjustSpeed: 0.5
+--- !u!114 &6939651611770798007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4175399126921002114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d591ef078be61d4fbfe4a7274be526e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 5142321403169497607}
 --- !u!1 &4458650622134531931
 GameObject:
   m_ObjectHideFlags: 0

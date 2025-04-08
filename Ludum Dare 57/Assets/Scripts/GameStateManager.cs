@@ -51,4 +51,13 @@ public class GameStateManager : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
     }
+
+    public void ResetStuff()
+    {
+        Time.timeScale = 1f;
+        HasCollectedFirstPart = false;
+        LeviathanIsActive = false;
+        HasRepairedSubmarine = false;
+        CollectedParts?.Clear();
+    }
 }
