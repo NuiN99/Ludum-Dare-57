@@ -15,7 +15,7 @@ MonoBehaviour:
   <MoveSpeed>k__BackingField: 10
   <VelocityDamper>k__BackingField: 0.95
   <Gravity>k__BackingField: 1
-  <DashForce>k__BackingField: 20
+  <DashForce>k__BackingField: 23
   <DashCooldown>k__BackingField: 2.5
   <SpearThrowForce>k__BackingField: 50
   <SpearThrowDamage>k__BackingField: 3

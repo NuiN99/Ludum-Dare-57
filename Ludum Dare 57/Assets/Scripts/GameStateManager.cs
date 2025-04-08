@@ -39,6 +39,8 @@ public class GameStateManager : MonoBehaviour
 
     void OnPartRepaired(Part.Type type)
     {
+        if (CollectedParts.Contains(type)) return;
+        
         HasCollectedFirstPart = true;
         CollectedParts.Add(type);
         
