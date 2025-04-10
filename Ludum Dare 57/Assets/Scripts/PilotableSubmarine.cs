@@ -46,14 +46,11 @@ public class PilotableSubmarine : MonoBehaviour, IInteractable
     {
         _dashCooldownTimer = new Timer(dashCooldown, true);
         _shootCooldownTimer = new Timer(shootCooldown, true);
-    }
-
-    void Start()
-    {
+        
         col.enabled = false;
         rb.isKinematic = true;
     }
-
+    
     void OnDisable()
     {
         InputManager.Controls.Actions.Dash.performed -= Dash_Callback;

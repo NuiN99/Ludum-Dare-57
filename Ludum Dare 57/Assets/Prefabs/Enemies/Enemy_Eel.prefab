@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 1
   enemy: {fileID: 7674030178295134623}
-  maxHealth: 30
+  maxHealth: 20
   stunDuration: 0.5
   dieDuration: 1.5
   deathParticles:
